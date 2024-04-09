@@ -34,7 +34,7 @@ for i in {1..120}
 do
     echo "Starting client $i..."
     ssh $client_node "./mirror_kcp/mirror_kcp.x86_64 -batchmode -nographics -server_ip $server_ip -server_port 7777 -client > ./benchmark/client_logs/client${i}_output.log 2>&1 &" &
-    sleep 1
+    sleep 2
 done
 
 sleep 5
@@ -71,5 +71,4 @@ echo "Deleting mirror logs folder..."
 rm -rf ../mirror_kcp/mirror_kcp_Data/mirror_logs/*
 
 echo "Benchmarking completed."
-
 echo "Script execution complete."
