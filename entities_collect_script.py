@@ -34,8 +34,11 @@ def extract_player_logs(logs_folder, total_players, last_player_id):
     return player_logs
 
 def save_results(player_logs):
+    file_exists = os.path.exists("entities_results.csv")
     with open("entities_results.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
+        if not file_exists:  # Write header only if file is empty
+            writer.writerow(["Player_ID", "Total_Players", "RoundTripDelay_ms"])
         for log in player_logs:
             writer.writerow(log)
 
