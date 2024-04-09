@@ -27,11 +27,11 @@ ssh $server_node "export PATH=\"/home/esu530/miniconda3/bin:$PATH\" && conda act
 
 # Start clients on the client node and redirect output to separate files
 echo "Starting clients on $client_node..."
-for i in {1..10}
+for i in {1..120}
 do
     echo "Starting client $i..."
     ssh $client_node "./entities/entities.x86_64 -batchmode -nographics -serverUrl $server_ip -logStats true -statsFile ./entities/entities_Data/entities_logs/player_log_$i.csv -userID $i -playType Client > ./benchmark/client_logs/client${i}_output.log 2>&1 &" &
-    sleep 1
+    sleep 3
 done
 
 sleep 5
@@ -55,7 +55,7 @@ ssh $client_node "pgrep -f entities.x86_64" && ssh $client_node "pkill -9 -f ent
 
 echo "Running collection script.."
 python3 ./entities_collect_script.py
-wait 20
+wait 40
 
 # Delete server and client logs
 echo "Deleting server and client logs..."
