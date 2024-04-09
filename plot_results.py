@@ -1,6 +1,7 @@
 import os
 import csv
 import matplotlib.pyplot as plt
+import numpy as np
 
 plt.style.use('seaborn-v0_8-colorblind')
 
@@ -24,27 +25,23 @@ def plot_results(data, output_folder):
         round_trip_delay = values['RoundTripDelay_ms']
         unique_players = sorted(set(total_players))
         avg_delay = [sum(round_trip_delay[i] for i, player_count in enumerate(total_players) if player_count == players) / total_players.count(players) for players in unique_players]
-        plt.plot(unique_players, avg_delay, marker='o', label=experiment_name)
+        line = plt.plot(unique_players, avg_delay, marker='o', label=experiment_name, markersize=8)[0]  # Change markersize to adjust the size of the shapes
 
-        # Create box plots for each Total_Players value
-        for players in unique_players:
-            delays = [round_trip_delay[i] for i, player_count in enumerate(total_players) if player_count == players]
-            # Plot box plot with red color and half transparency
-            plt.boxplot(delays, positions=[players], widths=1, showfliers=False, patch_artist=False, boxprops=dict(color='red', alpha=0.5))
-            # Plot line connecting means
-            plt.plot(players, sum(delays) / len(delays), marker='_', markersize=10, color='blue')
+        # Calculate error bars for standard deviation
+        error = [np.std([round_trip_delay[i] for i, player_count in enumerate(total_players) if player_count == players]) for players in unique_players]
 
-    plt.xlabel('Total Players')
-    plt.ylabel('Average Round Trip Delay (ms)')
-    plt.title('Experiment Results')
+        # Plot error bars with the same color as the lines
+        plt.errorbar(unique_players, avg_delay, yerr=error, fmt='none', ecolor=line.get_color(), capsize=5, elinewidth=2)  # Adjust elinewidth to make the lines thicker
+
+    plt.xlabel('player count')
+    plt.ylabel('average round trip delay (ms)')
+    plt.title('experiment results')
     plt.legend(loc='upper left')
-    plt.grid(True, axis='y')  # Only horizontal grid
-    plt.gca().yaxis.grid(True)  # Force horizontal grid
+    plt.grid(True, axis='y') 
+    plt.gca().yaxis.grid(True) 
 
-    # Set x-axis limits with padding
-    plt.xlim(-5, max(unique_players) + 5)
+    plt.xticks([0, 5, 10, 20, 40, 80, 120])  # Set the ticks on the x-axis
 
-    # Create the output folder if it doesn't exist
     os.makedirs(output_folder, exist_ok=True)
     
     # Save the plot as an image in the output folder
