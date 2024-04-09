@@ -45,7 +45,8 @@ def plot_results(data, output_folder):
     os.makedirs(output_folder, exist_ok=True)
     
     # Save the plot as an image in the output folder
-    plt.savefig(os.path.join(output_folder, "experiment_results.png"))
+    plt.savefig(os.path.join(output_folder, "experiment_results.pdf"))
+    
 
 
 def main():

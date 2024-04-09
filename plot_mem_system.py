@@ -54,7 +54,7 @@ def plot_mean_memory_usage(experiments):
     ax.set_xticks(x)
     ax.set_xticklabels(durations)
     ax.legend(framealpha=0)
-    plt.savefig('plots/mean_memory_usage.png')
+    plt.savefig('plots/mean_memory_usage.pdf')
     plt.show()
 
 if __name__ == "__main__":

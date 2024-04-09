@@ -55,7 +55,7 @@ def plot_mean_cpu_usage(experiments):
     ax.set_xticklabels(durations)
     ax.legend(framealpha=0)
 
-    plt.savefig('plots/mean_cpu_usage.png')
+    plt.savefig('plots/mean_cpu_usage.pdf')
     plt.show()
 
 if __name__ == "__main__":
