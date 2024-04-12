@@ -20,12 +20,16 @@ def read_csv_files(folder):
 
 def plot_results(data, output_folder):
     plt.figure(figsize=(8, 6))
+    colors = {'mirror': 'green', 'entities': 'blue'}  # Assign colors manually
+
     for experiment_name, values in data.items():
         total_players = values['Total_Players']
         round_trip_delay = values['RoundTripDelay_ms']
         unique_players = sorted(set(total_players))
         avg_delay = [sum(round_trip_delay[i] for i, player_count in enumerate(total_players) if player_count == players) / total_players.count(players) for players in unique_players]
-        line = plt.plot(unique_players, avg_delay, marker='o', label=experiment_name, markersize=8)[0]  # Change markersize to adjust the size of the shapes
+        
+        line_color = colors.get(experiment_name, 'black')  # Get color based on experiment name
+        line = plt.plot(unique_players, avg_delay, marker='o', label=experiment_name, markersize=8, color=line_color)[0]
 
         # Calculate error bars for standard deviation
         error = [np.std([round_trip_delay[i] for i, player_count in enumerate(total_players) if player_count == players]) for players in unique_players]

@@ -1,63 +1,67 @@
 import os
-import numpy as np
 import matplotlib.pyplot as plt
 
 plt.style.use('seaborn-v0_8-colorblind')
 
+def extract_subfolders(folder_path):
+    subfolders = [folder for folder in os.listdir(folder_path) if os.path.isdir(os.path.join(folder_path, folder))]
+    return subfolders
+
+def extract_log_files(folder_path):
+    log_files = []
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            if file.endswith('.log'):
+                log_files.append(os.path.join(root, file))
+    return log_files
+
 def parse_log_file(file_path):
-    memory_usage = []
+    memory_rss = []
     with open(file_path, 'r') as file:
         for line in file:
             metrics = line.strip().split('\t')[1:]
             for metric in metrics:
-                if metric.startswith('proc.memory.percent='):
-                    memory_usage.append(float(metric.split('=')[1]))
-    return memory_usage
+                if metric.startswith('proc.memory.rss='):
+                    memory_rss.append(float(metric.split('=')[1]) / (1024 * 1024))
+    return max(memory_rss)
 
-def process_logs(folder_path):
-    experiments = {}
-    frameworks = ['entities', 'mirror']
-    for framework in frameworks:
-        experiments[framework] = {}
-        for i in range(1, 7):
-            log_file = os.path.join(folder_path, framework, f'system_log_{i}.log')
-            experiments[framework][f'exp_{i}'] = parse_log_file(log_file)
-    return experiments
+prototypes = extract_subfolders("system_logs")
 
-def plot_mean_memory_usage(experiments):
-    durations = [5, 10, 20, 40, 80, 120]
-    entities_means = []
-    mirror_means = []
+log_files_dict = {}
 
-    for duration in durations:
-        entities_data = []
-        mirror_data = []
-        for i in range(1, 7):
-            entities_data.extend(experiments['entities'][f'exp_{i}'][:duration])
-            mirror_data.extend(experiments['mirror'][f'exp_{i}'][:duration])
-        entities_mean = np.mean(entities_data)
-        mirror_mean = np.mean(mirror_data)
-        entities_means.append(entities_mean)
-        mirror_means.append(mirror_mean)
+for prototype in prototypes:
+    log_files = extract_log_files(f"system_logs/{prototype}")
+    for log_file in log_files:
+        log_files_dict[log_file] = parse_log_file(log_file)
 
-    x = np.arange(len(durations))
-    width = 0.35
+logs = {}
 
-    fig, ax = plt.subplots()
+for key, value in log_files_dict.items():
+    parts = key.split('/')
+    prototype = parts[1]
+    log_num = int(parts[2].split('.')[0].split('_')[-1])
+    if log_num not in logs:
+        logs[log_num] = {}
+    logs[log_num][prototype] = value
 
-    bars1 = ax.bar(x - width/2, entities_means, width, label='entities')
-    bars2 = ax.bar(x + width/2, mirror_means, width, label='mirror')
+log_numbers = sorted(logs.keys())
 
-    ax.set_xlabel('player count')
-    ax.set_ylabel('average memory usage (%)')
-    ax.set_title('system average memory usage prototype vs player count')
-    ax.set_xticks(x)
-    ax.set_xticklabels(durations)
-    ax.legend(framealpha=0)
-    plt.savefig('plots/mean_memory_usage.pdf')
-    plt.show()
+prototype_values = {prototype: [logs[num][prototype] for num in log_numbers] for prototype in prototypes}
 
-if __name__ == "__main__":
-    folder_path = "system_logs"
-    experiments = process_logs(folder_path)
-    plot_mean_memory_usage(experiments)
+plt.figure(figsize=(10, 8))
+bar_width = 0.8 / len(prototypes)
+index = range(len(log_numbers))
+
+colors = {'mirror': 'green', 'entities': 'blue'} 
+
+for i, prototype in enumerate(prototypes):
+    plt.bar([idx + i * bar_width for idx in index], prototype_values[prototype], bar_width, label=prototype, color=colors.get(prototype, 'black'))
+
+plt.xlabel('player count')
+plt.ylabel('memory usage RSS (MB)')
+plt.title('comparison of memory usage for each prototype vs. player count')
+my_xticks = [5,10,20,40,80,120]
+plt.xticks([idx + len(log_files_dict)/len(my_xticks)/10 for idx in index], my_xticks)
+plt.legend()
+
+plt.savefig('plots/memory_comparison.pdf')
