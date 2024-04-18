@@ -23,7 +23,7 @@ def parse_log_file(file_path):
                 if metric.startswith('proc.cpu.user='):
                     # Convert bytes to megabytes
                     values.append(float(metric.split('=')[1]))
-    return sum(values)/len(values)/10
+    return sum(values)/len(values)
 
 prototypes = extract_subfolders("system_logs")
 

@@ -1,5 +1,6 @@
 import os
 import csv
+import sys
 
 def get_last_player_id(csv_file):
     if not os.path.exists(csv_file):
@@ -48,7 +49,13 @@ def create_csv(logs_folder):
             
                 last_player_id = player_id  # Update last player ID for the next player
 
-logs_folder = "../mirror_kcp/mirror_kcp_Data/mirror_logs"
-create_csv(logs_folder)
+def main(logs_folder):
+    create_csv(logs_folder)
+    print("Script execution completed.")  # Print message indicating script completion
 
-print("Script execution completed.")  # Print message indicating script completion
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python script_name.py <logs_folder>")
+        sys.exit(1)
+    logs_folder = sys.argv[1]
+    main(logs_folder)

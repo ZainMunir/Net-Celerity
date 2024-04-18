@@ -1,5 +1,6 @@
 import os
 import csv
+import sys
 
 def get_last_player_id(csv_file):
     if not os.path.exists(csv_file):
@@ -42,8 +43,7 @@ def save_results(player_logs):
         for log in player_logs:
             writer.writerow(log)
 
-def main():
-    logs_folder = "../entities/entities_Data/entities_logs"
+def main(logs_folder):
     total_players = count_player_logs(logs_folder)
     last_player_id = get_last_player_id("entities_results.csv")
     player_logs = extract_player_logs(logs_folder, total_players, last_player_id)
@@ -51,4 +51,8 @@ def main():
     print("Script execution completed.")
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) != 2:
+        print("Usage: python script_name.py <logs_folder>")
+        sys.exit(1)
+    logs_folder = sys.argv[1]
+    main(logs_folder)
