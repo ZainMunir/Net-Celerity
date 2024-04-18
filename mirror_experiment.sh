@@ -1,9 +1,6 @@
 #!/bin/bash
-
-# Load necessary modules
 module load prun
 
-# Load configuration from config.cfg
 source config.cfg
 
 mkdir -p server_logs
@@ -42,9 +39,9 @@ sleep 2
 ssh $server_node "kill -0 $server_pid" && ssh $server_node "kill -9 $server_pid"
 
 echo "Stopping clients..."
-ssh $client_node "pkill -f mirror_kcp.x86_64"
+ssh $client_node "pkill mirror_kcp.x86_64"
 sleep 2
-ssh $client_node "pkill -0 -f mirror_kcp.x86_64" && ssh $client_node "pkill -9 -f mirror_kcp.x86_64"
+ssh $client_node "pkill -0 mirror_kcp.x86_64" && ssh $client_node "pkill -9 mirror_kcp.x86_64"
 
 echo "Running collection script.."
 python3 ./mirror_collect_script.py $mirror_kcp_logs
