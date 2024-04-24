@@ -21,7 +21,7 @@ for i in $(seq 1 $num_players)
 do
     echo "Starting client $i..."
     ssh $client_node "${entities_folder}entities/entities.x86_64 -batchmode -nographics -serverUrl $server_ip -logStats true -statsFile ${entities_logs}/player_log_$i.csv -userID $i -playType Client > ./unity-net-benchmark/client_logs/client${i}_output.log 2>&1 &" &
-    sleep 2
+    sleep $clinet_interval
 done
 
 sleep 5
@@ -44,7 +44,7 @@ ssh $client_node "pkill -0 entities.x86_64" && ssh $client_node "pkill -9 entiti
 
 echo "Running collection script.."
 python3 ./entities_collect_script.py $entities_logs
-wait 10
+wait 20
 
 echo "Deleting server and client logs..."
 rm -rf ./server_logs/*

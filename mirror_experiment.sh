@@ -22,7 +22,7 @@ for i in $(seq 1 $num_players)
 do
     echo "Starting client $i..."
     ssh $client_node "$mirror_kcp_folder/mirror_kcp/mirror_kcp.x86_64 -batchmode -nographics -server_ip $server_ip -server_port 7777 -client > ./unity-net-benchmark/client_logs/client${i}_output.log 2>&1 &" &
-    sleep 2
+    sleep $clinet_interval
 done
 
 sleep 5
@@ -45,7 +45,7 @@ ssh $client_node "pkill -0 mirror_kcp.x86_64" && ssh $client_node "pkill -9 mirr
 
 echo "Running collection script.."
 python3 ./mirror_collect_script.py $mirror_kcp_logs
-wait 10
+wait 20
 
 echo "Deleting server and client logs..."
 rm -rf ./server_logs/*
