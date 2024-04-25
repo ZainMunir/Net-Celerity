@@ -45,7 +45,7 @@ sleep 2
 ssh $client_node "pkill -0 ${prototype_name}.x86_64" && ssh $client_node "pkill -9 ${prototype_name}.x86_64"
 
 echo "Running collection script.."
-python3 $collection_script $prototype_logs
+python3 $collection_script $prototype_logs $output_file 
 wait 20
 
 echo "Deleting server and client logs..."

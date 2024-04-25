@@ -15,13 +15,13 @@ def get_last_player_id(csv_file):
                 return 0  # Return 0 if file is empty
             return int(last_row["Player_ID"])
 
-def create_csv(logs_folder):
+def create_csv(logs_folder, csv_file):
     log_files = [f for f in os.listdir(logs_folder) if os.path.isfile(os.path.join(logs_folder, f))]
     
     log_files.sort()
     total_players = len(log_files) - 1
     
-    csv_file = "mirror_telepathy_results.csv"
+    # csv_file = "mirror_telepathy_results.csv"
     last_player_id = get_last_player_id(csv_file)
     
     with open(csv_file, mode="a", newline="") as csvfile:  # Open file in append mode
@@ -49,13 +49,14 @@ def create_csv(logs_folder):
             
                 last_player_id = player_id  # Update last player ID for the next player
 
-def main(logs_folder):
-    create_csv(logs_folder)
+def main(logs_folder, csv_file):
+    create_csv(logs_folder, csv_file)
     print("Script execution completed.")  # Print message indicating script completion
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         print("Usage: python script_name.py <logs_folder>")
         sys.exit(1)
     logs_folder = sys.argv[1]
-    main(logs_folder)
+    csv_file = sys.argv[2]
+    main(logs_folder, csv_file)
