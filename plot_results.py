@@ -1,6 +1,7 @@
 import os
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 plt.style.use('seaborn-v0_8-colorblind')
 
@@ -198,8 +199,80 @@ def cpu_usage_per_second(system_logs_folder):
         plt.yticks(fontsize=14)
         plt.savefig(f'plots/cpu_usage_players_{player_number}.pdf')
 
+def rss_ram_usage_plots(system_logs_folder):
+    player_numbers = set()
+    prototypes = []
+    player_data = {}
 
+    for prototype_folder in os.listdir(system_logs_folder):
+        prototypes.append(prototype_folder)
+        prototype_path = os.path.join(system_logs_folder, prototype_folder)
+        
+        for filename in os.listdir(prototype_path):
+            if filename.endswith(".csv") and filename.startswith("system_log_"):
+                parts = filename.split("_")
+                player_number = int(parts[2][:-1])
+                duration_seconds = int(parts[3][:-5])
+                player_numbers.add(player_number)
 
+    player_numbers = sorted(player_numbers)
+    prototypes = sorted(prototypes)
+
+    for prototype_folder in prototypes:
+        prototype_path = os.path.join(system_logs_folder, prototype_folder)
+        player_data[prototype_folder] = []
+
+        for player_number in player_numbers:
+            rss_values = []
+            for filename in os.listdir(prototype_path):
+                if filename.endswith(".csv") and filename.startswith("system_log_"):
+                    parts = filename.split("_")
+                    current_player_number = int(parts[2][:-1]) 
+                    
+                    if current_player_number == player_number:
+                        csv_path = os.path.join(prototype_path, filename)
+                        df = pd.read_csv(csv_path, delimiter=";")
+                        df = df.tail(duration_seconds)
+                        df.reset_index(drop=True, inplace=True) 
+                        rss_values.extend(df['proc.memory_info.rss'])
+
+            mean_rss_bytes = np.mean(rss_values)
+            mean_rss_gb = mean_rss_bytes / (1024 ** 3)  # Convert bytes to gigabytes
+            player_data[prototype_folder].append(mean_rss_gb)
+
+            sem_bytes = np.std(rss_values) / np.sqrt(len(rss_values))
+            sem_gb = sem_bytes / (1024 ** 3)  # Convert bytes to gigabytes
+            player_data[prototype_folder].append(sem_gb)
+
+    fig, ax = plt.subplots(figsize=(10, 4))
+    bar_height = 0.3
+    opacity = 1
+
+    error_config = {'ecolor': '0.1'}
+
+    colors = ['red', 'green', 'orange', 'blue', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+
+    for i, prototype_folder in enumerate(prototypes):
+        positions = np.arange(len(player_numbers)) + bar_height * i
+        ax.barh(positions, player_data[prototype_folder][::2], bar_height,
+               alpha=opacity,
+               color=colors[i],
+               xerr=player_data[prototype_folder][1::2],
+               error_kw=error_config,
+               label=prototype_folder)
+
+    ax.set_ylabel('total players', fontsize=14)
+    ax.set_xlabel('mean RSS usage (GB)', fontsize=14)
+    ax.set_yticks(np.arange(len(player_numbers)) + bar_height * (len(prototypes) - 1) / 2)
+    ax.set_yticklabels(player_numbers)
+    plt.legend(fontsize=14, frameon=False)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    ax.grid(axis='x')
+    plt.tight_layout()
+    plt.savefig(f'plots/rss_ram_usage.pdf')
+
+rss_ram_usage_plots("system_logs")
 
 # cpu_usage_per_second("system_logs")
 # create_boxplots_rtt('.')
