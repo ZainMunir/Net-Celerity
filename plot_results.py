@@ -1,63 +1,207 @@
 import os
-import csv
 import matplotlib.pyplot as plt
-import numpy as np
+import pandas as pd
 
 plt.style.use('seaborn-v0_8-colorblind')
 
-def read_csv_files(folder):
-    data = {}
-    for filename in os.listdir(folder):
-        if filename.endswith("_results.csv"):
-            experiment_name = os.path.splitext(filename)[0].replace('_results', '')
-            data[experiment_name] = {'Total_Players': [], 'RoundTripDelay_ms': []}
-            with open(os.path.join(folder, filename), 'r') as file:
-                reader = csv.DictReader(file)
-                for row in reader:
-                    data[experiment_name]['Total_Players'].append(int(row['Total_Players']))
-                    data[experiment_name]['RoundTripDelay_ms'].append(float(row['RoundTripDelay_ms']))
-    return data
+# Printing box plots
+def create_boxplots_rtt(data_dir):
+    csv_files = [file for file in os.listdir(data_dir) if file.endswith('_results.csv')]
+    player_data = {}
 
-def plot_results(data, output_folder):
-    plt.figure(figsize=(8, 6))
-    colors = {'mirror': 'green', 'entities': 'blue'}  # Assign colors manually
 
-    for experiment_name, values in data.items():
-        total_players = values['Total_Players']
-        round_trip_delay = values['RoundTripDelay_ms']
-        unique_players = sorted(set(total_players))
-        avg_delay = [sum(round_trip_delay[i] for i, player_count in enumerate(total_players) if player_count == players) / total_players.count(players) for players in unique_players]
+    for csv_file in csv_files:
+        experiment_name = os.path.splitext(csv_file)[0].replace('_results', '')
+        df = pd.read_csv(os.path.join(data_dir, csv_file))
+
+        grouped = df.groupby('Total_Players')
+
+        for total_players, group in grouped:
+            if total_players not in player_data:
+                player_data[total_players] = []
+
+            player_data[total_players].append(group['RoundTripDelay_ms'].values)
+
+    colors = ['red', 'green', 'orange', 'red', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+    for total_players, data in player_data.items():
+        plt.figure(figsize=(6, 2))
+        bp = plt.boxplot(data, vert=False, patch_artist=True, widths=0.7)  # Horizontal boxplots with different colors
+
+        for box, color in zip(bp['boxes'], colors):
+            box.set(facecolor=color)
+            box_median = bp['medians'][bp['boxes'].index(box)]
+            box_median.set(color='black')
+
+        for outlier in bp['fliers']:
+            outlier.set(marker='x', color='black', markersize=5, alpha=0.5)
+
+        plt.xlabel('round trip delay (ms)',fontsize=14)
+        plt.title(f'{total_players} total players', fontsize=14)
+        plt.yticks(range(1, len(csv_files) + 1), [os.path.splitext(file)[0].replace('_results', '') for file in csv_files], fontsize=14)
+        plt.xticks(fontsize=14)
+        plt.grid(axis='x')
+        plt.tight_layout()
+        plt.show()
+        plt.savefig(f'plots/rtt_comparison_{total_players}.pdf')
+
+def total_sent(system_logs_folder):
+    prototype_data = {}
+    my_ticks = []
+
+    for prototype_folder in os.listdir(system_logs_folder):
+        prototype_path = os.path.join(system_logs_folder, prototype_folder)
         
-        line_color = colors.get(experiment_name, 'black')  # Get color based on experiment name
-        line = plt.plot(unique_players, avg_delay, marker='o', label=experiment_name, markersize=8, color=line_color)[0]
+        player_data = {}
+        
+        for filename in os.listdir(prototype_path):
+            if filename.endswith(".csv") and filename.startswith("system_log_"):
+                parts = filename.split("_")
+                player_number = int(parts[2][:-1]) 
+                duration_seconds = int(parts[3][:-5]) 
+                
+                if player_number not in my_ticks:
+                    my_ticks.append(player_number)
 
-        # Calculate error bars for standard deviation
-        error = [np.std([round_trip_delay[i] for i, player_count in enumerate(total_players) if player_count == players]) for players in unique_players]
+                csv_path = os.path.join(prototype_path, filename)
+                df = pd.read_csv(csv_path, delimiter=";")
+                df = df.tail(duration_seconds)
+                
+                bytes_sent_total = df[[col for col in df.columns if col.startswith('net.bytes_sent')]].sum(axis=1)
+                total_mb_sent = (bytes_sent_total.iloc[-1] - bytes_sent_total.iloc[0]) / (1024 * 1024)
+                player_data[player_number] = total_mb_sent
 
-        # Plot error bars with the same color as the lines
-        plt.errorbar(unique_players, avg_delay, yerr=error, fmt='none', ecolor=line.get_color(), capsize=5, elinewidth=2)  # Adjust elinewidth to make the lines thicker
+        
+        prototype_data[prototype_folder] = player_data
 
-    plt.xlabel('player count')
-    plt.ylabel('average round trip delay (ms)')
-    plt.title('experiment results')
-    plt.legend(loc='upper left')
-    plt.grid(True, axis='y') 
-    plt.gca().yaxis.grid(True) 
+    plt.figure(figsize=(6, 5))
 
-    plt.xticks([0, 5, 10, 20, 40, 80, 120])  # Set the ticks on the x-axis
+    markers = ['o', 's', 'D', 'x', '+', 'v', '^', '<', '>', 'h', 'H', 'd', '|', '_']
+    colors = ['red', 'green', 'orange', 'red', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+    marker_index = 0
+    for prototype, player_data in prototype_data.items():
+        player_numbers = sorted(player_data.keys())
+        total_bytes_sent = [player_data[player_number] for player_number in player_numbers]
+        
+        plt.plot(player_numbers, total_bytes_sent, marker=markers[marker_index], color=colors[marker_index] , label=f"{prototype}", alpha=0.9, linewidth = 2)
+        marker_index += 1
 
-    os.makedirs(output_folder, exist_ok=True)
-    
-    # Save the plot as an image in the output folder
-    plt.savefig(os.path.join(output_folder, "experiment_results.pdf"))
-    
+    my_ticks.sort()
+
+    plt.xticks(my_ticks, fontsize=14)
+    plt.yticks(fontsize=14)
+
+    plt.xlabel("total players",fontsize=14)
+    plt.ylabel("total sent (MB)",fontsize=14)
+    plt.legend(fontsize=14, frameon=False)
+    plt.grid(axis='y')
+    plt.savefig('plots/total_bytes_sent_vs_players.pdf')
+
+def total_recv(system_logs_folder):
+    prototype_data = {}
+    my_ticks = []
+
+    for prototype_folder in os.listdir(system_logs_folder):
+        prototype_path = os.path.join(system_logs_folder, prototype_folder)
+        
+        player_data = {}
+        
+        for filename in os.listdir(prototype_path):
+            if filename.endswith(".csv") and filename.startswith("system_log_"):
+                parts = filename.split("_")
+                player_number = int(parts[2][:-1]) 
+                duration_seconds = int(parts[3][:-5]) 
+                
+                if player_number not in my_ticks:
+                    my_ticks.append(player_number)
+
+                csv_path = os.path.join(prototype_path, filename)
+                df = pd.read_csv(csv_path, delimiter=";")
+                df = df.tail(duration_seconds)
+                
+                bytes_recv_total = df[[col for col in df.columns if col.startswith('net.bytes_recv')]].sum(axis=1)
+                total_mb_recv = (bytes_recv_total.iloc[-1] - bytes_recv_total.iloc[0]) / (1024 * 1024)
+                player_data[player_number] = total_mb_recv
+
+        
+        prototype_data[prototype_folder] = player_data
+
+    plt.figure(figsize=(6, 5))
+
+    markers = ['o', 's', 'D', 'x', '+', 'v', '^', '<', '>', 'h', 'H', 'd', '|', '_']
+    colors = ['red', 'green', 'orange', 'red', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+
+    marker_index = 0
+    for prototype, player_data in prototype_data.items():
+        player_numbers = sorted(player_data.keys())
+        total_bytes_sent = [player_data[player_number] for player_number in player_numbers]
+        
+        plt.plot(player_numbers, total_bytes_sent, marker=markers[marker_index], color=colors[marker_index], label=f"{prototype}", alpha=0.9, linewidth = 2)
+        marker_index += 1
+
+    my_ticks.sort()
+
+    plt.xticks(my_ticks, fontsize=14)
+    plt.yticks(fontsize=14)
+
+    plt.xlabel("total players",fontsize=14)
+    plt.ylabel("total recieved (MB)",fontsize=14)
+    plt.legend(fontsize=14, frameon=False)
+    plt.grid(axis='y')
+    plt.savefig('plots/total_bytes_recv_vs_players.pdf')
+
+def cpu_usage_per_second(system_logs_folder):
+    player_numbers = set() 
+
+    for prototype_folder in os.listdir(system_logs_folder):
+        prototype_path = os.path.join(system_logs_folder, prototype_folder)
+        
+        for filename in os.listdir(prototype_path):
+            if filename.endswith(".csv") and filename.startswith("system_log_"):
+                parts = filename.split("_")
+                player_number = int(parts[2][:-1]) 
+                duration_seconds = int(parts[3][:-5]) 
+                
+                csv_path = os.path.join(prototype_path, filename)
+                df = pd.read_csv(csv_path, delimiter=";")
+                df = df.tail(duration_seconds)
+                player_numbers.add(player_number)
+
+    for player_number in sorted(player_numbers):
+        plt.figure(figsize=(7, 4))
+        plt.title(f'{player_number} total players', fontsize=14)
+        plt.xlabel("time (s)", fontsize=14)
+        plt.ylabel("CPU usage (%)", fontsize=14)
+        colors = ['red', 'green', 'orange', 'red', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+        color_index = 0
+
+        for prototype_folder in os.listdir(system_logs_folder):
+            prototype_path = os.path.join(system_logs_folder, prototype_folder)
+            
+            for filename in os.listdir(prototype_path):
+                if filename.endswith(".csv") and filename.startswith("system_log_"):
+                    parts = filename.split("_")
+                    current_player_number = int(parts[2][:-1]) 
+                    
+                    if current_player_number == player_number:
+                        csv_path = os.path.join(prototype_path, filename)
+                        df = pd.read_csv(csv_path, delimiter=";")
+                        df = df.tail(duration_seconds)
+                        df.reset_index(drop=True, inplace=True) 
+                        
+                        plt.plot(df.index, df['proc.cpu_percent'], label=f"{prototype_folder}", linewidth=2, color=colors[color_index], alpha=0.8)
+                        color_index += 1
+
+        plt.legend(bbox_to_anchor=(0,1.06,1,0.2), loc="lower left", mode="expand", ncol=3,fontsize=14,frameon=False)
+        plt.grid(axis='y')
+        plt.tight_layout()
+        plt.xticks(fontsize=14)
+        plt.yticks(fontsize=14)
+        plt.savefig(f'plots/cpu_usage_players_{player_number}.pdf')
 
 
-def main():
-    folder = "."  # Change this to your folder containing the CSV files
-    output_folder = "plots"  # Folder to save the plot image
-    data = read_csv_files(folder)
-    plot_results(data, output_folder)
 
-if __name__ == "__main__":
-    main()
+
+# cpu_usage_per_second("system_logs")
+# create_boxplots_rtt('.')
+# total_sent("system_logs")
+# total_recv("system_logs")

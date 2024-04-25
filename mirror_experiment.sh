@@ -15,7 +15,7 @@ sleep 5
 
 server_pid=$(ssh $server_node "pgrep -f '$mirror_kcp_folder/mirror_kcp/mirror_kcp.x86_64 -batchmode -nographics -server'")
 echo "Starting system monitoring script on $server_node..."
-ssh $server_node "python3 unity-net-benchmark/system_monitor.py ./unity-net-benchmark/system_logs/mirror_kcp/system_log_${num_players}p_${benchmark_duration}s.log $server_pid &" &
+ssh $server_node "python3 unity-net-benchmark/system_monitor.py ./unity-net-benchmark/system_logs/mirror_kcp/system_log_${num_players}p_${benchmark_duration}s.csv $server_pid &" &
 
 echo "Starting clients on $client_node..."
 for i in $(seq 1 $num_players)

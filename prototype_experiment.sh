@@ -16,7 +16,7 @@ sleep 5
 server_pid=$(ssh $server_node "pgrep -f '${prototype_server_command}'")
 
 echo "Starting system monitoring script on $server_node..."
-ssh $server_node "python3 unity-net-benchmark/system_monitor.py ./unity-net-benchmark/system_logs/${prototype_name}/system_log_${num_players}p_${benchmark_duration}s.log $server_pid &" &
+ssh $server_node "python3 unity-net-benchmark/system_monitor.py ./unity-net-benchmark/system_logs/${prototype_name}/system_log_${num_players}p_${benchmark_duration}s.csv $server_pid &" &
 
 echo "Starting clients on $client_node..."
 for i in $(seq 1 $num_players)
