@@ -34,6 +34,7 @@ def extract_player_logs(logs_folder, total_players, last_player_id):
             player_id += 1
     return player_logs
 
+
 def save_results(player_logs):
     file_exists = os.path.exists("entities_results.csv")
     with open("entities_results.csv", mode="a", newline="") as file:

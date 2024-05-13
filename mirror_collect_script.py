@@ -21,7 +21,7 @@ def create_csv(logs_folder):
     log_files.sort()
     total_players = len(log_files) - 1
     
-    csv_file = "mirror_results.csv"
+    csv_file = "mirrorKCP_results.csv"
     last_player_id = get_last_player_id(csv_file)
     
     with open(csv_file, mode="a", newline="") as csvfile:  # Open file in append mode

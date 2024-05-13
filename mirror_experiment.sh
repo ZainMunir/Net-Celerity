@@ -21,7 +21,7 @@ echo "Starting clients on $client_node..."
 for i in $(seq 1 $num_players)
 do
     echo "Starting client $i..."
-    ssh $client_node "$mirror_kcp_folder/mirror_kcp/mirror_kcp.x86_64 -batchmode -nographics -server_ip $server_ip -server_port 7777 -client > ./unity-net-benchmark/client_logs/client${i}_output.log 2>&1 &" &
+    ssh $client_node "$mirror_kcp_folder/mirror_kcp/mirror_kcp.x86_64 -batchmode -nographics -server_ip $server_ip -server_port 7777 -emulationType Playback -emulationFile ${mirror_inputs}player_input${i}.inputtrace -client > ./unity-net-benchmark/client_logs/client${i}_output.log 2>&1 &" &
     sleep $clinet_interval
 done
 

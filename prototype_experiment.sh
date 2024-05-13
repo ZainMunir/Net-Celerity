@@ -18,11 +18,26 @@ server_pid=$(ssh $server_node "pgrep -f '${prototype_server_command}'")
 echo "Starting system monitoring script on $server_node..."
 ssh $server_node "python3 unity-net-benchmark/system_monitor.py ./unity-net-benchmark/system_logs/${prototype_name}/system_log_${num_players}p_${benchmark_duration}s.csv $server_pid &" &
 
+
+# echo "--------------------------------------"
+# if [ -f "${mirror_inputs}player_input111.inputtrace" ]; then
+#     echo "File exists!"
+# else
+#     echo "File does not exist."
+# fi
+# echo "--------------------------------------"
+
 echo "Starting clients on $client_node..."
 for i in $(seq 1 $num_players)
 do
+    # if ssh -n "$client_node" "[ -f "${mirror_inputs}player_input${i}.inputtrace" ]"; then
+    #     echo "${mirror_inputs}player_input${i}.inputtrace exists!"
+    # else
+    #     echo "${mirror_inputs}player_input${i}.inputtrace does not exist."
+    # fi
+
     echo "Starting client $i..."
-    ssh $client_node "$prototype_client_command -server_ip $server_ip -server_port 7777 -client > ./unity-net-benchmark/client_logs/client${i}_output.log 2>&1 &" &
+    ssh $client_node "$prototype_client_command -server_ip $server_ip -server_port 7777 -client -emulationType Playback -emulationFile ${mirror_inputs}player_input${i}.inputtrace > ./unity-net-benchmark/client_logs/client${i}_output.log 2>&1 &" &
     sleep $clinet_interval
 done
 

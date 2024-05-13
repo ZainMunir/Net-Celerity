@@ -22,8 +22,8 @@ def create_boxplots_rtt(data_dir):
                 player_data[total_players] = []
 
             player_data[total_players].append(group['RoundTripDelay_ms'].values)
-
-    colors = ['red', 'green', 'orange', 'red', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+    
+    colors = ['orange', 'green', 'red', 'blue', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
     for total_players, data in player_data.items():
         plt.figure(figsize=(6, 2))
         bp = plt.boxplot(data, vert=False, patch_artist=True, widths=0.7)  # Horizontal boxplots with different colors
@@ -272,9 +272,9 @@ def rss_ram_usage_plots(system_logs_folder):
     plt.tight_layout()
     plt.savefig(f'plots/rss_ram_usage.pdf')
 
-rss_ram_usage_plots("system_logs")
+# rss_ram_usage_plots("system_logs")
 
 # cpu_usage_per_second("system_logs")
-# create_boxplots_rtt('.')
+create_boxplots_rtt('.')
 # total_sent("system_logs")
 # total_recv("system_logs")
