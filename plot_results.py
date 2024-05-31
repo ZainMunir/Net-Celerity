@@ -454,5 +454,5 @@ def cpu_usage_per_player(system_logs_folder):
 # create_boxplots_rtt('./workload2_results')
 # total_sent("system_logs_workload2")
 # total_recv("system_logs")
-create_outliers_cdf_plot('./workload2_results')
-# create_combined_boxplot_rtt('./workload2_results')
+# create_outliers_cdf_plot('./workload2_results')
+create_combined_boxplot_rtt('./workload2_results')
