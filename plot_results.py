@@ -309,7 +309,7 @@ def create_combined_boxplot_rtt(data_dir):
     plt.xlabel('number of players', fontsize=20)
     # plt.title('active players', fontsize=14)
     plt.ylabel('round trip delay [ms]', fontsize=20)
-    plt.xticks(ticks=[0, 1, 2, 3, 4, 5], labels=[5, 10, 20, 40, 60, 80], fontsize=20)
+    plt.xticks(ticks=[0, 1, 2, 3, 4, 5, 6], labels=[5, 10, 20, 40, 60, 80, 120], fontsize=20)
     plt.yticks(fontsize=20)
     plt.legend(frameon=False,fontsize=20)
     plt.grid(axis='y')
@@ -485,13 +485,142 @@ def cpu_usage_per_player(system_logs_folder):
     plt.tight_layout()
     plt.savefig(f'plots/cpu_usage_per_player_barplot_max.pdf')
 
+def cpu_usage_per_client(system_logs_folder):
+    player_numbers = set()
+    cpu_data = []
 
+    for prototype_folder in os.listdir(system_logs_folder):
+        prototype_path = os.path.join(system_logs_folder, prototype_folder)
+        
+        for filename in os.listdir(prototype_path):
+            if filename.endswith(".csv") and "client_node" in filename:
+                csv_path = os.path.join(prototype_path, filename)
+                df = pd.read_csv(csv_path)
 
-cpu_usage_per_player("./system_logs_workload2")   
-# rss_ram_usage_plots("./system_logs_workload2")
+                # Calculate average and standard deviation of cpu_percent
+                avg_cpu = df['cpu_percent'].mean()
+                std_cpu = df['cpu_percent'].std()
+
+                # Extract player number from filename
+                parts = filename.split("_")
+                player_number = int(parts[2][:-1])
+
+                cpu_data.append((player_number, prototype_folder, avg_cpu, std_cpu))
+                player_numbers.add(player_number)
+
+    # Create a DataFrame from collected CPU data
+    cpu_df = pd.DataFrame(cpu_data, columns=['Player', 'Prototype', 'Average CPU Usage', 'Std Dev CPU'])
+
+    # Plotting
+    plt.figure(figsize=(5, 3))
+
+    bar_height = 0.3
+    opacity = 1
+    error_config = {'ecolor': '0.1'}
+
+    colors = ['red', 'green', 'orange', 'blue', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+
+    player_numbers_sorted = sorted(player_numbers)
+    prototypes_sorted = sorted(cpu_df['Prototype'].unique())
+
+    positions = range(len(player_numbers_sorted))
+
+    for i, prototype_folder in enumerate(prototypes_sorted):
+        prototype_data = cpu_df[cpu_df['Prototype'] == prototype_folder]
+        plt.bar(positions, prototype_data['Average CPU Usage'], bar_height,
+                alpha=opacity,
+                color=colors[i],
+                yerr=prototype_data['Std Dev CPU'],
+                error_kw=error_config,
+                label=prototype_folder)
+
+    plt.xlabel('Number of Players', fontsize=14)
+    plt.ylabel('Average CPU Usage (%)', fontsize=14)
+    plt.xticks(positions, player_numbers_sorted, fontsize=14)
+    plt.yticks(fontsize=14)
+    # plt.legend(frameon=False, fontsize=12, loc='upper left', ncol=3)
+    plt.grid(axis='y')
+    plt.tight_layout()
+    plt.savefig('plots/cpu_usage_per_client_barplot.pdf')
+
+def rss_ram_usage_per_client(system_logs_folder, total_ram):
+    player_numbers = set()
+    prototypes = []
+    player_data = {}
+
+    for prototype_folder in os.listdir(system_logs_folder):
+        prototypes.append(prototype_folder)
+        prototype_path = os.path.join(system_logs_folder, prototype_folder)
+        
+        for filename in os.listdir(prototype_path):
+            if filename.endswith(".csv") and "client_node" in filename:
+                parts = filename.split("_")
+                player_number = int(parts[2][:-1])
+                player_numbers.add(player_number)
+
+    player_numbers = sorted(player_numbers)
+    prototypes = sorted(prototypes)
+
+    for prototype_folder in prototypes:
+        prototype_path = os.path.join(system_logs_folder, prototype_folder)
+        player_data[prototype_folder] = []
+
+        for player_number in player_numbers:
+            rss_values = []
+            for filename in os.listdir(prototype_path):
+                if filename.endswith(".csv") and "client_node" in filename:
+                    parts = filename.split("_")
+                    current_player_number = int(parts[2][:-1]) 
+                    
+                    if current_player_number == player_number:
+                        csv_path = os.path.join(prototype_path, filename)
+                        df = pd.read_csv(csv_path)
+                        rss_values.extend(df['rss'])
+
+            mean_rss_bytes = np.mean(rss_values)
+            mean_rss_percentage = (mean_rss_bytes / total_ram) * 100  # Convert to percentage of total RAM
+            player_data[prototype_folder].append(mean_rss_percentage)
+
+            sem_bytes = np.std(rss_values) / np.sqrt(len(rss_values))
+            sem_percentage = (sem_bytes / total_ram) * 100  # Convert to percentage of total RAM
+            player_data[prototype_folder].append(sem_percentage)
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    bar_height = 0.3
+    opacity = 1
+
+    error_config = {'ecolor': '0.1'}
+
+    colors = ['red', 'green', 'orange', 'blue', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+
+    for i, prototype_folder in enumerate(prototypes):
+        positions = np.arange(len(player_numbers)) + bar_height * i
+        ax.barh(positions, player_data[prototype_folder][::2], bar_height,
+               alpha=opacity,
+               color=colors[i],
+               xerr=player_data[prototype_folder][1::2],
+               error_kw=error_config,
+               label=prototype_folder)
+
+    ax.set_ylabel('Number of Players', fontsize=26)
+    ax.set_xlabel('Average Memory Usage (Percentage of Total RAM)', fontsize=26)
+    ax.set_yticks(np.arange(len(player_numbers)) + bar_height * (len(prototypes) - 1) / 2)
+    ax.set_yticklabels(player_numbers)
+    # plt.legend(fontsize=26, frameon=False)
+    plt.xticks(fontsize=26)
+    plt.yticks(fontsize=26)
+    ax.grid(axis='x')
+    plt.tight_layout()
+    plt.savefig('plots/rss_ram_usage_per_client_percentage.pdf')
+
+# cpu_usage_per_player("./system_logs_workload1")   
+# rss_ram_usage_plots("./system_logs_workload1")
+
 # cpu_usage_per_second("./system_logs_workload1")
 # create_boxplots_rtt('./workload2_results')
 # total_sent("system_logs_workload2")
 # total_recv("system_logs")
 # create_outliers_cdf_plot('./workload2_results')
-# create_combined_boxplot_rtt('./workload2_results')
+create_combined_boxplot_rtt('./workload1_results')
+cpu_usage_per_client('./client_system_logs_singlenode')
+rss_ram_usage_per_client('./client_system_logs_singlenode', 135017807872)
