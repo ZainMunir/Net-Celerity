@@ -48,6 +48,61 @@ def create_boxplots_rtt(data_dir):
         plt.tight_layout()
         plt.savefig(f'plots/rtt_comparison_{total_players}.pdf')
 
+# def total_sent(system_logs_folder):
+#     prototype_data = {}
+#     my_ticks = []
+
+#     for prototype_folder in os.listdir(system_logs_folder):
+#         prototype_path = os.path.join(system_logs_folder, prototype_folder)
+
+#         player_data = {}
+
+#         for filename in os.listdir(prototype_path):
+#             if filename.endswith(".csv") and filename.startswith("system_log_"):
+#                 parts = filename.split("_")
+#                 player_number = int(parts[2][:-1])
+#                 duration_seconds = int(parts[3][:-5])
+
+#                 if player_number not in my_ticks:
+#                     my_ticks.append(player_number)
+
+#                 csv_path = os.path.join(prototype_path, filename)
+#                 df = pd.read_csv(csv_path, delimiter=";")
+#                 df = df.tail(duration_seconds)
+
+#                 bytes_sent_total = df[[col for col in df.columns if col.startswith('net.bytes_sent')]].sum(axis=1)
+#                 total_mb_sent = ((bytes_sent_total.iloc[-1] - bytes_sent_total.iloc[0]) / (1024 * 1024))
+#                 mb_per_sec_sent = total_mb_sent / duration_seconds  # Calculate MB/s
+#                 player_data[player_number] = mb_per_sec_sent
+
+#         prototype_data[prototype_folder] = player_data
+
+#     plt.figure(figsize=(5, 3))
+
+#     markers = ['o', 's', 'D', 'x', '+', 'v', '^', '<', '>', 'h', 'H', 'd', '|', '_']
+#     colors = ['red', 'green', 'orange', 'red', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+#     marker_index = 0
+#     for prototype, player_data in prototype_data.items():
+#         player_numbers = sorted(player_data.keys())
+#         mb_per_sec_sent_values = [player_data[player_number] for player_number in player_numbers]
+
+#         plt.plot(player_numbers, mb_per_sec_sent_values, marker=markers[marker_index], color=colors[marker_index],
+#                  label=f"{prototype}", alpha=0.9, linewidth=2)
+#         marker_index += 1
+
+#     my_ticks.sort()
+
+#     # plt.title("active players", fontsize=14)
+
+#     plt.xticks(my_ticks, fontsize=16)
+#     plt.yticks(fontsize=16)
+
+#     plt.xlabel("number of players", fontsize=16)
+#     plt.ylabel("data transfer rate [MB/s]", fontsize=16)
+#     plt.legend(fontsize=16, frameon=False)
+#     plt.grid(axis='y')
+#     plt.savefig('plots/total_bytes_sent_vs_players.pdf')
+
 def total_sent(system_logs_folder):
     prototype_data = {}
     my_ticks = []
@@ -70,37 +125,51 @@ def total_sent(system_logs_folder):
                 df = pd.read_csv(csv_path, delimiter=";")
                 df = df.tail(duration_seconds)
 
+                # Calculate MB/s for each time difference
                 bytes_sent_total = df[[col for col in df.columns if col.startswith('net.bytes_sent')]].sum(axis=1)
-                total_mb_sent = ((bytes_sent_total.iloc[-1] - bytes_sent_total.iloc[0]) / (1024 * 1024))
-                mb_per_sec_sent = total_mb_sent / duration_seconds  # Calculate MB/s
-                player_data[player_number] = mb_per_sec_sent
+                mb_per_sec_sent = np.diff(bytes_sent_total) / (1024 * 1024)  # Calculate MB/s differences
+
+                # Store the data in player_data
+                if player_number in player_data:
+                    player_data[player_number].extend(mb_per_sec_sent)
+                else:
+                    player_data[player_number] = mb_per_sec_sent.tolist()
 
         prototype_data[prototype_folder] = player_data
 
-    plt.figure(figsize=(5, 3))
+    plt.figure(figsize=(7, 5))
 
     markers = ['o', 's', 'D', 'x', '+', 'v', '^', '<', '>', 'h', 'H', 'd', '|', '_']
-    colors = ['red', 'green', 'orange', 'red', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+    colors = ['red', 'green', 'orange', 'blue', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+    line_styles = ['-', '--', '-.', ':']  # Different line styles
     marker_index = 0
+    line_style_index = 0
+
     for prototype, player_data in prototype_data.items():
         player_numbers = sorted(player_data.keys())
-        mb_per_sec_sent_values = [player_data[player_number] for player_number in player_numbers]
+        mean_mb_per_sec_sent = [np.mean(player_data[player_number]) for player_number in player_numbers]
+        std_mb_per_sec_sent = [np.std(player_data[player_number]) for player_number in player_numbers]
 
-        plt.plot(player_numbers, mb_per_sec_sent_values, marker=markers[marker_index], color=colors[marker_index],
-                 label=f"{prototype}", alpha=0.9, linewidth=2)
+        # Plot with different line styles
+        plt.errorbar(player_numbers, mean_mb_per_sec_sent, yerr=std_mb_per_sec_sent, fmt=markers[marker_index],
+                     color=colors[marker_index], label=f"{prototype}", alpha=0.9, linewidth=2,
+                     linestyle=line_styles[line_style_index])
+        
         marker_index += 1
+        line_style_index = (line_style_index + 1) % len(line_styles)
 
     my_ticks.sort()
 
-    # plt.title("active players", fontsize=14)
+    plt.xticks(my_ticks, fontsize=20)
+    plt.yticks(fontsize=20)
 
-    plt.xticks(my_ticks, fontsize=16)
-    plt.yticks(fontsize=16)
+    plt.xlabel("Number of Players", fontsize=20)
+    plt.ylabel("Data Transfer Rate [MB/s]", fontsize=20)
+    # plt.legend(fontsize=12, frameon=False)
+    plt.legend(bbox_to_anchor=(0, 1, 1, 0.6), loc="lower left", mode="expand", ncol=3, fontsize=20, frameon=False)
 
-    plt.xlabel("number of players", fontsize=16)
-    plt.ylabel("data transfer rate [MB/s]", fontsize=16)
-    plt.legend(fontsize=16, frameon=False)
     plt.grid(axis='y')
+    plt.tight_layout()
     plt.savefig('plots/total_bytes_sent_vs_players.pdf')
 
 def total_recv(system_logs_folder):
@@ -109,51 +178,67 @@ def total_recv(system_logs_folder):
 
     for prototype_folder in os.listdir(system_logs_folder):
         prototype_path = os.path.join(system_logs_folder, prototype_folder)
-        
+
         player_data = {}
-        
+
         for filename in os.listdir(prototype_path):
             if filename.endswith(".csv") and filename.startswith("system_log_"):
                 parts = filename.split("_")
-                player_number = int(parts[2][:-1]) 
-                duration_seconds = int(parts[3][:-5]) 
-                
+                player_number = int(parts[2][:-1])
+                duration_seconds = int(parts[3][:-5])
+
                 if player_number not in my_ticks:
                     my_ticks.append(player_number)
 
                 csv_path = os.path.join(prototype_path, filename)
                 df = pd.read_csv(csv_path, delimiter=";")
                 df = df.tail(duration_seconds)
-                
-                bytes_recv_total = df[[col for col in df.columns if col.startswith('net.bytes_recv')]].sum(axis=1)
-                total_mb_recv = (bytes_recv_total.iloc[-1] - bytes_recv_total.iloc[0]) / (1024 * 1024)
-                player_data[player_number] = total_mb_recv
 
-        
+                # Calculate MB received for each time difference
+                bytes_recv_total = df[[col for col in df.columns if col.startswith('net.bytes_recv')]].sum(axis=1)
+                mb_per_sec_recv = np.diff(bytes_recv_total) / (1024 * 1024)  # Calculate MB/s differences
+
+                # Store the data in player_data
+                if player_number in player_data:
+                    player_data[player_number].extend(mb_per_sec_recv)
+                else:
+                    player_data[player_number] = mb_per_sec_recv.tolist()
+
         prototype_data[prototype_folder] = player_data
 
-    plt.figure(figsize=(6, 5))
+    plt.figure(figsize=(7, 5))
 
     markers = ['o', 's', 'D', 'x', '+', 'v', '^', '<', '>', 'h', 'H', 'd', '|', '_']
-    colors = ['red', 'green', 'orange', 'red', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
-
+    colors = ['red', 'green', 'orange', 'blue', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan']
+    line_styles = ['-', '--', '-.', ':']  # Different line styles
     marker_index = 0
+    line_style_index = 0
+
     for prototype, player_data in prototype_data.items():
         player_numbers = sorted(player_data.keys())
-        total_bytes_sent = [player_data[player_number] for player_number in player_numbers]
-        
-        plt.plot(player_numbers, total_bytes_sent, marker=markers[marker_index], color=colors[marker_index], label=f"{prototype}", alpha=0.9, linewidth = 2)
+        mean_mb_per_sec_recv = [np.mean(player_data[player_number]) for player_number in player_numbers]
+        std_mb_per_sec_recv = [np.std(player_data[player_number]) for player_number in player_numbers]
+
+        # Plot with different line styles
+        plt.errorbar(player_numbers, mean_mb_per_sec_recv, yerr=std_mb_per_sec_recv, fmt=markers[marker_index],
+                     color=colors[marker_index], label=f"{prototype}", alpha=0.9, linewidth=2,
+                     linestyle=line_styles[line_style_index])
+
         marker_index += 1
+        line_style_index = (line_style_index + 1) % len(line_styles)
 
     my_ticks.sort()
 
-    plt.xticks(my_ticks, fontsize=14)
-    plt.yticks(fontsize=14)
+    plt.xticks(my_ticks, fontsize=20)
+    plt.yticks(fontsize=20)
 
-    plt.xlabel("total players",fontsize=14)
-    plt.ylabel("total recieved (MB)",fontsize=14)
-    plt.legend(fontsize=14, frameon=False)
+    plt.xlabel("Number of Players", fontsize=20)
+    plt.ylabel("Data Received Rate [MB/s]", fontsize=20)
+    # plt.legend(fontsize=12, frameon=False)
+    plt.legend(bbox_to_anchor=(0, 1, 1, 0.6), loc="lower left", mode="expand", ncol=3, fontsize=20, frameon=False)
+    # plt.gca().yaxis.set_major_formatter(plt.FormatStrFormatter('%d'))   
     plt.grid(axis='y')
+    plt.tight_layout()
     plt.savefig('plots/total_bytes_recv_vs_players.pdf')
 
 def cpu_usage_per_second(system_logs_folder):
@@ -251,7 +336,7 @@ def rss_ram_usage_plots(system_logs_folder):
             sem_gb = sem_bytes / (1024 ** 3)  # Convert bytes to gigabytes
             player_data[prototype_folder].append(sem_gb)
 
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10, 7))
     bar_height = 0.3
     opacity = 1
 
@@ -273,7 +358,8 @@ def rss_ram_usage_plots(system_logs_folder):
     ax.set_yticks(np.arange(len(player_numbers)) + bar_height * (len(prototypes) - 1) / 2)
     ax.set_yticklabels(player_numbers)
     # plt.title("active players", fontsize = 20)
-    plt.legend(fontsize=26, frameon=False)
+    # plt.legend(fontsize=26, frameon=False)
+    plt.legend(bbox_to_anchor=(0, 1, 1, 0.6), loc="lower left", mode="expand", ncol=3, fontsize=20, frameon=False)
     plt.xticks(fontsize=26)
     plt.yticks(fontsize=26)
     ax.grid(axis='x')
@@ -445,7 +531,7 @@ def cpu_usage_per_player(system_logs_folder):
     # Create a DataFrame from collected CPU data
     cpu_df = pd.DataFrame(cpu_data, columns=['Player', 'Prototype', 'Average CPU Usage', 'Std Dev CPU'])
 
-    plt.figure(figsize=(8, 4))
+    plt.figure(figsize=(7, 4))
 
     bar_height = 0.3
     opacity = 1
@@ -474,34 +560,14 @@ def cpu_usage_per_player(system_logs_folder):
     plt.xticks(positions + bar_height * (len(prototypes_sorted) - 1) / 2, player_numbers_sorted, fontsize = 17)
     
     y_max = (cpu_df['Average CPU Usage'].max() // 100) + 1
-    plt.yticks(np.arange(0, y_max + 1, 1), fontsize = 17)
+    # plt.yticks(np.arange(0, y_max + 1, 1), fontsize = 17)
+    plt.yticks(np.arange(0, 6, 1), fontsize = 17)
 
-    plt.legend(frameon=False, fontsize=17, loc='upper left', ncol=3)
+    # plt.legend(frameon=False, fontsize=17, loc='upper left', ncol=3)
+    plt.legend(bbox_to_anchor=(0, 1, 1, 0.6), loc="lower left", mode="expand", ncol=3, fontsize=20, frameon=False)
     plt.grid(axis='y')
     plt.tight_layout()
     plt.savefig(f'plots/cpu_usage_per_player_barplot.pdf')
-
-    # Create the second plot with y-axis from 0 to 24
-    plt.figure(figsize=(6, 10))
-
-    for i, prototype_folder in enumerate(prototypes_sorted):
-        prototype_data = cpu_df[cpu_df['Prototype'] == prototype_folder]
-        plt.bar(positions + bar_height * i, prototype_data['Average CPU Usage'] / 100, bar_height,
-                alpha=opacity,
-                color=colors[i],
-                yerr=prototype_data['Std Dev CPU'] / 100,
-                error_kw=error_config,
-                label=prototype_folder)
-        
-    plt.xlabel('number of players', fontsize=17)
-    plt.ylabel('number of cores', fontsize=17)
-    plt.xticks(positions + bar_height * (len(prototypes_sorted) - 1) / 2, player_numbers_sorted, fontsize = 17)
-    plt.yticks(np.arange(0, 25, 1), fontsize = 17)  # Set y-axis from 0 to 24
-
-    plt.legend(frameon=False, fontsize=17)
-    plt.grid(axis='y')
-    plt.tight_layout()
-    plt.savefig(f'plots/cpu_usage_per_player_barplot_max.pdf')
 
 def cpu_usage_per_client(system_logs_folder):
     player_numbers = set()
@@ -631,13 +697,13 @@ def rss_ram_usage_per_client(system_logs_folder, total_ram):
     plt.tight_layout()
     plt.savefig('plots/rss_ram_usage_per_client_percentage.pdf')
 
-cpu_usage_per_player("/var/scratch/esu530/system_logs_workload1_extended")   
-rss_ram_usage_plots("/var/scratch/esu530/system_logs_workload1_extended")
+# cpu_usage_per_player("/var/scratch/esu530/system_logs_workload2")   
+# rss_ram_usage_plots("/var/scratch/esu530/system_logs_workload2")
 
 # cpu_usage_per_second("./system_logs_workload1")
 # create_boxplots_rtt('./workload2_results')
-# total_sent("system_logs_workload2")
-# total_recv("system_logs")
+total_sent("/var/scratch/esu530/system_logs_workload2")
+total_recv("/var/scratch/esu530/system_logs_workload2")
 # create_outliers_cdf_plot('./workload2_results')
 # create_combined_boxplot_rtt('/var/scratch/esu530/workload1_results_extended')
 # cpu_usage_per_client('./client_system_logs_singlenode')
