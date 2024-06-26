@@ -93,8 +93,8 @@ for node_index in $(seq 1 $client_nodes_number); do
 
     for i in $(seq $start_client $end_client); do
         echo "Starting client $i on $client_node..."
-        ssh $client_node "${entities_folder}entities/entities.x86_64 -batchmode -nographics -serverUrl $server_ip -logStats True -statsFile ${entities_logs}/player_log_$i.csv -userID $i -playType Client -emulationType Playback -emulationFile ${entities_inputs}player_input${i}.inputtrace > ./Net-Celerity/client_logs/client${i}_output.log 2>&1 &" &
-        # ssh $client_node "${entities_folder}entities/entities.x86_64 -batchmode -nographics -serverUrl $server_ip -logStats True -statsFile ${entities_logs}/player_log_$i.csv -userID $i -playType Client > ./Net-Celerity/client_logs/client${i}_output.log 2>&1 &" &
+        # ssh $client_node "${entities_folder}entities/entities.x86_64 -batchmode -nographics -serverUrl $server_ip -logStats True -statsFile ${entities_logs}/player_log_$i.csv -userID $i -playType Client -emulationType Playback -emulationFile ${entities_inputs}player_input${i}.inputtrace > ./Net-Celerity/client_logs/client${i}_output.log 2>&1 &" &
+        ssh $client_node "${entities_folder}entities/entities.x86_64 -batchmode -nographics -serverUrl $server_ip -logStats True -statsFile ${entities_logs}/player_log_$i.csv -userID $i -playType Client > ./Net-Celerity/client_logs/client${i}_output.log 2>&1 &" &
         sleep $clinet_interval
     done
 done

@@ -108,8 +108,8 @@ for node_index in $(seq 1 $client_nodes_number); do
 
     for i in $(seq $start_client $end_client); do
         echo "Starting client $i on $client_node..."
-        ssh $client_node "$prototype_client_command -server_ip $server_ip -server_port 7777 -client -emulationType Playback -emulationFile ${mirror_inputs}player_input${i}.inputtrace > ./Net-Celerity/client_logs/client${i}_output.log 2>&1 &" &
-        # ssh $client_node "$prototype_client_command -server_ip $server_ip -server_port 7777 -client > ./Net-Celerity/client_logs/client${i}_output.log 2>&1 &" &
+        # ssh $client_node "$prototype_client_command -server_ip $server_ip -server_port 7777 -client -emulationType Playback -emulationFile ${mirror_inputs}player_input${i}.inputtrace > ./Net-Celerity/client_logs/client${i}_output.log 2>&1 &" &
+        ssh $client_node "$prototype_client_command -server_ip $server_ip -server_port 7777 -client > ./Net-Celerity/client_logs/client${i}_output.log 2>&1 &" &
         sleep $clinet_interval
     done
 done

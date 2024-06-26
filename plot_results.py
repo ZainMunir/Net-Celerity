@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import seaborn as sns
+from sklearn.linear_model import LinearRegression
 from math import ceil
 
 plt.style.use('seaborn-v0_8-colorblind')
@@ -279,7 +280,6 @@ def rss_ram_usage_plots(system_logs_folder):
     plt.tight_layout()
     plt.savefig(f'plots/rss_ram_usage.pdf')
 
-
 def create_combined_boxplot_rtt(data_dir):
     # Collect all CSV files
     csv_files = [file for file in os.listdir(data_dir) if file.endswith('_results.csv')]
@@ -288,36 +288,54 @@ def create_combined_boxplot_rtt(data_dir):
     # Read data from each CSV and append to the list
     for csv_file in csv_files:
         experiment_name = os.path.splitext(csv_file)[0].replace('_results', '')
-        df = pd.read_csv(os.path.join(data_dir, csv_file))
-        df['Experiment'] = experiment_name
-        all_data.append(df)
-    
-    # Concatenate all data into a single DataFrame
-    combined_df = pd.concat(all_data)
+        try:
+            # Read CSV file skipping any potential header and non-data rows, explicitly convert relevant columns
+            df = pd.read_csv(os.path.join(data_dir, csv_file), usecols=['Player_ID', 'Total_Players', 'RoundTripDelay_ms'])
+            df['RoundTripDelay_ms'] = pd.to_numeric(df['RoundTripDelay_ms'], errors='coerce')
+            df.dropna(subset=['RoundTripDelay_ms'], inplace=True)  # Drop rows where conversion failed
 
-    # Set up the plot
-    plt.figure(figsize=(6, 4))
-    sns.boxplot(
-        x='Total_Players', 
-        y='RoundTripDelay_ms', 
-        hue='Experiment', 
-        data=combined_df,
-        palette=['red', 'green', 'orange'],
-        showfliers=False
-    )
+            df['Experiment'] = experiment_name
+            all_data.append(df)
+        except Exception as e:
+            print(f"Error reading {csv_file}: {e}")
 
-    plt.xlabel('number of players', fontsize=20)
-    # plt.title('active players', fontsize=14)
-    plt.ylabel('round trip delay [ms]', fontsize=20)
-    plt.xticks(ticks=[0, 1, 2, 3, 4, 5, 6], labels=[5, 10, 20, 40, 60, 80, 120], fontsize=20)
-    plt.yticks(fontsize=20)
-    plt.legend(frameon=False,fontsize=20)
-    plt.grid(axis='y')
+    # Check if any data was successfully read
+    if all_data:
+        # Concatenate all data into a single DataFrame
+        combined_df = pd.concat(all_data)
 
-    plt.ylim(bottom=0)
+        # Plotting code remains the same as before
+        plt.figure(figsize=(9, 5))
+        sns.boxplot(
+            x='Total_Players', 
+            y='RoundTripDelay_ms', 
+            hue='Experiment', 
+            data=combined_df,
+            palette=['red', 'green', 'orange'],
+            showfliers=False
+        )
 
-    plt.tight_layout()
-    plt.savefig('plots/rtt_combined_comparison.pdf')
+        plt.xlabel('number of players', fontsize=20)
+        plt.ylabel('round trip delay [ms]', fontsize=20)
+        # plt.xticks(ticks=[20, 40, 60, 80, 100, 120], labels=[20, 40, 60, 80, 100, 120], fontsize=20)
+        # plt.yticks(np.arange(0, 80, 10), fontsize=20)
+        plt.xticks(fontsize=20)
+        plt.yticks(fontsize=20)
+
+        # Draw a horizontal red dotted line at 75 ms
+        plt.axhline(y=75, color='red', linestyle='--')
+
+        # Display the legend on top of the plot
+        plt.legend(bbox_to_anchor=(0, 1, 1, 0.6), loc="lower left", mode="expand", ncol=3, fontsize=20, frameon=False)
+
+        plt.grid(axis='y')
+        plt.ylim(bottom=0)
+        plt.tight_layout()
+        plt.savefig('plots/rtt_combined_comparison.pdf')
+
+    else:
+        print("No valid data found to plot.")
+
 
 def calculate_outliers(data):
     # Ensure the data is a pandas Series and numeric
@@ -613,14 +631,14 @@ def rss_ram_usage_per_client(system_logs_folder, total_ram):
     plt.tight_layout()
     plt.savefig('plots/rss_ram_usage_per_client_percentage.pdf')
 
-# cpu_usage_per_player("./system_logs_workload1")   
-# rss_ram_usage_plots("./system_logs_workload1")
+cpu_usage_per_player("/var/scratch/esu530/system_logs_workload1_extended")   
+rss_ram_usage_plots("/var/scratch/esu530/system_logs_workload1_extended")
 
 # cpu_usage_per_second("./system_logs_workload1")
 # create_boxplots_rtt('./workload2_results')
 # total_sent("system_logs_workload2")
 # total_recv("system_logs")
 # create_outliers_cdf_plot('./workload2_results')
-create_combined_boxplot_rtt('./workload1_results')
-cpu_usage_per_client('./client_system_logs_singlenode')
-rss_ram_usage_per_client('./client_system_logs_singlenode', 135017807872)
+# create_combined_boxplot_rtt('/var/scratch/esu530/workload1_results_extended')
+# cpu_usage_per_client('./client_system_logs_singlenode')
+# rss_ram_usage_per_client('./client_system_logs_singlenode', 135017807872)
