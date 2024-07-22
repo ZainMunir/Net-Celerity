@@ -36,8 +36,8 @@ def extract_player_logs(logs_folder, total_players, last_player_id):
 
 
 def save_results(player_logs):
-    file_exists = os.path.exists("/var/scratch/esu530/entities_results.csv")
-    with open("/var/scratch/esu530/entities_results.csv", mode="a", newline="") as file:
+    file_exists = os.path.exists("/var/scratch/cmt2353/entities_results.csv")
+    with open("/var/scratch/cmt2353/entities_results.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
         if not file_exists:  # Write header only if file is empty
             writer.writerow(["Player_ID", "Total_Players", "RoundTripDelay_ms"])
@@ -46,7 +46,7 @@ def save_results(player_logs):
 
 def main(logs_folder):
     total_players = count_player_logs(logs_folder)
-    last_player_id = get_last_player_id("/var/scratch/esu530/entities_results.csv")
+    last_player_id = get_last_player_id("/var/scratch/cmt2353/entities_results.csv")
     player_logs = extract_player_logs(logs_folder, total_players, last_player_id)
     save_results(player_logs)
     print("Script execution completed.")
