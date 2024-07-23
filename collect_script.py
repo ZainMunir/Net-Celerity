@@ -2,6 +2,8 @@ import os
 import csv
 import sys
 
+results_file = "/var/scratch/zmr280/entities_results.csv" #"entities_results.csv" 
+
 def get_last_player_id(csv_file):
     if not os.path.exists(csv_file):
         return 0  # Return 0 if file doesn't exist
@@ -36,8 +38,8 @@ def extract_player_logs(logs_folder, total_players, last_player_id):
 
 
 def save_results(player_logs):
-    file_exists = os.path.exists("/var/scratch/cmt2353/entities_results.csv")
-    with open("/var/scratch/cmt2353/entities_results.csv", mode="a", newline="") as file:
+    file_exists = os.path.exists(results_file)
+    with open(results_file, mode="a", newline="") as file:
         writer = csv.writer(file)
         if not file_exists:  # Write header only if file is empty
             writer.writerow(["Player_ID", "Total_Players", "RoundTripDelay_ms"])
@@ -46,7 +48,7 @@ def save_results(player_logs):
 
 def main(logs_folder):
     total_players = count_player_logs(logs_folder)
-    last_player_id = get_last_player_id("/var/scratch/cmt2353/entities_results.csv")
+    last_player_id = get_last_player_id(results_file)
     player_logs = extract_player_logs(logs_folder, total_players, last_player_id)
     save_results(player_logs)
     print("Script execution completed.")

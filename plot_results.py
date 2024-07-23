@@ -592,6 +592,20 @@ def rss_ram_usage_per_client(system_logs_folder, total_ram):
     plt.tight_layout()
     plt.savefig('plots/rss_ram_usage_per_client_percentage.pdf')
 
+log_folder = "system_logs"
+
+
+cpu_usage_per_player(log_folder)
+rss_ram_usage_plots(log_folder)
+cpu_usage_per_second(log_folder)
+create_boxplots_rtt(log_folder)
+total_sent(log_folder)
+total_recv(log_folder)
+create_outliers_cdf_plot(log_folder)
+create_combined_boxplot_rtt(log_folder)
+cpu_usage_per_client(log_folder)
+# rss_ram_usage_per_client(,)
+
 # cpu_usage_per_player("/var/scratch/esu530/system_logs_workload2")   
 # rss_ram_usage_plots("/var/scratch/esu530/system_logs_workload2")
 # cpu_usage_per_second("./system_logs_workload1")
