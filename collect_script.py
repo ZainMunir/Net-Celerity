@@ -2,8 +2,6 @@ import os
 import csv
 import sys
 
-results_file = "/var/scratch/zmr280/entities_results.csv" #"entities_results.csv" 
-
 def get_last_player_id(csv_file):
     if not os.path.exists(csv_file):
         return 0  # Return 0 if file doesn't exist
@@ -54,8 +52,12 @@ def main(logs_folder):
     print("Script execution completed.")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python script_name.py <logs_folder>")
+    if len(sys.argv) != 3:
+        print("Usage: python script_name.py <logs_folder> <configuration>")
         sys.exit(1)
     logs_folder = sys.argv[1]
+    configuration = sys.argv[2]
+    global results_file
+    results_file = f"/var/scratch/zmr280/{configuration}_results.csv"
+    print(results_file)
     main(logs_folder)

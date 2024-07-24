@@ -218,6 +218,8 @@ def cpu_usage_per_second(system_logs_folder):
                         plt.plot(df.index, df['proc.cpu_percent'], label=f"{prototype_folder}", linewidth=2, color=colors[color_index], alpha=0.8)
                         color_index += 1
 
+
+        plt.legend(frameon=False, ncol=3)
         plt.title(f'{player_number} total players', fontsize=14)
         plt.grid(axis='y')
         plt.tight_layout()
@@ -514,7 +516,8 @@ def cpu_usage_per_client(system_logs_folder):
                  xerr=prototype_data['Std Dev CPU'],
                  error_kw=error_config,
                  label=prototype_folder)
-
+        
+    plt.legend(frameon=False, ncol=3)
     plt.ylabel('number of players', fontsize=16)
     plt.xlabel('average CPU usage [%]', fontsize=16)
     plt.yticks(positions, player_numbers_sorted, fontsize=16)
@@ -586,25 +589,33 @@ def rss_ram_usage_per_client(system_logs_folder, total_ram):
     ax.set_xlabel('average memory usage [%]', fontsize=16)
     ax.set_yticks(np.arange(len(player_numbers)) + bar_height * (len(prototypes) - 1) / 2)
     ax.set_yticklabels(player_numbers)
+    plt.legend(frameon=False, ncol=3)
     plt.xticks(fontsize=16)
     plt.yticks(fontsize=16)
     ax.grid(axis='x')
     plt.tight_layout()
     plt.savefig('plots/rss_ram_usage_per_client_percentage.pdf')
 
-log_folder = "system_logs"
 
+plots_folder = "plots"
+if not os.path.exists(plots_folder):
+    os.makedirs(plots_folder)
+
+log_folder = "system_logs"
+_results_folder = "results"
 
 cpu_usage_per_player(log_folder)
+cpu_usage_per_client(log_folder)
 rss_ram_usage_plots(log_folder)
 cpu_usage_per_second(log_folder)
-create_boxplots_rtt(log_folder)
 total_sent(log_folder)
 total_recv(log_folder)
-create_outliers_cdf_plot(log_folder)
-create_combined_boxplot_rtt(log_folder)
-cpu_usage_per_client(log_folder)
-# rss_ram_usage_per_client(,)
+rss_ram_usage_per_client(log_folder, 135017807872)
+
+create_boxplots_rtt(_results_folder)
+create_outliers_cdf_plot(_results_folder)
+create_combined_boxplot_rtt(_results_folder)
+
 
 # cpu_usage_per_player("/var/scratch/esu530/system_logs_workload2")   
 # rss_ram_usage_plots("/var/scratch/esu530/system_logs_workload2")
