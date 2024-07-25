@@ -1,3 +1,5 @@
-rm -rf system_logs
-rm ../*.log 
-rm /var/scratch/zmr280/*.csv
+student_id="zmr280"
+build_location="/var/scratch/${student_id}/"
+
+rm -rf ${build_location}*.csv
+rm -rf ${build_location}/runs/*
