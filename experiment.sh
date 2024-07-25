@@ -32,9 +32,9 @@
     shared_command="${opencraft_executable} -batchmode -nographics -logStats True"
 
     server_ip=$(ssh $server_node "hostname -I | cut -d ' ' -f1")
-    server_stats="${opencraft_logs}server_log_${terrain_type}_${num_players}p_${benchmark_duration}s.csv"
+    server_stats="${opencraft_logs}server_stats_${terrain_type}_${num_players}p_${benchmark_duration}s.csv"
     echo "Starting server on $server_node at $server_ip:7777 with $terrain_type terrain..."
-    server_command="${shared_command} -terrainType ${terrain_type} -statsFile ${server_stats}  -playType Server > ${server_logs}server_output.log 2>&1 &" # -logFile ${home_folder}server.log
+    server_command="${shared_command} -terrainType ${terrain_type} -statsFile ${server_stats} -activeLogic -playType Server > ${server_logs}server_output.log 2>&1 &" # -logFile ${home_folder}server.log
     # echo "$server_command"
     ssh $server_node "${server_command}" &
     sleep 10
@@ -104,12 +104,12 @@
 
     mv ${server_logs}server_output.log ${home_folder}server_output_${terrain_type}_${num_players}p_${benchmark_duration}s.log
     echo "Deleting server and client logs..."
-    # rm -rf ./server_logs/*
-    # rm -rf ./client_logs/*
+    rm -rf ./server_logs/*
+    rm -rf ./client_logs/*
 
     mv $server_stats $build_location
     echo "Deleting ECS logs..."
-    # rm ${opencraft_logs}*
+    rm ${opencraft_logs}*
 
     echo "Benchmarking completed."
     echo "Script execution complete."
