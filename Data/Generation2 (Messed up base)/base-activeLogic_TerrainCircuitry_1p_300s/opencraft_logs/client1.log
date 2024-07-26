@@ -1,0 +1,913 @@
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=4194304"
+    "memorysetup-bucket-allocator-block-count=1"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=4194304"
+    "memorysetup-profiler-bucket-allocator-block-count=1"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=4194304"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=262144"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Remaining time:29s
+Found 4 interfaces on host : 0) 10.141.0.16 1) 10.150.0.16 2) 10.149.0.16 3) 192.168.122.1
+Player connection [46912496401984] Multi-casting "[IP] 10.141.0.16 [Port] 55005 [Flags] 19 [Guid] 3304361946 [EditorId] 2707342498 [Version] 1048832 [Id] LinuxPlayer(13,10.141.0.16) [Debug] 0 [PackageName] LinuxPlayer [ProjectName] Opencraft" to [225.0.0.222:54997]...
+
+Direct connection to host time out.
+Stopping profiler. Profiler is not able to flush data to a file or socket and exceeded maximum allowed memory for buffering.
+Please use Profiler.maxUsedMemory API or -profiler-maxusedmemory command line parameter to increase maximum allowed memory usage.
+Using 134234112 bytes while Profiler.maxUsedMemory is 134217728 bytes.
+Failed to initialize networking layer after 30 seconds, skipping waiting for connection before starting playback.
+Preloaded 'lib_burst_generated.so'
+Preloaded 'libwebrtc.so'
+[Physics::Module] Initialized MultithreadedJobDispatcher with 31 workers.
+Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
+[Subsystems] Discovering subsystems at path /var/scratch/zmr280/opencraft/opencraft_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0; jobified=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+ERROR: Shader Hidden/Universal Render Pipeline/Blit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/CopyDepth shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Sampling shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LutBuilderLdr shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LutBuilderHdr shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/UberPost shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Debug/DebugReplacement shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal/HDRDebugView shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/FallbackError shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/StencilDeferred' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/StencilDeferred shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/StencilDeferred' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/CameraMotionVectors shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/ObjectMotionVectors shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LensFlareDataDriven shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/ScreenSpaceAmbientOcclusion shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Stop NaN shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/SubpixelMorphologicalAntialiasing shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/TemporalAA shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Scaling Setup shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/FinalPost shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Sprites/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Sprites/Mask shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader GUI/Text Shader shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+UnloadTime: 1.187757 ms
+Parsing args: /var/scratch/zmr280/opencraft/opencraft.x86_64, -batchmode, -nographics, -logStats, True, -serverUrl, 10.141.0.15, -statsFile, /var/scratch/zmr280/runs/base-activeLogic_TerrainCircuitry_1p_300s/opencraft_stats/client1.csv, -userID, 1, -playType, Client, -emulationType, Simulation, -playerSimulationBehaviour, FixedDirection
+Setting up worlds with playType Client and streaming role Disabled
+Adding type with UniqueSystemAttribute: StatisticsSystem
+Adding type with UniqueSystemAttribute: StatisticsSystem
+Failed to create websocket: System.Net.Sockets.SocketException (0x80004005): Address already in use
+  at System.Net.Sockets.Socket.Bind (System.Net.EndPoint localEP) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.NetCode.DebugWebSocket..ctor (System.UInt16 port) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.NetCode.GhostStatsConnection..ctor () [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.NetCode.GhostStatsFlushSystem.OnCreate () [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.ComponentSystemBase.CreateInstance (Unity.Entities.World world) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.World.AddSystem_OnCreate_Internal (Unity.Entities.ComponentSystemBase system) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.World.GetOrCreateSystemsAndLogException (Unity.Collections.NativeList`1[T] types, System.Int32 typesCount, Unity.Collections.AllocatorManager+AllocatorHandle allocator) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.World.GetOrCreateSystemsAndLogException (Unity.Collections.NativeList`1[T] types, Unity.Collections.AllocatorManager+AllocatorHandle allocator) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.DefaultWorldInitialization.AddSystemToRootLevelSystemGroupsInternal[T] (Unity.Entities.World world, Unity.Collections.NativeList`1[T] systemTypesOrig, Unity.Entities.ComponentSystemGroup defaultGroup, T rootGroups) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.DefaultWorldInitialization.AddSystemToRootLevelSystemGroupsInternal (Unity.Entities.World world, Unity.Collections.NativeList`1[T] systemTypesOrig) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.DefaultWorldInitialization.AddSystemsToRootLevelSystemGroups (Unity.Entities.World world, System.Collections.Generic.IReadOnlyList`1[T] systemTypes) [0x00000] in <00000000000000000000000000000000>:0 
+  at PolkaDOTS.Bootstrap.GameBootstrap.CreateClientWorld (System.String name, Unity.Entities.WorldFlags flags, System.Collections.Generic.IReadOnlyList`1[T] systems) [0x00000] in <00000000000000000000000000000000>:0 
+  at PolkaDOTS.Bootstrap.GameBootstrap.CreateDefaultClientWorld (System.String worldName, System.Boolean isHost, System.Boolean isCloudHost) [0x00000] in <00000000000000000000000000000000>:0 
+  at PolkaDOTS.Bootstrap.GameBootstrap.SetupWorlds (PolkaDOTS.Deployment.MultiplayStreamingRoles mRole, PolkaDOTS.Bootstrap.GameBootstrap+BootstrapPlayTypes playTypes, Unity.Collections.NativeList`1[Unity.Entities.WorldUnmanaged]& worldReferences, System.Int32 numSimulatedClients, System.Boolean autoStart, System.Boolean autoConnect, System.String serverUrl, System.UInt16 serverPort, System.String signalingUrl, System.String worldName) [0x00000] in <00000000000000000000000000000000>:0 
+  at PolkaDOTS.Bootstrap.GameBootstrap.SetupWorldsFromLocalConfig () [0x00000] in <00000000000000000000000000000000>:0 
+  at PolkaDOTS.Bootstrap.GameBootstrap.Initialize (System.String defaultWorldName) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.CustomWorldInitialization.Initialize (System.String defaultWorldName, System.Boolean editorWorld) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.CustomAutomaticWorldBootstrap.Initialize () [0x00000] in <00000000000000000000000000000000>:0 
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+Unity.NetCode.DebugWebSocket:.ctor(UInt16)
+Unity.NetCode.GhostStatsConnection:.ctor()
+Unity.NetCode.GhostStatsFlushSystem:OnCreate()
+Unity.Entities.ComponentSystemBase:CreateInstance(World)
+Unity.Entities.World:AddSystem_OnCreate_Internal(ComponentSystemBase)
+Unity.Entities.World:GetOrCreateSystemsAndLogException(NativeList`1, Int32, AllocatorHandle)
+Unity.Entities.World:GetOrCreateSystemsAndLogException(NativeList`1, AllocatorHandle)
+Unity.Entities.DefaultWorldInitialization:AddSystemToRootLevelSystemGroupsInternal(World, NativeList`1, ComponentSystemGroup, T)
+Unity.Entities.DefaultWorldInitialization:AddSystemToRootLevelSystemGroupsInternal(World, NativeList`1)
+Unity.Entities.DefaultWorldInitialization:AddSystemsToRootLevelSystemGroups(World, IReadOnlyList`1)
+PolkaDOTS.Bootstrap.GameBootstrap:CreateClientWorld(String, WorldFlags, IReadOnlyList`1)
+PolkaDOTS.Bootstrap.GameBootstrap:CreateDefaultClientWorld(String, Boolean, Boolean)
+PolkaDOTS.Bootstrap.GameBootstrap:SetupWorlds(MultiplayStreamingRoles, BootstrapPlayTypes, NativeList`1&, Int32, Boolean, Boolean, String, UInt16, String, String)
+PolkaDOTS.Bootstrap.GameBootstrap:SetupWorldsFromLocalConfig()
+PolkaDOTS.Bootstrap.GameBootstrap:Initialize(String)
+Unity.Entities.CustomWorldInitialization:Initialize(String, Boolean)
+Unity.Entities.CustomAutomaticWorldBootstrap:Initialize()
+
+Adding world ClientWorld to update list
+Connecting worlds with playType Client and streaming role Disabled
+Created connection request for 10.141.0.15:7979
+Creating statistics writer!
+Recorder [ServerFixedUpdate] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [TerrainGeneration] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [PlayerTerrainGenCheck] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [StructureGeneration] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [TerrainLogicSystem] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [GetUpdates] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [ReevaluatePropagateMarker] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [PropagateLogicState] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [CheckGateState] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Initializing multiplay!
+Found non-specified codec: VP8 Internal video/VP8 implementation_name=Internal
+Found codec: VP9 Profile0
+Found codec: VP9 Profile2
+Found codec: VP9 Profile1
+Found codec: VP9 Profile3
+Found codec: AV1 Profile0
+Found codec: AV1 Profile1
+Could not find H264.High as streaming codec!
+Adding terrain areas statistics recorders
+Streamed scene with   15ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/bea83102298cfb741939cdba85abe535.0.entities
+AutoLoading authoring scene in world ClientWorld
+ERROR: Shader Custom/VoxelShader shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/FallbackError shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Universal Render Pipeline/Lit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Unlit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Universal Render Pipeline/Unlit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Unlit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+[23:41:33.5823170]:[ClientWorld] New connection ID:1
+Streamed scene with   41ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/62561c7118c5bbb46929c6bf65331faa.0.entities
+Sending start game stream RPC
+Emulation type is Idle, Simulation
+Creating local player object
+Sending spawn player RPC for user 1
+ERROR: Shader UI/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+Player 1 has no connection ID!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+Opencraft.Player.SamplePlayerInput:OnUpdate(SystemState&)
+Opencraft.Player.SamplePlayerInput:__codegen__OnUpdate(IntPtr, IntPtr)
+
+Linking player entity Entity(160:1) to 1@LOCALPLAYER
+Player simulation searching for path from float3(0.5f, 42.90002f, 0.5f) = int3(0, 42, 0) to int3(0, 44, 10)
+Player simulation could not find a path from int3(0, 42, 0) to int3(0, 44, 10), will choose new target
+Player simulation searching for path from float3(0.5f, 42.90002f, 0.5f) = int3(0, 42, 0) to int3(0, 44, 6)
+Player simulation could not find a path from int3(0, 42, 0) to int3(0, 44, 6), will choose new target
+Player simulation searching for path from float3(0.5f, 42.90002f, 0.5f) = int3(0, 42, 0) to int3(0, 44, 2)
+Player simulation could not find a path from int3(0, 42, 0) to int3(0, 44, 2), will choose new target
+    3: Could not find target at int3(0, 42, 0)
+Player simulation searching for path from float3(0.5f, 42.90002f, 0.5f) = int3(0, 42, 0) to int3(2, 44, 10)
+Player simulation could not find a path from int3(0, 42, 0) to int3(2, 44, 10), will choose new target
+    5: Could not find target at int3(0, 42, 0)
+Player simulation searching for path from float3(0.5f, 42.90002f, 0.5f) = int3(0, 42, 0) to int3(2, 44, 6)
+Player simulation could not find a path from int3(0, 42, 0) to int3(2, 44, 6), will choose new target
+    7: Could not find target at int3(0, 42, 0)
+Player simulation searching for path from float3(0.5f, 42.90002f, 0.5f) = int3(0, 42, 0) to int3(2, 44, 2)
+Player simulation could not find a path from int3(0, 42, 0) to int3(2, 44, 2), will choose new target
+ClientWorld player simulation could not find a path in 9 attempts, waiting to try again
+Player simulation searching for path from float3(0.5f, 42.30003f, 0.5f) = int3(0, 42, 0) to int3(0, 44, 10)
+Player simulation could not find a path from int3(0, 42, 0) to int3(0, 44, 10), will choose new target
+Player simulation searching for path from float3(0.5f, 42.30003f, 0.5f) = int3(0, 42, 0) to int3(0, 44, 6)
+Player simulation could not find a path from int3(0, 42, 0) to int3(0, 44, 6), will choose new target
+Player simulation searching for path from float3(0.5f, 42.30003f, 0.5f) = int3(0, 42, 0) to int3(0, 44, 2)
+Player simulation could not find a path from int3(0, 42, 0) to int3(0, 44, 2), will choose new target
+Player simulation searching for path from float3(0.5f, 42.30003f, 0.5f) = int3(0, 42, 0) to int3(-2, 44, 10)
+Player simulation could not find a path from int3(0, 42, 0) to int3(-2, 44, 10), will choose new target
+Player simulation searching for path from float3(0.5f, 42.30003f, 0.5f) = int3(0, 42, 0) to int3(2, 44, 10)
+Player simulation could not find a path from int3(0, 42, 0) to int3(2, 44, 10), will choose new target
+Player simulation searching for path from float3(0.5f, 42.30003f, 0.5f) = int3(0, 42, 0) to int3(-2, 44, 6)
+Player simulation could not find a path from int3(0, 42, 0) to int3(-2, 44, 6), will choose new target
+Player simulation searching for path from float3(0.5f, 42.30003f, 0.5f) = int3(0, 42, 0) to int3(2, 44, 6)
+Player simulation could not find a path from int3(0, 42, 0) to int3(2, 44, 6), will choose new target
+Player simulation searching for path from float3(0.5f, 42.30003f, 0.5f) = int3(0, 42, 0) to int3(-2, 44, 2)
+Player simulation could not find a path from int3(0, 42, 0) to int3(-2, 44, 2), will choose new target
+Player simulation searching for path from float3(0.5f, 42.30003f, 0.5f) = int3(0, 42, 0) to int3(2, 44, 2)
+Player simulation could not find a path from int3(0, 42, 0) to int3(2, 44, 2), will choose new target
+ClientWorld player simulation could not find a path in 9 attempts, waiting to try again
+Player simulation searching for path from float3(0.5f, 44.1f, 0.5f) = int3(0, 44, 0) to int3(0, 44, 10)
+ClientWorld player simulation set new target int3(0, 44, 10)
+ClientWorld player simulation reached target int3(0, 44, 10)
+Player simulation searching for path from float3(0.5f, 44.1f, 10.3f) = int3(0, 44, 10) to int3(0, 44, 20)
+ClientWorld player simulation set new target int3(0, 44, 20)
+ClientWorld player simulation reached target int3(0, 44, 20)
+Player simulation searching for path from float3(0.5f, 44.1f, 20.3f) = int3(0, 44, 20) to int3(0, 44, 30)
+ClientWorld player simulation set new target int3(0, 44, 30)
+ClientWorld player simulation reached target int3(0, 44, 30)
+Player simulation searching for path from float3(0.5f, 44.1f, 30.3f) = int3(0, 44, 30) to int3(0, 44, 40)
+ClientWorld player simulation set new target int3(0, 44, 40)
+ClientWorld player simulation reached target int3(0, 44, 40)
+Player simulation searching for path from float3(0.5f, 44.1f, 40.4f) = int3(0, 44, 40) to int3(0, 44, 50)
+ClientWorld player simulation set new target int3(0, 44, 50)
+ClientWorld player simulation reached target int3(0, 44, 50)
+Player simulation searching for path from float3(0.5f, 44.1f, 50.39999f) = int3(0, 44, 50) to int3(0, 44, 60)
+ClientWorld player simulation set new target int3(0, 44, 60)
+ClientWorld player simulation reached target int3(0, 44, 60)
+Player simulation searching for path from float3(0.5f, 44.1f, 60.4f) = int3(0, 44, 60) to int3(0, 44, 70)
+ClientWorld player simulation set new target int3(0, 44, 70)
+ClientWorld player simulation reached target int3(0, 44, 70)
+Player simulation searching for path from float3(0.5f, 44.1f, 70.399f) = int3(0, 44, 70) to int3(0, 44, 80)
+ClientWorld player simulation set new target int3(0, 44, 80)
+ClientWorld player simulation reached target int3(0, 44, 80)
+Player simulation searching for path from float3(0.5f, 44.1f, 80.399f) = int3(0, 44, 80) to int3(0, 44, 90)
+ClientWorld player simulation set new target int3(0, 44, 90)
+ClientWorld player simulation reached target int3(0, 44, 90)
+Player simulation searching for path from float3(0.5f, 44.1f, 90.399f) = int3(0, 44, 90) to int3(0, 44, 100)
+ClientWorld player simulation set new target int3(0, 44, 100)
+ClientWorld player simulation reached target int3(0, 44, 100)
+Player simulation searching for path from float3(0.5f, 44.1f, 100.399f) = int3(0, 44, 100) to int3(0, 44, 110)
+ClientWorld player simulation set new target int3(0, 44, 110)
+ClientWorld player simulation reached target int3(0, 44, 110)
+Player simulation searching for path from float3(0.5f, 44.1f, 110.399f) = int3(0, 44, 110) to int3(0, 44, 120)
+ClientWorld player simulation set new target int3(0, 44, 120)
+ClientWorld player simulation reached target int3(0, 44, 120)
+Player simulation searching for path from float3(0.5f, 44.1f, 120.399f) = int3(0, 44, 120) to int3(0, 44, 130)
+ClientWorld player simulation set new target int3(0, 44, 130)
+ClientWorld player simulation reached target int3(0, 44, 130)
+Player simulation searching for path from float3(0.5f, 44.1f, 130.399f) = int3(0, 44, 130) to int3(0, 44, 140)
+ClientWorld player simulation set new target int3(0, 44, 140)
+ClientWorld player simulation reached target int3(0, 44, 140)
+Player simulation searching for path from float3(0.5f, 44.1f, 140.399f) = int3(0, 44, 140) to int3(0, 44, 150)
+ClientWorld player simulation set new target int3(0, 44, 150)
+ClientWorld player simulation reached target int3(0, 44, 150)
+Player simulation searching for path from float3(0.5f, 44.1f, 150.3f) = int3(0, 44, 150) to int3(0, 44, 160)
+ClientWorld player simulation set new target int3(0, 44, 160)
+ClientWorld player simulation reached target int3(0, 44, 160)
+Player simulation searching for path from float3(0.5f, 44.1f, 160.301f) = int3(0, 44, 160) to int3(0, 44, 170)
+ClientWorld player simulation set new target int3(0, 44, 170)
+ClientWorld player simulation reached target int3(0, 44, 170)
+Player simulation searching for path from float3(0.5f, 44.1f, 170.301f) = int3(0, 44, 170) to int3(0, 44, 180)
+ClientWorld player simulation set new target int3(0, 44, 180)
+ClientWorld player simulation reached target int3(0, 44, 180)
+Player simulation searching for path from float3(0.5f, 44.1f, 180.302f) = int3(0, 44, 180) to int3(0, 44, 190)
+ClientWorld player simulation set new target int3(0, 44, 190)
+ClientWorld player simulation reached target int3(0, 44, 190)
+Player simulation searching for path from float3(0.5f, 44.1f, 190.302f) = int3(0, 44, 190) to int3(0, 44, 200)
+ClientWorld player simulation set new target int3(0, 44, 200)
+ClientWorld player simulation reached target int3(0, 44, 200)
+Player simulation searching for path from float3(0.5f, 44.1f, 200.303f) = int3(0, 44, 200) to int3(0, 44, 210)
+ClientWorld player simulation set new target int3(0, 44, 210)
+ClientWorld player simulation reached target int3(0, 44, 210)
+Player simulation searching for path from float3(0.5f, 44.1f, 210.304f) = int3(0, 44, 210) to int3(0, 44, 220)
+ClientWorld player simulation set new target int3(0, 44, 220)
+ClientWorld player simulation reached target int3(0, 44, 220)
+Player simulation searching for path from float3(0.5f, 44.1f, 220.304f) = int3(0, 44, 220) to int3(0, 44, 230)
+ClientWorld player simulation set new target int3(0, 44, 230)
+ClientWorld player simulation reached target int3(0, 44, 230)
+Player simulation searching for path from float3(0.5f, 44.1f, 230.3051f) = int3(0, 44, 230) to int3(0, 44, 240)
+ClientWorld player simulation set new target int3(0, 44, 240)
+ClientWorld player simulation reached target int3(0, 44, 240)
+Player simulation searching for path from float3(0.5f, 44.1f, 240.305f) = int3(0, 44, 240) to int3(0, 44, 250)
+ClientWorld player simulation set new target int3(0, 44, 250)
+ClientWorld player simulation reached target int3(0, 44, 250)
+Player simulation searching for path from float3(0.5f, 44.1f, 250.306f) = int3(0, 44, 250) to int3(0, 44, 260)
+ClientWorld player simulation set new target int3(0, 44, 260)
+ClientWorld player simulation reached target int3(0, 44, 260)
+Player simulation searching for path from float3(0.5f, 44.1f, 260.307f) = int3(0, 44, 260) to int3(0, 44, 270)
+ClientWorld player simulation set new target int3(0, 44, 270)
+ClientWorld player simulation reached target int3(0, 44, 270)
+Player simulation searching for path from float3(0.5f, 44.1f, 270.307f) = int3(0, 44, 270) to int3(0, 44, 280)
+ClientWorld player simulation set new target int3(0, 44, 280)
+ClientWorld player simulation reached target int3(0, 44, 280)
+Player simulation searching for path from float3(0.5f, 44.1f, 280.308f) = int3(0, 44, 280) to int3(0, 44, 290)
+ClientWorld player simulation set new target int3(0, 44, 290)
+ClientWorld player simulation reached target int3(0, 44, 290)
+Player simulation searching for path from float3(0.5f, 44.1f, 290.308f) = int3(0, 44, 290) to int3(0, 44, 300)
+ClientWorld player simulation set new target int3(0, 44, 300)
+ClientWorld player simulation reached target int3(0, 44, 300)
+Player simulation searching for path from float3(0.5f, 44.1f, 300.309f) = int3(0, 44, 300) to int3(0, 44, 310)
+ClientWorld player simulation set new target int3(0, 44, 310)
+ClientWorld player simulation reached target int3(0, 44, 310)
+Player simulation searching for path from float3(0.5f, 44.1f, 310.31f) = int3(0, 44, 310) to int3(0, 44, 320)
+ClientWorld player simulation set new target int3(0, 44, 320)
+ClientWorld player simulation reached target int3(0, 44, 320)
+Player simulation searching for path from float3(0.5f, 44.1f, 320.31f) = int3(0, 44, 320) to int3(0, 44, 330)
+ClientWorld player simulation set new target int3(0, 44, 330)
+ClientWorld player simulation reached target int3(0, 44, 330)
+Player simulation searching for path from float3(0.5f, 44.1f, 330.311f) = int3(0, 44, 330) to int3(0, 44, 340)
+ClientWorld player simulation set new target int3(0, 44, 340)
+ClientWorld player simulation reached target int3(0, 44, 340)
+Player simulation searching for path from float3(0.5f, 44.1f, 340.311f) = int3(0, 44, 340) to int3(0, 44, 350)
+ClientWorld player simulation set new target int3(0, 44, 350)
+ClientWorld player simulation reached target int3(0, 44, 350)
+Player simulation searching for path from float3(0.5f, 44.1f, 350.312f) = int3(0, 44, 350) to int3(0, 44, 360)
+ClientWorld player simulation set new target int3(0, 44, 360)
+ClientWorld player simulation reached target int3(0, 44, 360)
+Player simulation searching for path from float3(0.5f, 44.1f, 360.313f) = int3(0, 44, 360) to int3(0, 44, 370)
+ClientWorld player simulation set new target int3(0, 44, 370)
+ClientWorld player simulation reached target int3(0, 44, 370)
+Player simulation searching for path from float3(0.5f, 44.1f, 370.313f) = int3(0, 44, 370) to int3(0, 44, 380)
+ClientWorld player simulation set new target int3(0, 44, 380)
+ClientWorld player simulation reached target int3(0, 44, 380)
+Player simulation searching for path from float3(0.5f, 44.1f, 380.314f) = int3(0, 44, 380) to int3(0, 44, 390)
+ClientWorld player simulation set new target int3(0, 44, 390)
+ClientWorld player simulation reached target int3(0, 44, 390)
+Player simulation searching for path from float3(0.5f, 44.1f, 390.315f) = int3(0, 44, 390) to int3(0, 44, 400)
+ClientWorld player simulation set new target int3(0, 44, 400)
+ClientWorld player simulation reached target int3(0, 44, 400)
+Player simulation searching for path from float3(0.5f, 44.1f, 400.315f) = int3(0, 44, 400) to int3(0, 44, 410)
+ClientWorld player simulation set new target int3(0, 44, 410)
+ClientWorld player simulation reached target int3(0, 44, 410)
+Player simulation searching for path from float3(0.5f, 44.1f, 410.316f) = int3(0, 44, 410) to int3(0, 44, 420)
+ClientWorld player simulation set new target int3(0, 44, 420)
+ClientWorld player simulation reached target int3(0, 44, 420)
+Player simulation searching for path from float3(0.5f, 44.1f, 420.316f) = int3(0, 44, 420) to int3(0, 44, 430)
+ClientWorld player simulation set new target int3(0, 44, 430)
+ClientWorld player simulation reached target int3(0, 44, 430)
+Player simulation searching for path from float3(0.5f, 44.1f, 430.317f) = int3(0, 44, 430) to int3(0, 44, 440)
+ClientWorld player simulation set new target int3(0, 44, 440)
+ClientWorld player simulation reached target int3(0, 44, 440)
+Player simulation searching for path from float3(0.5f, 44.1f, 440.3181f) = int3(0, 44, 440) to int3(0, 44, 450)
+ClientWorld player simulation set new target int3(0, 44, 450)
+ClientWorld player simulation reached target int3(0, 44, 450)
+Player simulation searching for path from float3(0.5f, 44.1f, 450.3181f) = int3(0, 44, 450) to int3(0, 44, 460)
+ClientWorld player simulation set new target int3(0, 44, 460)
+ClientWorld player simulation reached target int3(0, 44, 460)
+Player simulation searching for path from float3(0.5f, 44.1f, 460.319f) = int3(0, 44, 460) to int3(0, 44, 470)
+ClientWorld player simulation set new target int3(0, 44, 470)
+ClientWorld player simulation reached target int3(0, 44, 470)
+Player simulation searching for path from float3(0.5f, 44.1f, 470.3191f) = int3(0, 44, 470) to int3(0, 44, 480)
+ClientWorld player simulation set new target int3(0, 44, 480)
+ClientWorld player simulation reached target int3(0, 44, 480)
+Player simulation searching for path from float3(0.5f, 44.1f, 480.32f) = int3(0, 44, 480) to int3(0, 44, 490)
+ClientWorld player simulation set new target int3(0, 44, 490)
+ClientWorld player simulation reached target int3(0, 44, 490)
+Player simulation searching for path from float3(0.5f, 44.1f, 490.321f) = int3(0, 44, 490) to int3(0, 44, 500)
+ClientWorld player simulation set new target int3(0, 44, 500)
+ClientWorld player simulation reached target int3(0, 44, 500)
+Player simulation searching for path from float3(0.5f, 44.1f, 500.3211f) = int3(0, 44, 500) to int3(0, 44, 510)
+ClientWorld player simulation set new target int3(0, 44, 510)
+ClientWorld player simulation path has strayed from int3(0, 44, 503) to int3(0, 44, 500), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 510)
+Player simulation searching for path from float3(0.5f, 44.1f, 510.3221f) = int3(0, 44, 510) to int3(0, 44, 520)
+ClientWorld player simulation set new target int3(0, 44, 520)
+ClientWorld player simulation reached target int3(0, 44, 520)
+Player simulation searching for path from float3(0.5f, 44.1f, 520.4199f) = int3(0, 44, 520) to int3(0, 44, 530)
+ClientWorld player simulation set new target int3(0, 44, 530)
+ClientWorld player simulation reached target int3(0, 44, 530)
+Player simulation searching for path from float3(0.5f, 44.1f, 530.3179f) = int3(0, 44, 530) to int3(0, 44, 540)
+ClientWorld player simulation set new target int3(0, 44, 540)
+ClientWorld player simulation reached target int3(0, 44, 540)
+Player simulation searching for path from float3(0.5f, 44.1f, 540.3157f) = int3(0, 44, 540) to int3(0, 44, 550)
+ClientWorld player simulation set new target int3(0, 44, 550)
+ClientWorld player simulation reached target int3(0, 44, 550)
+Player simulation searching for path from float3(0.5f, 44.1f, 550.314f) = int3(0, 44, 550) to int3(0, 44, 560)
+ClientWorld player simulation set new target int3(0, 44, 560)
+ClientWorld player simulation reached target int3(0, 44, 560)
+Player simulation searching for path from float3(0.5f, 44.1f, 560.312f) = int3(0, 44, 560) to int3(0, 44, 570)
+ClientWorld player simulation set new target int3(0, 44, 570)
+ClientWorld player simulation reached target int3(0, 44, 570)
+Player simulation searching for path from float3(0.5f, 44.1f, 570.31f) = int3(0, 44, 570) to int3(0, 44, 580)
+ClientWorld player simulation set new target int3(0, 44, 580)
+ClientWorld player simulation reached target int3(0, 44, 580)
+Player simulation searching for path from float3(0.5f, 44.1f, 580.308f) = int3(0, 44, 580) to int3(0, 44, 590)
+ClientWorld player simulation set new target int3(0, 44, 590)
+ClientWorld player simulation reached target int3(0, 44, 590)
+Player simulation searching for path from float3(0.5f, 44.1f, 590.3059f) = int3(0, 44, 590) to int3(0, 44, 600)
+ClientWorld player simulation set new target int3(0, 44, 600)
+ClientWorld player simulation reached target int3(0, 44, 600)
+Player simulation searching for path from float3(0.5f, 44.1f, 600.304f) = int3(0, 44, 600) to int3(0, 44, 610)
+ClientWorld player simulation set new target int3(0, 44, 610)
+ClientWorld player simulation reached target int3(0, 44, 610)
+Player simulation searching for path from float3(0.5f, 44.1f, 610.3019f) = int3(0, 44, 610) to int3(0, 44, 620)
+ClientWorld player simulation set new target int3(0, 44, 620)
+ClientWorld player simulation reached target int3(0, 44, 620)
+Player simulation searching for path from float3(0.5f, 44.1f, 620.4f) = int3(0, 44, 620) to int3(0, 44, 630)
+ClientWorld player simulation set new target int3(0, 44, 630)
+ClientWorld player simulation reached target int3(0, 44, 630)
+Player simulation searching for path from float3(0.5f, 44.1f, 630.397f) = int3(0, 44, 630) to int3(0, 44, 640)
+ClientWorld player simulation set new target int3(0, 44, 640)
+ClientWorld player simulation reached target int3(0, 44, 640)
+Player simulation searching for path from float3(0.5f, 44.1f, 640.3958f) = int3(0, 44, 640) to int3(0, 44, 650)
+ClientWorld player simulation set new target int3(0, 44, 650)
+ClientWorld player simulation reached target int3(0, 44, 650)
+Player simulation searching for path from float3(0.5f, 44.1f, 650.3938f) = int3(0, 44, 650) to int3(0, 44, 660)
+ClientWorld player simulation set new target int3(0, 44, 660)
+ClientWorld player simulation reached target int3(0, 44, 660)
+Player simulation searching for path from float3(0.5f, 44.1f, 660.392f) = int3(0, 44, 660) to int3(0, 44, 670)
+ClientWorld player simulation set new target int3(0, 44, 670)
+ClientWorld player simulation reached target int3(0, 44, 670)
+Player simulation searching for path from float3(0.5f, 44.1f, 670.392f) = int3(0, 44, 670) to int3(0, 44, 680)
+ClientWorld player simulation set new target int3(0, 44, 680)
+ClientWorld player simulation reached target int3(0, 44, 680)
+Player simulation searching for path from float3(0.5f, 44.1f, 680.39f) = int3(0, 44, 680) to int3(0, 44, 690)
+ClientWorld player simulation set new target int3(0, 44, 690)
+ClientWorld player simulation path has strayed from int3(0, 44, 685) to int3(0, 44, 682), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 690)
+Player simulation searching for path from float3(0.5f, 44.1f, 690.388f) = int3(0, 44, 690) to int3(0, 44, 700)
+ClientWorld player simulation set new target int3(0, 44, 700)
+ClientWorld player simulation reached target int3(0, 44, 700)
+Player simulation searching for path from float3(0.5f, 44.1f, 700.386f) = int3(0, 44, 700) to int3(0, 44, 710)
+ClientWorld player simulation set new target int3(0, 44, 710)
+ClientWorld player simulation reached target int3(0, 44, 710)
+Player simulation searching for path from float3(0.5f, 44.1f, 710.3836f) = int3(0, 44, 710) to int3(0, 44, 720)
+ClientWorld player simulation set new target int3(0, 44, 720)
+ClientWorld player simulation path has strayed from int3(0, 44, 711) to int3(0, 44, 708), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 720)
+Player simulation searching for path from float3(0.5f, 44.1f, 720.3828f) = int3(0, 44, 720) to int3(0, 44, 730)
+ClientWorld player simulation set new target int3(0, 44, 730)
+ClientWorld player simulation reached target int3(0, 44, 730)
+Player simulation searching for path from float3(0.5f, 44.1f, 730.3817f) = int3(0, 44, 730) to int3(0, 44, 740)
+ClientWorld player simulation set new target int3(0, 44, 740)
+ClientWorld player simulation reached target int3(0, 44, 740)
+Player simulation searching for path from float3(0.5f, 44.1f, 740.381f) = int3(0, 44, 740) to int3(0, 44, 750)
+ClientWorld player simulation set new target int3(0, 44, 750)
+ClientWorld player simulation reached target int3(0, 44, 750)
+Player simulation searching for path from float3(0.5f, 44.1f, 750.3798f) = int3(0, 44, 750) to int3(0, 44, 760)
+ClientWorld player simulation set new target int3(0, 44, 760)
+ClientWorld player simulation reached target int3(0, 44, 760)
+Player simulation searching for path from float3(0.5f, 44.1f, 760.3777f) = int3(0, 44, 760) to int3(0, 44, 770)
+ClientWorld player simulation set new target int3(0, 44, 770)
+ClientWorld player simulation reached target int3(0, 44, 770)
+Player simulation searching for path from float3(0.5f, 44.1f, 770.3769f) = int3(0, 44, 770) to int3(0, 44, 780)
+ClientWorld player simulation set new target int3(0, 44, 780)
+ClientWorld player simulation reached target int3(0, 44, 780)
+Player simulation searching for path from float3(0.5f, 44.1f, 780.376f) = int3(0, 44, 780) to int3(0, 44, 790)
+ClientWorld player simulation set new target int3(0, 44, 790)
+ClientWorld player simulation reached target int3(0, 44, 790)
+Player simulation searching for path from float3(0.5f, 44.1f, 790.3751f) = int3(0, 44, 790) to int3(0, 44, 800)
+ClientWorld player simulation set new target int3(0, 44, 800)
+ClientWorld player simulation reached target int3(0, 44, 800)
+Player simulation searching for path from float3(0.5f, 44.1f, 800.3735f) = int3(0, 44, 800) to int3(0, 44, 810)
+ClientWorld player simulation set new target int3(0, 44, 810)
+ClientWorld player simulation path has strayed from int3(0, 44, 801) to int3(0, 44, 798), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 810) to int3(0, 44, 807), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 810)
+Player simulation searching for path from float3(0.5f, 44.1f, 810.3729f) = int3(0, 44, 810) to int3(0, 44, 820)
+ClientWorld player simulation set new target int3(0, 44, 820)
+ClientWorld player simulation reached target int3(0, 44, 820)
+Player simulation searching for path from float3(0.5f, 44.1f, 820.372f) = int3(0, 44, 820) to int3(0, 44, 830)
+ClientWorld player simulation set new target int3(0, 44, 830)
+ClientWorld player simulation path has strayed from int3(0, 44, 824) to int3(0, 44, 821), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 830)
+Player simulation searching for path from float3(0.5f, 44.1f, 830.3719f) = int3(0, 44, 830) to int3(0, 44, 840)
+ClientWorld player simulation set new target int3(0, 44, 840)
+ClientWorld player simulation reached target int3(0, 44, 840)
+Player simulation searching for path from float3(0.5f, 44.1f, 840.371f) = int3(0, 44, 840) to int3(0, 44, 850)
+ClientWorld player simulation set new target int3(0, 44, 850)
+ClientWorld player simulation reached target int3(0, 44, 850)
+Player simulation searching for path from float3(0.5f, 44.1f, 850.3707f) = int3(0, 44, 850) to int3(0, 44, 860)
+ClientWorld player simulation set new target int3(0, 44, 860)
+ClientWorld player simulation reached target int3(0, 44, 860)
+Player simulation searching for path from float3(0.5f, 44.1f, 860.3699f) = int3(0, 44, 860) to int3(0, 44, 870)
+ClientWorld player simulation set new target int3(0, 44, 870)
+ClientWorld player simulation reached target int3(0, 44, 870)
+Player simulation searching for path from float3(0.5f, 44.1f, 870.369f) = int3(0, 44, 870) to int3(0, 44, 880)
+ClientWorld player simulation set new target int3(0, 44, 880)
+ClientWorld player simulation reached target int3(0, 44, 880)
+Player simulation searching for path from float3(0.5f, 44.1f, 880.3688f) = int3(0, 44, 880) to int3(0, 44, 890)
+ClientWorld player simulation set new target int3(0, 44, 890)
+ClientWorld player simulation path has strayed from int3(0, 44, 888) to int3(0, 44, 885), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 889) to int3(0, 44, 886), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 890)
+Player simulation searching for path from float3(0.5f, 44.1f, 890.3679f) = int3(0, 44, 890) to int3(0, 44, 900)
+ClientWorld player simulation set new target int3(0, 44, 900)
+ClientWorld player simulation reached target int3(0, 44, 900)
+Player simulation searching for path from float3(0.5f, 44.1f, 900.368f) = int3(0, 44, 900) to int3(0, 44, 910)
+ClientWorld player simulation set new target int3(0, 44, 910)
+ClientWorld player simulation reached target int3(0, 44, 910)
+Player simulation searching for path from float3(0.5f, 44.1f, 910.3666f) = int3(0, 44, 910) to int3(0, 44, 920)
+ClientWorld player simulation set new target int3(0, 44, 920)
+ClientWorld player simulation path has strayed from int3(0, 44, 913) to int3(0, 44, 910), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 920)
+Player simulation searching for path from float3(0.5f, 44.1f, 920.3657f) = int3(0, 44, 920) to int3(0, 44, 930)
+ClientWorld player simulation set new target int3(0, 44, 930)
+ClientWorld player simulation reached target int3(0, 44, 930)
+Player simulation searching for path from float3(0.5f, 44.1f, 930.366f) = int3(0, 44, 930) to int3(0, 44, 940)
+ClientWorld player simulation set new target int3(0, 44, 940)
+ClientWorld player simulation path has strayed from int3(0, 44, 935) to int3(0, 44, 932), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 940)
+Player simulation searching for path from float3(0.5f, 44.1f, 940.3648f) = int3(0, 44, 940) to int3(0, 44, 950)
+ClientWorld player simulation set new target int3(0, 44, 950)
+ClientWorld player simulation reached target int3(0, 44, 950)
+Player simulation searching for path from float3(0.5f, 44.1f, 950.364f) = int3(0, 44, 950) to int3(0, 44, 960)
+ClientWorld player simulation set new target int3(0, 44, 960)
+ClientWorld player simulation path has strayed from int3(0, 44, 958) to int3(0, 44, 955), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 959) to int3(0, 44, 956), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 959) to int3(0, 44, 956), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 960) to int3(0, 44, 957), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 959) to int3(0, 44, 956), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 960)
+Player simulation searching for path from float3(0.5f, 44.1f, 960.3636f) = int3(0, 44, 960) to int3(0, 44, 970)
+ClientWorld player simulation set new target int3(0, 44, 970)
+ClientWorld player simulation path has strayed from int3(0, 44, 969) to int3(0, 44, 966), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 970)
+Player simulation searching for path from float3(0.5f, 44.1f, 970.3626f) = int3(0, 44, 970) to int3(0, 44, 980)
+ClientWorld player simulation set new target int3(0, 44, 980)
+ClientWorld player simulation reached target int3(0, 44, 980)
+Player simulation searching for path from float3(0.5f, 44.1f, 980.362f) = int3(0, 44, 980) to int3(0, 44, 990)
+ClientWorld player simulation set new target int3(0, 44, 990)
+ClientWorld player simulation path has strayed from int3(0, 44, 985) to int3(0, 44, 982), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 986) to int3(0, 44, 983), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 990)
+Player simulation searching for path from float3(0.5f, 44.1f, 990.3618f) = int3(0, 44, 990) to int3(0, 44, 1000)
+ClientWorld player simulation set new target int3(0, 44, 1000)
+ClientWorld player simulation reached target int3(0, 44, 1000)
+Player simulation searching for path from float3(0.5f, 44.1f, 1000.361f) = int3(0, 44, 1000) to int3(0, 44, 1010)
+ClientWorld player simulation set new target int3(0, 44, 1010)
+ClientWorld player simulation path has strayed from int3(0, 44, 1005) to int3(0, 44, 1002), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1010)
+Player simulation searching for path from float3(0.5f, 44.1f, 1010.361f) = int3(0, 44, 1010) to int3(0, 44, 1020)
+ClientWorld player simulation set new target int3(0, 44, 1020)
+ClientWorld player simulation reached target int3(0, 44, 1020)
+Player simulation searching for path from float3(0.5f, 44.1f, 1020.36f) = int3(0, 44, 1020) to int3(0, 44, 1030)
+ClientWorld player simulation set new target int3(0, 44, 1030)
+ClientWorld player simulation reached target int3(0, 44, 1030)
+Player simulation searching for path from float3(0.5f, 44.1f, 1030.359f) = int3(0, 44, 1030) to int3(0, 44, 1040)
+ClientWorld player simulation set new target int3(0, 44, 1040)
+ClientWorld player simulation reached target int3(0, 44, 1040)
+Player simulation searching for path from float3(0.5f, 44.1f, 1040.358f) = int3(0, 44, 1040) to int3(0, 44, 1050)
+ClientWorld player simulation set new target int3(0, 44, 1050)
+ClientWorld player simulation path has strayed from int3(0, 44, 1048) to int3(0, 44, 1045), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1049) to int3(0, 44, 1046), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1049) to int3(0, 44, 1046), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1050)
+Player simulation searching for path from float3(0.5f, 44.1f, 1050.357f) = int3(0, 44, 1050) to int3(0, 44, 1060)
+ClientWorld player simulation set new target int3(0, 44, 1060)
+ClientWorld player simulation reached target int3(0, 44, 1060)
+Player simulation searching for path from float3(0.5f, 44.1f, 1060.356f) = int3(0, 44, 1060) to int3(0, 44, 1070)
+ClientWorld player simulation set new target int3(0, 44, 1070)
+ClientWorld player simulation reached target int3(0, 44, 1070)
+Player simulation searching for path from float3(0.5f, 44.1f, 1070.354f) = int3(0, 44, 1070) to int3(0, 44, 1080)
+ClientWorld player simulation set new target int3(0, 44, 1080)
+ClientWorld player simulation path has strayed from int3(0, 44, 1071) to int3(0, 44, 1068), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1080)
+Player simulation searching for path from float3(0.5f, 44.1f, 1080.353f) = int3(0, 44, 1080) to int3(0, 44, 1090)
+ClientWorld player simulation set new target int3(0, 44, 1090)
+ClientWorld player simulation path has strayed from int3(0, 44, 1089) to int3(0, 44, 1086), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1090) to int3(0, 44, 1087), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1090)
+Player simulation searching for path from float3(0.5f, 44.1f, 1090.351f) = int3(0, 44, 1090) to int3(0, 44, 1100)
+ClientWorld player simulation set new target int3(0, 44, 1100)
+ClientWorld player simulation path has strayed from int3(0, 44, 1099) to int3(0, 44, 1096), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1100)
+Player simulation searching for path from float3(0.5f, 44.1f, 1100.35f) = int3(0, 44, 1100) to int3(0, 44, 1110)
+ClientWorld player simulation set new target int3(0, 44, 1110)
+ClientWorld player simulation reached target int3(0, 44, 1110)
+Player simulation searching for path from float3(0.5f, 44.1f, 1110.349f) = int3(0, 44, 1110) to int3(0, 44, 1120)
+ClientWorld player simulation set new target int3(0, 44, 1120)
+ClientWorld player simulation path has strayed from int3(0, 44, 1113) to int3(0, 44, 1110), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1115) to int3(0, 44, 1112), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1115) to int3(0, 44, 1112), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1120) to int3(0, 44, 1117), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1120)
+Player simulation searching for path from float3(0.5f, 44.1f, 1120.348f) = int3(0, 44, 1120) to int3(0, 44, 1130)
+ClientWorld player simulation set new target int3(0, 44, 1130)
+ClientWorld player simulation reached target int3(0, 44, 1130)
+Player simulation searching for path from float3(0.5f, 44.1f, 1130.346f) = int3(0, 44, 1130) to int3(0, 44, 1140)
+ClientWorld player simulation set new target int3(0, 44, 1140)
+ClientWorld player simulation path has strayed from int3(0, 44, 1134) to int3(0, 44, 1131), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1140)
+Player simulation searching for path from float3(0.5f, 44.1f, 1140.445f) = int3(0, 44, 1140) to int3(0, 44, 1150)
+ClientWorld player simulation set new target int3(0, 44, 1150)
+ClientWorld player simulation reached target int3(0, 44, 1150)
+Player simulation searching for path from float3(0.5f, 44.1f, 1150.345f) = int3(0, 44, 1150) to int3(0, 44, 1160)
+ClientWorld player simulation set new target int3(0, 44, 1160)
+ClientWorld player simulation path has strayed from int3(0, 44, 1160) to int3(0, 44, 1157), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1160)
+Player simulation searching for path from float3(0.5f, 44.1f, 1160.344f) = int3(0, 44, 1160) to int3(0, 44, 1170)
+ClientWorld player simulation set new target int3(0, 44, 1170)
+ClientWorld player simulation path has strayed from int3(0, 44, 1164) to int3(0, 44, 1161), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1170)
+Player simulation searching for path from float3(0.5f, 44.1f, 1170.343f) = int3(0, 44, 1170) to int3(0, 44, 1180)
+ClientWorld player simulation set new target int3(0, 44, 1180)
+ClientWorld player simulation path has strayed from int3(0, 44, 1179) to int3(0, 44, 1176), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1180)
+Player simulation searching for path from float3(0.5f, 44.1f, 1180.342f) = int3(0, 44, 1180) to int3(0, 44, 1190)
+ClientWorld player simulation set new target int3(0, 44, 1190)
+ClientWorld player simulation reached target int3(0, 44, 1190)
+Player simulation searching for path from float3(0.5f, 44.1f, 1190.34f) = int3(0, 44, 1190) to int3(0, 44, 1200)
+ClientWorld player simulation set new target int3(0, 44, 1200)
+ClientWorld player simulation path has strayed from int3(0, 44, 1193) to int3(0, 44, 1189), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1197) to int3(0, 44, 1194), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1197) to int3(0, 44, 1194), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1200)
+Player simulation searching for path from float3(0.5f, 44.1f, 1200.341f) = int3(0, 44, 1200) to int3(0, 44, 1210)
+ClientWorld player simulation set new target int3(0, 44, 1210)
+ClientWorld player simulation path has strayed from int3(0, 44, 1201) to int3(0, 44, 1198), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1208) to int3(0, 44, 1205), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1210) to int3(0, 44, 1206), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1210)
+Player simulation searching for path from float3(0.5f, 44.1f, 1210.34f) = int3(0, 44, 1210) to int3(0, 44, 1220)
+ClientWorld player simulation set new target int3(0, 44, 1220)
+ClientWorld player simulation reached target int3(0, 44, 1220)
+Player simulation searching for path from float3(0.5f, 44.1f, 1220.339f) = int3(0, 44, 1220) to int3(0, 44, 1230)
+ClientWorld player simulation set new target int3(0, 44, 1230)
+ClientWorld player simulation reached target int3(0, 44, 1230)
+Player simulation searching for path from float3(0.5f, 44.1f, 1230.338f) = int3(0, 44, 1230) to int3(0, 44, 1240)
+ClientWorld player simulation set new target int3(0, 44, 1240)
+ClientWorld player simulation reached target int3(0, 44, 1240)
+Player simulation searching for path from float3(0.5f, 44.1f, 1240.336f) = int3(0, 44, 1240) to int3(0, 44, 1250)
+ClientWorld player simulation set new target int3(0, 44, 1250)
+ClientWorld player simulation path has strayed from int3(0, 44, 1241) to int3(0, 44, 1238), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1250)
+Player simulation searching for path from float3(0.5f, 44.1f, 1250.336f) = int3(0, 44, 1250) to int3(0, 44, 1260)
+ClientWorld player simulation set new target int3(0, 44, 1260)
+ClientWorld player simulation path has strayed from int3(0, 44, 1258) to int3(0, 44, 1255), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1260)
+Player simulation searching for path from float3(0.5f, 44.1f, 1260.334f) = int3(0, 44, 1260) to int3(0, 44, 1270)
+ClientWorld player simulation set new target int3(0, 44, 1270)
+ClientWorld player simulation path has strayed from int3(0, 44, 1261) to int3(0, 44, 1257), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1262) to int3(0, 44, 1259), searching for a correction
+Large serverTick prediction error. Server tick rollback to Unity.NetCode.NetworkTick delta: -10.38384
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+Unity.Logging.Sinks.ManagedUnityEngineDebugLogWrapper:WriteFunc(LogLevel, Byte*, Int32)
+
+ClientWorld player simulation path has strayed from int3(0, 44, 1266) to int3(0, 44, 1263), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1270) to int3(0, 44, 1267), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1270)
+Player simulation searching for path from float3(0.5f, 44.1f, 1270.334f) = int3(0, 44, 1270) to int3(0, 44, 1280)
+ClientWorld player simulation set new target int3(0, 44, 1280)
+ClientWorld player simulation path has strayed from int3(0, 44, 1272) to int3(0, 44, 1269), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1272) to int3(0, 44, 1268), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1280)
+Player simulation searching for path from float3(0.5f, 44.1f, 1280.334f) = int3(0, 44, 1280) to int3(0, 44, 1290)
+ClientWorld player simulation set new target int3(0, 44, 1290)
+ClientWorld player simulation path has strayed from int3(0, 44, 1289) to int3(0, 44, 1286), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1290)
+Player simulation searching for path from float3(0.5f, 44.1f, 1290.333f) = int3(0, 44, 1290) to int3(0, 44, 1300)
+ClientWorld player simulation set new target int3(0, 44, 1300)
+ClientWorld player simulation reached target int3(0, 44, 1300)
+Player simulation searching for path from float3(0.5f, 44.1f, 1300.332f) = int3(0, 44, 1300) to int3(0, 44, 1310)
+ClientWorld player simulation set new target int3(0, 44, 1310)
+ClientWorld player simulation path has strayed from int3(0, 44, 1306) to int3(0, 44, 1303), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1310)
+Player simulation searching for path from float3(0.5f, 44.1f, 1310.33f) = int3(0, 44, 1310) to int3(0, 44, 1320)
+ClientWorld player simulation set new target int3(0, 44, 1320)
+ClientWorld player simulation reached target int3(0, 44, 1320)
+Player simulation searching for path from float3(0.5f, 44.1f, 1320.33f) = int3(0, 44, 1320) to int3(0, 44, 1330)
+ClientWorld player simulation set new target int3(0, 44, 1330)
+ClientWorld player simulation path has strayed from int3(0, 44, 1327) to int3(0, 44, 1324), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1330)
+Player simulation searching for path from float3(0.5f, 44.1f, 1330.53f) = int3(0, 44, 1330) to int3(0, 44, 1340)
+ClientWorld player simulation set new target int3(0, 44, 1340)
+ClientWorld player simulation path has strayed from int3(0, 44, 1338) to int3(0, 44, 1334), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1337) to int3(0, 44, 1334), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1337) to int3(0, 44, 1333), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1340) to int3(0, 44, 1337), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1340)
+Player simulation searching for path from float3(0.5f, 44.1f, 1340.329f) = int3(0, 44, 1340) to int3(0, 44, 1350)
+ClientWorld player simulation set new target int3(0, 44, 1350)
+ClientWorld player simulation path has strayed from int3(0, 44, 1344) to int3(0, 44, 1341), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1342) to int3(0, 44, 1345), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1342) to int3(0, 44, 1345), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1349) to int3(0, 44, 1346), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1350)
+Player simulation searching for path from float3(0.5f, 44.1f, 1350.329f) = int3(0, 44, 1350) to int3(0, 44, 1360)
+ClientWorld player simulation set new target int3(0, 44, 1360)
+ClientWorld player simulation path has strayed from int3(0, 44, 1352) to int3(0, 44, 1349), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1352) to int3(0, 44, 1349), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1360)
+Player simulation searching for path from float3(0.5f, 44.1f, 1360.329f) = int3(0, 44, 1360) to int3(0, 44, 1370)
+ClientWorld player simulation set new target int3(0, 44, 1370)
+ClientWorld player simulation path has strayed from int3(0, 44, 1369) to int3(0, 44, 1366), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1370) to int3(0, 44, 1367), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1370)
+Player simulation searching for path from float3(0.5f, 44.1f, 1370.328f) = int3(0, 44, 1370) to int3(0, 44, 1380)
+ClientWorld player simulation set new target int3(0, 44, 1380)
+ClientWorld player simulation path has strayed from int3(0, 44, 1374) to int3(0, 44, 1371), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1380)
+Player simulation searching for path from float3(0.5f, 44.1f, 1380.628f) = int3(0, 44, 1380) to int3(0, 44, 1390)
+ClientWorld player simulation set new target int3(0, 44, 1390)
+ClientWorld player simulation path has strayed from int3(0, 44, 1385) to int3(0, 44, 1381), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1387) to int3(0, 44, 1383), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1389) to int3(0, 44, 1385), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1390)
+Player simulation searching for path from float3(0.5f, 44.1f, 1390.327f) = int3(0, 44, 1390) to int3(0, 44, 1400)
+ClientWorld player simulation set new target int3(0, 44, 1400)
+ClientWorld player simulation reached target int3(0, 44, 1400)
+Player simulation searching for path from float3(0.5f, 44.1f, 1400.326f) = int3(0, 44, 1400) to int3(0, 44, 1410)
+ClientWorld player simulation set new target int3(0, 44, 1410)
+ClientWorld player simulation reached target int3(0, 44, 1410)
+Player simulation searching for path from float3(0.5f, 44.1f, 1410.326f) = int3(0, 44, 1410) to int3(0, 44, 1420)
+ClientWorld player simulation set new target int3(0, 44, 1420)
+ClientWorld player simulation path has strayed from int3(0, 44, 1418) to int3(0, 44, 1415), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1420) to int3(0, 44, 1417), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1420)
+Player simulation searching for path from float3(0.5f, 44.1f, 1420.325f) = int3(0, 44, 1420) to int3(0, 44, 1430)
+ClientWorld player simulation set new target int3(0, 44, 1430)
+ClientWorld player simulation path has strayed from int3(0, 44, 1425) to int3(0, 44, 1422), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1430)
+Player simulation searching for path from float3(0.5f, 44.1f, 1430.325f) = int3(0, 44, 1430) to int3(0, 44, 1440)
+ClientWorld player simulation set new target int3(0, 44, 1440)
+ClientWorld player simulation path has strayed from int3(0, 44, 1437) to int3(0, 44, 1434), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1438) to int3(0, 44, 1435), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1440) to int3(0, 44, 1437), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1440)
+Player simulation searching for path from float3(0.5f, 44.1f, 1440.324f) = int3(0, 44, 1440) to int3(0, 44, 1450)
+ClientWorld player simulation set new target int3(0, 44, 1450)
+ClientWorld player simulation path has strayed from int3(0, 44, 1442) to int3(0, 44, 1438), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1442) to int3(0, 44, 1439), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1448) to int3(0, 44, 1445), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1450)
+Player simulation searching for path from float3(0.5f, 44.1f, 1450.323f) = int3(0, 44, 1450) to int3(0, 44, 1460)
+ClientWorld player simulation set new target int3(0, 44, 1460)
+ClientWorld player simulation path has strayed from int3(0, 44, 1452) to int3(0, 44, 1449), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1456) to int3(0, 44, 1452), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1457) to int3(0, 44, 1454), searching for a correction
+Large serverTick prediction error. Server tick rollback to Unity.NetCode.NetworkTick delta: -10.35741
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+Unity.Logging.Sinks.ManagedUnityEngineDebugLogWrapper:WriteFunc(LogLevel, Byte*, Int32)
+
+ClientWorld player simulation path has strayed from int3(0, 44, 1460) to int3(0, 44, 1457), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1460)
+Player simulation searching for path from float3(0.5f, 44.1f, 1460.322f) = int3(0, 44, 1460) to int3(0, 44, 1470)
+ClientWorld player simulation set new target int3(0, 44, 1470)
+ClientWorld player simulation path has strayed from int3(0, 44, 1462) to int3(0, 44, 1458), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1463) to int3(0, 44, 1460), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1463) to int3(0, 44, 1460), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1464) to int3(0, 44, 1461), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1466) to int3(0, 44, 1462), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1466) to int3(0, 44, 1463), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1468) to int3(0, 44, 1464), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1470)
+Player simulation searching for path from float3(0.5f, 44.1f, 1470.322f) = int3(0, 44, 1470) to int3(0, 44, 1480)
+ClientWorld player simulation set new target int3(0, 44, 1480)
+ClientWorld player simulation reached target int3(0, 44, 1480)
+Player simulation searching for path from float3(0.5f, 44.1f, 1480.32f) = int3(0, 44, 1480) to int3(0, 44, 1490)
+ClientWorld player simulation set new target int3(0, 44, 1490)
+ClientWorld player simulation path has strayed from int3(0, 44, 1483) to int3(0, 44, 1479), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1485) to int3(0, 44, 1482), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1488) to int3(0, 44, 1484), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1490)
+Player simulation searching for path from float3(0.5f, 44.1f, 1490.32f) = int3(0, 44, 1490) to int3(0, 44, 1500)
+ClientWorld player simulation set new target int3(0, 44, 1500)
+ClientWorld player simulation path has strayed from int3(0, 44, 1495) to int3(0, 44, 1492), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1497) to int3(0, 44, 1494), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1499) to int3(0, 44, 1495), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1500) to int3(0, 44, 1496), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1497) to int3(0, 44, 1500), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1500)
+Player simulation searching for path from float3(0.5f, 44.1f, 1500.32f) = int3(0, 44, 1500) to int3(0, 44, 1510)
+ClientWorld player simulation set new target int3(0, 44, 1510)
+ClientWorld player simulation path has strayed from int3(0, 44, 1501) to int3(0, 44, 1498), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1503) to int3(0, 44, 1500), searching for a correction
+Large serverTick prediction error. Server tick rollback to Unity.NetCode.NetworkTick delta: -10.60666
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+Unity.Logging.Sinks.ManagedUnityEngineDebugLogWrapper:WriteFunc(LogLevel, Byte*, Int32)
+
+ClientWorld player simulation path has strayed from int3(0, 44, 1504) to int3(0, 44, 1501), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1502) to int3(0, 44, 1506), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1505) to int3(0, 44, 1500), searching for a correction
+Large serverTick prediction error. Server tick rollback to Unity.NetCode.NetworkTick delta: -10.41847
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+Unity.Logging.Sinks.ManagedUnityEngineDebugLogWrapper:WriteFunc(LogLevel, Byte*, Int32)
+
+ClientWorld player simulation path has strayed from int3(0, 44, 1507) to int3(0, 44, 1504), searching for a correction
+Large serverTick prediction error. Server tick rollback to Unity.NetCode.NetworkTick delta: -11.85658
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+Unity.Logging.Sinks.ManagedUnityEngineDebugLogWrapper:WriteFunc(LogLevel, Byte*, Int32)
+
+Large serverTick prediction error. Server tick rollback to Unity.NetCode.NetworkTick delta: -10.29637
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+Unity.Logging.Sinks.ManagedUnityEngineDebugLogWrapper:WriteFunc(LogLevel, Byte*, Int32)
+
+ClientWorld player simulation reached target int3(0, 44, 1510)
+Player simulation searching for path from float3(0.5f, 44.1f, 1510.319f) = int3(0, 44, 1510) to int3(0, 44, 1520)
+ClientWorld player simulation set new target int3(0, 44, 1520)
+ClientWorld player simulation path has strayed from int3(0, 44, 1513) to int3(0, 44, 1510), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1520) to int3(0, 44, 1517), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1520)
+Player simulation searching for path from float3(0.5f, 44.1f, 1520.319f) = int3(0, 44, 1520) to int3(0, 44, 1530)
+ClientWorld player simulation set new target int3(0, 44, 1530)
+ClientWorld player simulation path has strayed from int3(0, 44, 1522) to int3(0, 44, 1519), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1530)
+Player simulation searching for path from float3(0.5f, 44.1f, 1530.318f) = int3(0, 44, 1530) to int3(0, 44, 1540)
+ClientWorld player simulation set new target int3(0, 44, 1540)
+ClientWorld player simulation path has strayed from int3(0, 44, 1533) to int3(0, 44, 1530), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1536) to int3(0, 44, 1531), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1540)
+Player simulation searching for path from float3(0.5f, 44.1f, 1540.318f) = int3(0, 44, 1540) to int3(0, 44, 1550)
+ClientWorld player simulation set new target int3(0, 44, 1550)
+ClientWorld player simulation path has strayed from int3(0, 44, 1549) to int3(0, 44, 1546), searching for a correction
+ClientWorld player simulation reached target int3(0, 44, 1550)
+Player simulation searching for path from float3(0.5f, 44.1f, 1550.317f) = int3(0, 44, 1550) to int3(0, 44, 1560)
+ClientWorld player simulation set new target int3(0, 44, 1560)
+ClientWorld player simulation path has strayed from int3(0, 44, 1551) to int3(0, 44, 1548), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1554) to int3(0, 44, 1549), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1556) to int3(0, 44, 1552), searching for a correction
+ClientWorld player simulation path has strayed from int3(0, 44, 1553) to int3(0, 44, 1558), searching for a correction
+[23:46:31.8476470]:[ClientWorld] Connection disconnected ID:1 Reason:ClosedByRemote
