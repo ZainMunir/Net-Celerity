@@ -3,8 +3,9 @@
 # List of num_players options
 
 source config.cfg
-terrain_options=("Empty" "1-Layer" "2-Layer" "3-Layer" "RollingHills" "TerrainCircuitry" "Empty" "RollingHills")
-active_status=("-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "" "")
+terrain_options=("Empty" "Empty" "1-Layer" "2-Layer" "1-Layer" "2-Layer" "1-Layer" "2-Layer")
+active_status=("" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic")
+circuit_radiuses=("0" "0" "1" "1" "2" "2" "4" "4")
 
 # Config (so I can have formatted strings)
 ## Folder locations
@@ -15,7 +16,8 @@ home_folder="/home/${student_id}/"
 for index in "${!terrain_options[@]}"; do
     terrain_type2=${terrain_options[$index]}
     active_logic=${active_status[$index]}
-    run_config="base${active_logic}_${terrain_type2}_${num_players}p_${benchmark_duration}s"
+    circuit_radius=${circuit_radiuses[$index]}
+    run_config="base${active_logic}_${terrain_type2}_${circuit_radius}_${num_players}p_${benchmark_duration}s"
 
     ## Build locations
     build_folder="${build_location}opencraft/"
@@ -48,7 +50,7 @@ for index in "${!terrain_options[@]}"; do
     server_stats="${opencraft_stats}server.csv"
     server_log="${opencraft_logs}server.log"
     echo "Starting server on $server_node at $server_ip:7777 with config ${run_config}..."
-    server_command="${shared_command} -terrainType ${terrain_type2} -statsFile ${server_stats} $active_logic -playType Server > ${server_log} 2>&1 &"
+    server_command="${shared_command} -terrainType ${terrain_type2} -statsFile ${server_stats} $active_logic -circuitChunkRadius $circuit_radius -playType Server > ${server_log}  2>&1 &"
     ssh $server_node "${server_command}" &
     sleep 10
 

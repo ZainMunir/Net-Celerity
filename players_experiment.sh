@@ -3,7 +3,7 @@
 # List of num_players options
 
 source config.cfg
-num_players_options=(110 120 130 140 150 160 170 180 190 200) # Add your desired number of players here
+num_players_options=(10 20 30 40 50 60 70 80 90 100) # Add your desired number of players here
 
 # Config (so I can have formatted strings)
 ## Folder locations
@@ -45,7 +45,7 @@ for num_players2 in "${num_players_options[@]}"; do
     server_stats="${opencraft_stats}server.csv"
     server_log="${opencraft_logs}server.log"
     echo "Starting server on $server_node at $server_ip:7777 with config ${run_config}..."
-    server_command="${shared_command} -terrainType ${terrain_type} -statsFile ${server_stats} -activeLogic -playType Server > ${server_log} 2>&1 &"
+    server_command="${shared_command} -terrainType ${terrain_type} -statsFile ${server_stats} -activeLogic -circuitChunkRadius 5 -playType Server > ${server_log} 2>&1 &"
     ssh $server_node "${server_command}" &
     sleep 10
 
