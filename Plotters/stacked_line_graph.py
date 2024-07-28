@@ -4,14 +4,15 @@ import shared_config as sc
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+plt.style.use('seaborn-v0_8-colorblind')
+sns.set_palette('colorblind')
+
 def create_stacked_line_graph():
-
-    if sc.average_output is None:
-        print("No average output file found!")
-        exit()
-
     average_df = pd.read_csv(sc.average_output)
-    average_df.set_index("filename", inplace=True)
+    if average_df.empty:
+        print("Average CSV is empty!")
+        exit()
+    average_df.set_index("Chunks", inplace=True)
 
     final_columns = [
         "Main Thread_other",
@@ -24,24 +25,25 @@ def create_stacked_line_graph():
         "GetUpdates",
         "ReevaluatePropagateMarker",
         "PropagateLogicState",
-        "CheckGateState",    
+        "CheckGateState", 
+        # "Main Thread"   
     ]
 
     final_columns = [col for col in final_columns if col in average_df.columns]
+    average_df[final_columns] = average_df[final_columns] / 1e6
 
     ax = average_df[final_columns].plot(kind='area', stacked=True, figsize=(10, 6), alpha=0.6)
 
     plt.xlabel('Circuit Chunks')
-    plt.ylabel('Average Frame Time (ns)')
-    plt.title('Affect of Increasing Circuits')
+    plt.ylabel('Average Frame Time (ms)')
 
-    plt.xticks(rotation=90)
 
     plt.ylim(bottom=0)
-    plt.legend(title='Columns')
+    plt.legend(title='Columns', loc='upper left')
 
     plt.tight_layout()
-    plt.show()
+    # plt.show()
+    plt.savefig(f"{sc.plots_directory}{sc.experiment_name}-stacked-line-1.pdf", format='pdf', bbox_inches="tight")
     
     
 if __name__ == "__main__":

@@ -3,13 +3,12 @@ import glob
 import os
 import shared_config as sc
 
-def main():
-    if sc.summed_output is None:
-        print("No summed output file found!")
-        exit()
-
+def average_data():
     summed_df = pd.read_csv(sc.summed_output)
-    summed_df.sort_values("NumInputTypeBlocks", inplace=True)
+    if summed_df.empty:
+        print("Summed CSV is empty!")
+        exit()
+    summed_df.sort_values("Main Thread", inplace=True)
 
     columns_to_average = [
         "Main Thread",
@@ -27,7 +26,7 @@ def main():
 
     average_df = summed_df[columns_to_average].div(summed_df["original_row_count"], axis=0)
 
-    average_df["filename"] = [x.split("_")[1] + (" (Logic Active)" if "-activeLogic" in x else "") for x in summed_df["filename"]]
+    average_df["filename"] = summed_df["filename"] #[x.split("_")[1] + (" (Logic Active)" if "-activeLogic" in x else "") for x in summed_df["filename"]]
     average_df.set_index("filename", inplace=True)
 
     subsets = {
@@ -59,3 +58,6 @@ def main():
 
     average_df.to_csv(sc.average_output, index=True)
     print("Averaged CSV created successfully!")
+    
+if __name__ == "__main__":
+    average_data()
