@@ -29,8 +29,8 @@
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gfx=262144"
 Remaining time:29s
-Found 4 interfaces on host : 0) 10.141.0.5 1) 10.150.0.5 2) 10.149.0.5 3) 192.168.122.1
-Player connection [46912496401984] Multi-casting "[IP] 10.141.0.5 [Port] 55000 [Flags] 19 [Guid] 3146076207 [EditorId] 2902723566 [Version] 1048832 [Id] LinuxPlayer(13,10.141.0.5) [Debug] 0 [PackageName] LinuxPlayer [ProjectName] Opencraft" to [225.0.0.222:54997]...
+Found 2 interfaces on host : 0) 10.141.0.4 1) 10.149.0.4
+Player connection [140700106555264] Multi-casting "[IP] 10.141.0.4 [Port] 55000 [Flags] 19 [Guid] 3767538686 [EditorId] 68957167 [Version] 1048832 [Id] LinuxPlayer(13,10.141.0.4) [Debug] 0 [PackageName] LinuxPlayer [ProjectName] Opencraft" to [225.0.0.222:54997]...
 
 Direct connection to host time out.
 Stopping profiler. Profiler is not able to flush data to a file or socket and exceeded maximum allowed memory for buffering.
@@ -39,7 +39,7 @@ Using 134234112 bytes while Profiler.maxUsedMemory is 134217728 bytes.
 Failed to initialize networking layer after 30 seconds, skipping waiting for connection before starting playback.
 Preloaded 'lib_burst_generated.so'
 Preloaded 'libwebrtc.so'
-[Physics::Module] Initialized MultithreadedJobDispatcher with 31 workers.
+[Physics::Module] Initialized MultithreadedJobDispatcher with 47 workers.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path /var/scratch/zmr280/opencraft/opencraft_Data/UnitySubsystems
 Forcing GfxDevice: Null
@@ -83,7 +83,7 @@ ERROR: Shader Hidden/Universal Render Pipeline/FinalPost shader is not supported
 ERROR: Shader Sprites/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
 ERROR: Shader Sprites/Mask shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
 ERROR: Shader GUI/Text Shader shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
-UnloadTime: 1.363458 ms
+UnloadTime: 1.024551 ms
 Parsing args: /var/scratch/zmr280/opencraft/opencraft.x86_64, -batchmode, -nographics, -logStats, True, -terrainType, 1-Layer, -statsFile, /var/scratch/zmr280/runs/players_1-Layer_10p_300s/opencraft_stats/server.csv, -activeLogic, -circuitChunkRadius, 5, -playType, Server
 Setting up worlds with playType Server and streaming role Disabled
 Connecting worlds with playType Server and streaming role Disabled
@@ -99,7 +99,7 @@ Found codec: AV1 Profile0
 Found codec: AV1 Profile1
 Could not find H264.High as streaming codec!
 Adding terrain areas statistics recorders
-Streamed scene with   15ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/bea83102298cfb741939cdba85abe535.0.entities
+Streamed scene with   38ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/bea83102298cfb741939cdba85abe535.0.entities
 AutoLoading authoring scene in world ServerWorld
 ERROR: Shader Custom/VoxelShader shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
 WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
@@ -123,55 +123,55 @@ ERROR: Shader Universal Render Pipeline/Unlit shader is not supported on this GP
 WARNING: Shader Unsupported: 'Universal Render Pipeline/Unlit' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-Streamed scene with   65ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/62561c7118c5bbb46929c6bf65331faa.0.entities
+Streamed scene with   37ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/62561c7118c5bbb46929c6bf65331faa.0.entities
 Setting player spawn to 0, 5, 0
 TerrainLogicSystem Tick 1
-[18:11:13.2895430]:[ServerWorld] New connection ID:1
+[12:54:29.5697350]:[ServerWorld] New connection ID:1
 Starting game stream on connection 1!
 'Spawning a Ghost '' for user '1' on connection '1'!
-[18:11:13.4067600]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
-[18:11:16.4219660]:[ServerWorld] New connection ID:2
+[12:54:29.6524480]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
+TerrainLogicSystem Tick 2
+[12:54:33.3338720]:[ServerWorld] New connection ID:2
 Starting game stream on connection 2!
 'Spawning a Ghost '' for user '2' on connection '2'!
-[18:11:16.5253310]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
-TerrainLogicSystem Tick 2
-[18:11:19.3057620]:[ServerWorld] New connection ID:3
+[12:54:33.4703910]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
+[12:54:35.8845620]:[ServerWorld] New connection ID:3
 Starting game stream on connection 3!
 'Spawning a Ghost '' for user '3' on connection '3'!
-[18:11:19.4062360]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
+[12:54:36.0035030]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
 TerrainLogicSystem Tick 3
-[18:11:22.5079140]:[ServerWorld] New connection ID:4
+[12:54:39.0170130]:[ServerWorld] New connection ID:4
 Starting game stream on connection 4!
 'Spawning a Ghost '' for user '4' on connection '4'!
-[18:11:22.6059270]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
-TerrainLogicSystem Tick 4
-[18:11:25.5246780]:[ServerWorld] New connection ID:5
+[12:54:39.1167170]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
+[12:54:42.5882400]:[ServerWorld] New connection ID:5
 Starting game stream on connection 5!
+TerrainLogicSystem Tick 4
 'Spawning a Ghost '' for user '5' on connection '5'!
-[18:11:25.6262380]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
-[18:11:28.5102120]:[ServerWorld] New connection ID:6
+[12:54:42.7503660]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
+[12:54:45.0669300]:[ServerWorld] New connection ID:6
 Starting game stream on connection 6!
 'Spawning a Ghost '' for user '6' on connection '6'!
-[18:11:28.5910130]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
+[12:54:45.1666560]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
 TerrainLogicSystem Tick 5
-[18:11:32.2927340]:[ServerWorld] New connection ID:7
+[12:54:48.2855800]:[ServerWorld] New connection ID:7
 Starting game stream on connection 7!
 'Spawning a Ghost '' for user '7' on connection '7'!
-[18:11:32.4081890]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
-TerrainLogicSystem Tick 6
-[18:11:34.4088130]:[ServerWorld] New connection ID:8
+[12:54:48.4030540]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
+[12:54:51.0358190]:[ServerWorld] New connection ID:8
 Starting game stream on connection 8!
 'Spawning a Ghost '' for user '8' on connection '8'!
-[18:11:34.4933590]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
-[18:11:37.6429020]:[ServerWorld] New connection ID:9
+[12:54:51.1358280]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
+TerrainLogicSystem Tick 6
+[12:54:54.0689300]:[ServerWorld] New connection ID:9
 Starting game stream on connection 9!
 'Spawning a Ghost '' for user '9' on connection '9'!
-[18:11:37.7440420]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
-TerrainLogicSystem Tick 7
-[18:11:40.4438590]:[ServerWorld] New connection ID:10
+[12:54:54.1882380]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
+[12:54:57.0522500]:[ServerWorld] New connection ID:10
 Starting game stream on connection 10!
 'Spawning a Ghost '' for user '10' on connection '10'!
-[18:11:40.5278650]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
+[12:54:57.1705690]:[ServerWorld] Connection disconnected ID:0 Reason:ConnectionClose
+TerrainLogicSystem Tick 7
 TerrainLogicSystem Tick 8
 TerrainLogicSystem Tick 9
 TerrainLogicSystem Tick 10
@@ -247,72 +247,53 @@ TerrainLogicSystem Tick 79
 TerrainLogicSystem Tick 80
 TerrainLogicSystem Tick 81
 TerrainLogicSystem Tick 82
-TerrainLogicSystem Tick 83
-TerrainLogicSystem Tick 84
-TerrainLogicSystem Tick 85
-TerrainLogicSystem Tick 86
-TerrainLogicSystem Tick 87
-TerrainLogicSystem Tick 88
-TerrainLogicSystem Tick 89
-TerrainLogicSystem Tick 90
-TerrainLogicSystem Tick 91
-TerrainLogicSystem Tick 92
-TerrainLogicSystem Tick 93
-TerrainLogicSystem Tick 94
-TerrainLogicSystem Tick 95
-TerrainLogicSystem Tick 96
-TerrainLogicSystem Tick 97
-TerrainLogicSystem Tick 98
-TerrainLogicSystem Tick 99
-TerrainLogicSystem Tick 100
-TerrainLogicSystem Tick 101
-TerrainLogicSystem Tick 102
-TerrainLogicSystem Tick 103
-TerrainLogicSystem Tick 104
-TerrainLogicSystem Tick 105
-Caught fatal signal - signo:15 code:0 errno:0 addr:0x165000006b21
-Obtained 14 stack frames.
-#0  0x002aaaac7ca9c9 in PlayerMain(int, char**)
-#1  0x002aaaac7bf4b7 in (Unknown)
-#2  0x002aaaae385630 in _L_unlock_13
-#3  0x002aaaaaacd6c2 in clock_gettime
-#4  0x002aaaae6a6a2d in clock_gettime
-#5  0x002aaaad5a2bb8 in __clock_gettime
-#6  0x002aaaac2af15d in PlayerMain(int, char**)
-#7  0x002aaaac67f649 in (Unknown)
-#8  0x002aaaac242247 in (Unknown)
-#9  0x002aaaac242201 in (Unknown)
-#10 0x002aaaac242570 in (Unknown)
-#11 0x002aaaac7c1077 in (Unknown)
-#12 0x002aaaae5b4555 in PlayerMain(int, char**)
-#13 0x00000000201029 in __libc_start_main
-Setting up 8 worker threads for Enlighten.
-Calling DomainUnloadOrPlayModeChangeShutdown!
+Caught fatal signal - signo:15 code:0 errno:0 addr:0x150200016f14
+Obtained 18 stack frames.
+#0  0x007ff74a53d9c9 in PlayerMain(int, char**)
+#1  0x007ff74a5324b7 in (Unknown)
+#2  0x007ff74829ac20 in funlockfile
+#3  0x007ff6e5a0a8cb in GC_mark_from
+#4  0x007ff6e5a069d9 in GC_mark_some
+#5  0x007ff6e5a05b6d in GC_stopped_mark
+#6  0x007ff6e5a051cc in GC_maybe_gc
+#7  0x007ff6e5a067b7 in GC_collect_a_little_inner
+#8  0x007ff6e5a05115 in GC_collect_a_little
+#9  0x007ff74a47d088 in (Unknown)
+#10 0x007ff74a47d17e in (Unknown)
+#11 0x007ff749fc8373 in (Unknown)
+#12 0x007ff749fb5247 in (Unknown)
+#13 0x007ff749fb5201 in (Unknown)
+#14 0x007ff749fb5570 in (Unknown)
+#15 0x007ff74a534077 in PlayerMain(int, char**)
+#16 0x007ff747ee6493 in __libc_start_main
+#17 0x00000000201029 in _start
+Setting up 12 worker threads for Enlighten.
 Writing stats to file
+Calling DomainUnloadOrPlayModeChangeShutdown!
 Caught fatal signal - signo:11 code:1 errno:0 addr:0x48
 Obtained 25 stack frames.
-#0  0x002aaaac7ca9c9 in PlayerMain(int, char**)
-#1  0x002aaaac7bf4b7 in (Unknown)
-#2  0x002aaaae385630 in _L_unlock_13
-#3  0x002aaaac182ff3 in (Unknown)
-#4  0x002aaaac183671 in (Unknown)
-#5  0x002aaaac163e7a in (Unknown)
-#6  0x002aaaacb5f42e in PlayerMain(int, char**)
-#7  0x002aaaabb11426 in (Unknown)
-#8  0x002aaadef69730 in ContentLoadInterface_ContentFile_UnloadAsync_Injected_mBD2F1D561285B0DE37DCDA4DEA75931201B5E680
-#9  0x002aaadef68b9f in ContentLoadInterface_ContentFile_UnloadAsync_m197A3C60564D4E9F9049BAD57B46FB404A8F17BD
-#10 0x002aaadef68a45 in ContentFile_UnloadAsync_mF35518E83FCF4C1701AF2C6CEBF7E507490481D6
-#11 0x002aaade1e097a in RuntimeContentManager_ReleaseFile_m12EDB377B39EF4D01B3268E711303D79747A4F4C
-#12 0x002aaade1de86c in RuntimeContentManager_ReleaseObjectImpl_m84E24B7727CAA367D95ABC97FC529A5594840414
-#13 0x002aaade1dcef8 in RuntimeContentManager_Cleanup_m6436DF58ED05204D0A7DFACFB212018BD6B813FD
-#14 0x002aaade1de348 in RuntimeContentManager_OnShutdown_m09B1F0AD37BE7168472DDB84F55C43F02CD40113
-#15 0x002aaad9cdd516 in EventHandler_Invoke_m9D3126CBE291A3E7E7C304094E1DA846832F9B96_Multicast(EventHandler_tC6323FD7E6163F965259C33D72612C0E5B9BAB82*, Il2CppObject*, EventArgs_t37273F03EAC87217701DD431B190FBD84AD7C377*, MethodInfo const*)
-#16 0x002aaadd64bcb0 in EventHandler_Invoke_m9D3126CBE291A3E7E7C304094E1DA846832F9B96
-#17 0x002aaad9e87713 in il2cpp::vm::Runtime::InvokeWithThrow(MethodInfo const*, void*, void**)
-#18 0x002aaad9e8767b in il2cpp::vm::Runtime::Invoke(MethodInfo const*, void*, void**, Il2CppException**)
-#19 0x002aaad9e871bc in il2cpp::vm::Runtime::Shutdown()
-#20 0x002aaaac718f56 in (Unknown)
-#21 0x002aaaac254658 in (Unknown)
-#22 0x002aaaac7c0ee6 in PlayerMain(int, char**)
-#23 0x002aaaae5b4555 in __libc_start_main
+#0  0x007ff74a53d9c9 in PlayerMain(int, char**)
+#1  0x007ff74a5324b7 in (Unknown)
+#2  0x007ff74829ac20 in funlockfile
+#3  0x007ff749ef5ff3 in (Unknown)
+#4  0x007ff749ef6671 in (Unknown)
+#5  0x007ff749ed6e7a in (Unknown)
+#6  0x007ff74a8d242e in PlayerMain(int, char**)
+#7  0x007ff749884426 in (Unknown)
+#8  0x007ff6eaa61730 in ContentLoadInterface_ContentFile_UnloadAsync_Injected_mBD2F1D561285B0DE37DCDA4DEA75931201B5E680
+#9  0x007ff6eaa60b9f in ContentLoadInterface_ContentFile_UnloadAsync_m197A3C60564D4E9F9049BAD57B46FB404A8F17BD
+#10 0x007ff6eaa60a45 in ContentFile_UnloadAsync_mF35518E83FCF4C1701AF2C6CEBF7E507490481D6
+#11 0x007ff6e9cd897a in RuntimeContentManager_ReleaseFile_m12EDB377B39EF4D01B3268E711303D79747A4F4C
+#12 0x007ff6e9cd686c in RuntimeContentManager_ReleaseObjectImpl_m84E24B7727CAA367D95ABC97FC529A5594840414
+#13 0x007ff6e9cd4ef8 in RuntimeContentManager_Cleanup_m6436DF58ED05204D0A7DFACFB212018BD6B813FD
+#14 0x007ff6e9cd6348 in RuntimeContentManager_OnShutdown_m09B1F0AD37BE7168472DDB84F55C43F02CD40113
+#15 0x007ff6e57d5516 in EventHandler_Invoke_m9D3126CBE291A3E7E7C304094E1DA846832F9B96_Multicast(EventHandler_tC6323FD7E6163F965259C33D72612C0E5B9BAB82*, Il2CppObject*, EventArgs_t37273F03EAC87217701DD431B190FBD84AD7C377*, MethodInfo const*)
+#16 0x007ff6e9143cb0 in EventHandler_Invoke_m9D3126CBE291A3E7E7C304094E1DA846832F9B96
+#17 0x007ff6e597f713 in il2cpp::vm::Runtime::InvokeWithThrow(MethodInfo const*, void*, void**)
+#18 0x007ff6e597f67b in il2cpp::vm::Runtime::Invoke(MethodInfo const*, void*, void**, Il2CppException**)
+#19 0x007ff6e597f1bc in il2cpp::vm::Runtime::Shutdown()
+#20 0x007ff74a48bf56 in (Unknown)
+#21 0x007ff749fc7658 in (Unknown)
+#22 0x007ff74a533ee6 in PlayerMain(int, char**)
+#23 0x007ff747ee6493 in __libc_start_main
 #24 0x00000000201029 in _start

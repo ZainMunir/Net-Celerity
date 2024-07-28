@@ -6,6 +6,6 @@ fi
 
 dir_name=$1
 
-mkdir Archive/$dir_name
+mkdir -p Archive/$dir_name
 
 mv Data/* Archive/$dir_name/

@@ -37,8 +37,8 @@ def create_stacked_line_graph():
     plt.legend(title='Columns', loc='lower right')
 
     plt.tight_layout()
-    plt.show()
-    plt.savefig(f"{sc.plots_directory}{sc.experiment_name}-stacked-bar-1.pdf", format='pdf', bbox_inches="tight")
+    # plt.show()
+    plt.savefig(f"{sc.plots_directory}{sc.experiment_name}-stacked-bar-1.pdf", format='pdf')
     
     
 if __name__ == "__main__":

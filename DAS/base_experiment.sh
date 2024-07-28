@@ -3,9 +3,9 @@
 # List of num_players options
 
 source config.cfg
-terrain_options=("2-Layer")
-active_status=("-activeLogic")
-circuit_radiuses=("5")
+terrain_options=("Empty" "Empty" "1-Layer" "1-Layer" "1-Layer" "1-Layer" "1-Layer" "1-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "3-Layer" "3-Layer" "3-Layer" "3-Layer" "3-Layer" "3-Layer")
+active_status=("" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic")
+circuit_radiuses=("0" "0" "1" "2" "3" "4" "5" "6" "1" "2" "3" "4" "5" "6" "1" "2" "3" "4" "5" "6")
 
 # Config (so I can have formatted strings)
 ## Folder locations
@@ -13,35 +13,34 @@ student_id="zmr280"
 build_location="/var/scratch/${student_id}/"
 home_folder="/home/${student_id}/"
 
+## Build locations
+build_folder="${build_location}opencraft/"
+raw_executable="opencraft.x86_64"
+opencraft_executable="${build_folder}${raw_executable}"
+runs_dir="${build_location}runs/"
+mkdir -p ${runs_dir}
+
+## Scripts locations
+net_celerity_folder="${home_folder}Net-Celerity/"
+system_monitor_script="${net_celerity_folder}system_monitor.py"
+client_system_monitor_script="${net_celerity_folder}client_system_monitor.py"
+collect_script="${net_celerity_folder}collect_script.py"
+
 for index in "${!terrain_options[@]}"; do
     terrain_type2=${terrain_options[$index]}
     active_logic=${active_status[$index]}
     circuit_radius=${circuit_radiuses[$index]}
-    run_config="base${active_logic}_${terrain_type2}_${circuit_radius}_${num_players}p_${benchmark_duration}s"
+    run_config="base${active_logic}_${terrain_type2}_${circuit_radius}c_${num_players}p_${benchmark_duration}s"
 
-    ## Build locations
-    build_folder="${build_location}opencraft/"
-    raw_executable="opencraft.x86_64"
-    opencraft_executable="${build_folder}${raw_executable}"
-
-    runs_dir="${build_location}runs/"
     run_dir="${runs_dir}${run_config}/"
     opencraft_stats="${run_dir}opencraft_stats/"
     opencraft_logs="${run_dir}opencraft_logs/"
     system_logs="${run_dir}system_logs/"
 
-    mkdir -p ${runs_dir}
     mkdir -p ${run_dir}
     mkdir -p ${opencraft_stats}
     mkdir -p ${opencraft_logs}
     mkdir -p ${system_logs}
-
-    ## Net-Celerity locations
-    net_celerity_folder="${home_folder}Net-Celerity/"
-    ### Scripts
-    system_monitor_script="${net_celerity_folder}system_monitor.py"
-    client_system_monitor_script="${net_celerity_folder}client_system_monitor.py"
-    collect_script="${net_celerity_folder}collect_script.py"
 
     shared_command="${opencraft_executable} -batchmode -nographics -logStats True"
 
@@ -114,7 +113,7 @@ for index in "${!terrain_options[@]}"; do
     python3 $collect_script $system_logs $run_config
     wait
 
-    echo "Benchmarking completed for ${terrain_type2} terrain."
+    echo "Benchmarking completed for ${run_config} config."
 done
 
 echo "Script execution complete."

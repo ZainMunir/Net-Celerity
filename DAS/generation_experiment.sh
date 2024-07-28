@@ -11,32 +11,31 @@ student_id="zmr280"
 build_location="/var/scratch/${student_id}/"
 home_folder="/home/${student_id}/"
 
+## Build locations
+build_folder="${build_location}opencraft/"
+raw_executable="opencraft.x86_64"
+opencraft_executable="${build_folder}${raw_executable}"
+runs_dir="${build_location}runs/"
+mkdir -p ${runs_dir}
+
+## Scripts locations
+net_celerity_folder="${home_folder}Net-Celerity/"
+system_monitor_script="${net_celerity_folder}system_monitor.py"
+client_system_monitor_script="${net_celerity_folder}client_system_monitor.py"
+collect_script="${net_celerity_folder}collect_script.py"
+
 for terrain_type2 in "${terrain_options[@]}"; do
     run_config="gen_${terrain_type2}_${num_players}p_${benchmark_duration}s"
 
-    ## Build locations
-    build_folder="${build_location}opencraft/"
-    raw_executable="opencraft.x86_64"
-    opencraft_executable="${build_folder}${raw_executable}"
-
-    runs_dir="${build_location}runs/"
     run_dir="${runs_dir}${run_config}/"
     opencraft_stats="${run_dir}opencraft_stats/"
     opencraft_logs="${run_dir}opencraft_logs/"
     system_logs="${run_dir}system_logs/"
 
-    mkdir -p ${runs_dir}
     mkdir -p ${run_dir}
     mkdir -p ${opencraft_stats}
     mkdir -p ${opencraft_logs}
     mkdir -p ${system_logs}
-
-    ## Net-Celerity locations
-    net_celerity_folder="${home_folder}Net-Celerity/"
-    ### Scripts
-    system_monitor_script="${net_celerity_folder}system_monitor.py"
-    client_system_monitor_script="${net_celerity_folder}client_system_monitor.py"
-    collect_script="${net_celerity_folder}collect_script.py"
 
     shared_command="${opencraft_executable} -batchmode -nographics -logStats True"
 
