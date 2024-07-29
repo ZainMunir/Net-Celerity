@@ -2,8 +2,9 @@ import pandas as pd
 import glob
 import os
 import shared_config as sc
+import sys
 
-def average_data():
+def average_data(players=False):
     summed_df = pd.read_csv(sc.summed_output)
     if summed_df.empty:
         print("Summed CSV is empty!")
@@ -11,8 +12,10 @@ def average_data():
     
     if "base" in sc.experiment_name: 
         summed_df.set_index("Chunks", inplace=True)
+        summed_df.sort_index(inplace=True)
     elif  "players" in sc.experiment_name:
         summed_df.set_index("players", inplace=True)
+        summed_df.sort_index(inplace=True)
     else:
         raise ValueError("Invalid experiment name")
 
@@ -34,6 +37,8 @@ def average_data():
 
     average_df["filename"] = summed_df["filename"] #[x.split("_")[1] + (" (Logic Active)" if "-activeLogic" in x else "") for x in summed_df["filename"]]
     average_df["Chunks"] = summed_df["Chunks"]
+    if players:
+        average_df["players"] = summed_df.index
     
     average_df.set_index("filename", inplace=True)
 
@@ -68,4 +73,7 @@ def average_data():
     print("Averaged CSV created successfully!")
     
 if __name__ == "__main__":
-    average_data()
+    if "players" in sc.experiment_name:
+            average_data(True)
+    else:
+        average_data()

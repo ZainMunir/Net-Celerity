@@ -1,21 +1,23 @@
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 import shared_config as sc
 import seaborn as sns
-import matplotlib.pyplot as plt
+import sys
 
+matplotlib.rcParams.update({'font.size': 15})
 plt.style.use('seaborn-v0_8-colorblind')
 sns.set_palette('colorblind')
 
 
-def create_stacked_line_graph():
+def create_stacked_line_graph(all_data=False):
     average_df = pd.read_csv(sc.average_output)
     if average_df.empty:
         print("Average CSV is empty!")
         exit()
     if "base" in sc.experiment_name: 
         average_df.set_index("Chunks", inplace=True)
-        x_label = "Chunks"
+        x_label = "Circuits"
     elif  "players" in sc.experiment_name:
         average_df.set_index("players", inplace=True)
         x_label = "Players"
@@ -29,17 +31,17 @@ def create_stacked_line_graph():
         "PlayerTerrainGenCheck",
         "TerrainGeneration",
         "StructureGeneration",
-        "TerrainLogicSystem_other",
-        "GetUpdates",
-        "ReevaluatePropagateMarker",
-        "PropagateLogicState",
-        "CheckGateState", 
+        "TerrainLogicSystem",
+        # "GetUpdates",
+        # "ReevaluatePropagateMarker",
+        # "PropagateLogicState",
+        # "CheckGateState", 
         # "Main Thread"   
     ]
     
     addition=1
     legend = "upper left"
-    if sc.all_data:
+    if all_data:
         final_columns = [
             "Main Thread_other",
             "ServerFixedUpdate_other",
@@ -57,12 +59,19 @@ def create_stacked_line_graph():
 
 
     plt.ylim(bottom=0)
-    plt.legend(title='Columns', loc=legend)
+    plt.legend(loc=legend)
 
     plt.tight_layout()
     # plt.show()
     plt.savefig(f"{sc.plots_directory}{sc.experiment_name}-stacked-line-{addition}.pdf", format='pdf', bbox_inches="tight")
+    print(f"Saved plot to {sc.plots_directory}{sc.experiment_name}-stacked-line-{addition}.pdf")
     
     
 if __name__ == "__main__":
-    create_stacked_line_graph()
+    if len(sys.argv) == 2:
+        if sys.argv[1] == "all":
+            create_stacked_line_graph(True)
+        else:
+            print("Invalid argument. Usage: python3 stacked_line_graph.py [all]")
+    else:
+        create_stacked_line_graph()

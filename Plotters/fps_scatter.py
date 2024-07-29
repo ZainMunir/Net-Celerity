@@ -1,14 +1,16 @@
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 import shared_config as sc
 import seaborn as sns
-import matplotlib.pyplot as plt
 import numpy as np
 
+
+matplotlib.rcParams.update({'font.size': 15})
 plt.style.use('seaborn-v0_8-colorblind')
 sns.set_palette('colorblind')
 
-def create_stacked_line_graph():
+def create_fps_scatter():
     average_df = pd.read_csv(sc.average_output)
     if average_df.empty:
         print("Average CSV is empty!")
@@ -26,7 +28,7 @@ def create_stacked_line_graph():
     average_df["FPS"] = fps       
     
     
-    fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, height_ratios=[10, 1])
+    fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, height_ratios=[10, 1], figsize=(10, 6))
     x = average_df.index
     y = average_df["FPS"]
     min_y = y.min()
@@ -59,7 +61,8 @@ def create_stacked_line_graph():
     plt.tight_layout()
     # plt.show()
     plt.savefig(f"{sc.plots_directory}{sc.experiment_name}-fps.pdf", format='pdf')
+    print(f"Saved plot to {sc.plots_directory}{sc.experiment_name}-fps.pdf")
     
     
 if __name__ == "__main__":
-    create_stacked_line_graph()
+    create_fps_scatter()

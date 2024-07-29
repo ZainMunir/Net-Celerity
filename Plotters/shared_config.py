@@ -1,10 +1,9 @@
 import os
 
 data_directory = "../Data/"
-experiment_name = "players_Empty"
+experiment_name = "players_1-Layer"
 filter_by_max_terrainarea = True
 filter_by_max_players = True
-all_data = False
 
 experiment_directory = f"{data_directory}{experiment_name}/"
 formatted_stats_directory = f"{experiment_directory}formatted_stats/"
