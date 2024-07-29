@@ -34,7 +34,6 @@ def average_data():
 
     average_df["filename"] = summed_df["filename"] #[x.split("_")[1] + (" (Logic Active)" if "-activeLogic" in x else "") for x in summed_df["filename"]]
     average_df["Chunks"] = summed_df["Chunks"]
-    # average_df["players"] = summed_df.index
     
     average_df.set_index("filename", inplace=True)
 
