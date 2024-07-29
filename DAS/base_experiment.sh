@@ -3,9 +3,12 @@
 # List of num_players options
 
 source config.cfg
-terrain_options=("Empty" "Empty" "1-Layer" "1-Layer" "1-Layer" "1-Layer" "1-Layer" "1-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "3-Layer" "3-Layer" "3-Layer" "3-Layer" "3-Layer" "3-Layer")
-active_status=("" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic")
-circuit_radiuses=("0" "0" "1" "2" "3" "4" "5" "6" "1" "2" "3" "4" "5" "6" "1" "2" "3" "4" "5" "6")
+
+# 5, 6, 10, 15, 20, 24, 30, 40, 45, 54, 60, 90, 108
+terrain_options=("1-Layer" "1-Layer" "1-Layer" "1-Layer" "1-Layer" "1-Layer" "1-Layer" "2-Layer" "2-Layer" "3-Layer" "3-Layer" "3-Layer" "3-Layer")
+active_status=("-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic")
+circuitXes=("1" "1" "2" "3" "4" "4" "5" "4" "5" "3" "3" "5" "6")
+circuitZes=("5" "6" "5" "5" "5" "6" "6" "5" "6" "5" "6" "6" "6")
 
 # Config (so I can have formatted strings)
 ## Folder locations
@@ -29,8 +32,9 @@ collect_script="${net_celerity_folder}collect_script.py"
 for index in "${!terrain_options[@]}"; do
     terrain_type2=${terrain_options[$index]}
     active_logic=${active_status[$index]}
-    circuit_radius=${circuit_radiuses[$index]}
-    run_config="base${active_logic}_${terrain_type2}_${circuit_radius}c_${num_players}p_${benchmark_duration}s"
+    circuitX=${circuitXes[$index]}
+    circuitZ=${circuitZes[$index]}
+    run_config="base${active_logic}_${terrain_type2}_${circuitX}x_${circuitZ}z_${num_players}p_${benchmark_duration}s"
 
     run_dir="${runs_dir}${run_config}/"
     opencraft_stats="${run_dir}opencraft_stats/"
@@ -49,7 +53,7 @@ for index in "${!terrain_options[@]}"; do
     server_stats="${opencraft_stats}server.csv"
     server_log="${opencraft_logs}server.log"
     echo "Starting server on $server_node at $server_ip:7777 with config ${run_config}..."
-    server_command="${shared_command} -terrainType ${terrain_type2} -statsFile ${server_stats} $active_logic -circuitChunkRadius $circuit_radius -playType Server > ${server_log}  2>&1 &"
+    server_command="${shared_command} -terrainType ${terrain_type2} -statsFile ${server_stats} $active_logic -circuitX $circuitX -circuitZ $circuitZ -playType Server > ${server_log}  2>&1 &"
     ssh $server_node "${server_command}" &
     sleep 10
 

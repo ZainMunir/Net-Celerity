@@ -44,7 +44,7 @@ for num_players2 in "${num_players_options[@]}"; do
     server_stats="${opencraft_stats}server.csv"
     server_log="${opencraft_logs}server.log"
     echo "Starting server on $server_node at $server_ip:7777 with config ${run_config}..."
-    server_command="${shared_command} -terrainType ${terrain_type} -statsFile ${server_stats} -activeLogic -circuitChunkRadius 5 -playType Server > ${server_log} 2>&1 &"
+    server_command="${shared_command} -terrainType ${terrain_type} -statsFile ${server_stats} -playType Server > ${server_log} 2>&1 &"
     ssh $server_node "${server_command}" &
     sleep 10
 
