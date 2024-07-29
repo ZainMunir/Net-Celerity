@@ -1,7 +1,7 @@
 import os
 
 data_directory = "../Data/"
-experiment_name = "players_1-Layer"
+experiment_name = "players-activeLogic_RollingHills"
 filter_by_max_terrainarea = True
 filter_by_max_players = True
 
