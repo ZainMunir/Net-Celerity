@@ -29,10 +29,10 @@ def run_summer():
             )
         elif "players" in filename:
             _, terrain_type, players, duration = filename.split("_")
-        summed_df["terrain_type"] = terrain_type
-        summed_df["players"] = int(players[:-1])
-        summed_df["duration"] = int(duration.replace(".csv", "")[:-1])
-        summed_df["Chunks"] = 25
+            summed_df["terrain_type"] = terrain_type
+            summed_df["players"] = int(players[:-1])
+            summed_df["duration"] = int(duration.replace(".csv", "")[:-1])
+            summed_df["Chunks"] = 25
 
         summed_data.append(summed_df)
 

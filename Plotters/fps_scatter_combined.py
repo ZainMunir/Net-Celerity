@@ -31,7 +31,7 @@ def create_stacked_line_graph():
     for average_df_file in average_dfes:
         if not os.path.exists(average_df_file):
             print(f"{average_df_file} does not exist")
-            exit()
+            continue
         average_df = pd.read_csv(average_df_file)
         average_df.set_index("players", inplace=True)
         x_label = "Players"
