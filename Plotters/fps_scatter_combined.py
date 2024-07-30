@@ -7,7 +7,7 @@ import numpy as np
 import os
 import re
 
-def create_stacked_line_graph():
+def create_fps_scatter():
     player_experiments = [
         f"{sc.data_directory}{x}/"
         for x in os.listdir(sc.data_directory)
@@ -51,7 +51,7 @@ def create_stacked_line_graph():
             if "-activeLogic" in val:
                 labels.append(f"{val.replace('-activeLogic_', '')} (Logic Active)")
             else: 
-                labels.append(search.group(1).replace("_", ""))
+                labels.append(val.replace("_", ""))
         else:
             raise ValueError("Invalid experiment name")
 
@@ -66,9 +66,9 @@ def create_stacked_line_graph():
 
     plt.tight_layout()
     # plt.show()
-    plt.savefig(f"{sc.plots_directory}players-fps.pdf", format="pdf")
+    plt.savefig(f"{sc.plots_directory}players-fps-2.pdf", format="pdf")
     print(f"Saved plot to {sc.plots_directory}players-fps.pdf")
 
 
 if __name__ == "__main__":
-    create_stacked_line_graph()
+    create_fps_scatter()
