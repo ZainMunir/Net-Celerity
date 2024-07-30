@@ -7,9 +7,6 @@ import numpy as np
 import os
 import re
 
-
-
-
 def create_stacked_line_graph():
     player_experiments = [
         f"{sc.data_directory}{x}/"

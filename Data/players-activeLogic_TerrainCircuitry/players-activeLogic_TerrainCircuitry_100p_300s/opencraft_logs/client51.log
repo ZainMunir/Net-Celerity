@@ -1,0 +1,560 @@
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=4194304"
+    "memorysetup-bucket-allocator-block-count=1"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=4194304"
+    "memorysetup-profiler-bucket-allocator-block-count=1"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=4194304"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=262144"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Remaining time:29s
+Found 2 interfaces on host : 0) 10.141.0.2 1) 10.149.0.2
+Player connection [140003764182912] Multi-casting "[IP] 10.141.0.2 [Port] 55016 [Flags] 19 [Guid] 699753085 [EditorId] 1679853332 [Version] 1048832 [Id] LinuxPlayer(13,10.141.0.2) [Debug] 0 [PackageName] LinuxPlayer [ProjectName] Opencraft" to [225.0.0.222:54997]...
+
+Direct connection to host time out.
+Stopping profiler. Profiler is not able to flush data to a file or socket and exceeded maximum allowed memory for buffering.
+Please use Profiler.maxUsedMemory API or -profiler-maxusedmemory command line parameter to increase maximum allowed memory usage.
+Using 134234112 bytes while Profiler.maxUsedMemory is 134217728 bytes.
+Failed to initialize networking layer after 30 seconds, skipping waiting for connection before starting playback.
+Preloaded 'lib_burst_generated.so'
+Preloaded 'libwebrtc.so'
+[Physics::Module] Initialized MultithreadedJobDispatcher with 47 workers.
+Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
+[Subsystems] Discovering subsystems at path /var/scratch/zmr280/opencraft/opencraft_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0; jobified=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+ERROR: Shader Hidden/Universal Render Pipeline/Blit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/CopyDepth shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Sampling shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LutBuilderLdr shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LutBuilderHdr shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/UberPost shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Debug/DebugReplacement shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal/HDRDebugView shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/FallbackError shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/StencilDeferred' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/StencilDeferred shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/StencilDeferred' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/CameraMotionVectors shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/ObjectMotionVectors shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LensFlareDataDriven shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/ScreenSpaceAmbientOcclusion shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Stop NaN shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/SubpixelMorphologicalAntialiasing shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/TemporalAA shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Scaling Setup shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/FinalPost shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Sprites/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Sprites/Mask shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader GUI/Text Shader shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+UnloadTime: 1.928757 ms
+Parsing args: /var/scratch/zmr280/opencraft/opencraft.x86_64, -batchmode, -nographics, -logStats, True, -serverUrl, 10.141.0.1, -statsFile, /var/scratch/zmr280/runs/players-activeLogic_TerrainCircuitry_100p_300s/opencraft_stats/client51.csv, -userID, 51, -playType, Client, -emulationType, Simulation
+Setting up worlds with playType Client and streaming role Disabled
+Adding type with UniqueSystemAttribute: StatisticsSystem
+Adding type with UniqueSystemAttribute: StatisticsSystem
+Failed to create websocket: System.Net.Sockets.SocketException (0x80004005): Address already in use
+  at System.Net.Sockets.Socket.Bind (System.Net.EndPoint localEP) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.NetCode.DebugWebSocket..ctor (System.UInt16 port) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.NetCode.GhostStatsConnection..ctor () [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.NetCode.GhostStatsFlushSystem.OnCreate () [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.ComponentSystemBase.CreateInstance (Unity.Entities.World world) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.World.AddSystem_OnCreate_Internal (Unity.Entities.ComponentSystemBase system) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.World.GetOrCreateSystemsAndLogException (Unity.Collections.NativeList`1[T] types, System.Int32 typesCount, Unity.Collections.AllocatorManager+AllocatorHandle allocator) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.World.GetOrCreateSystemsAndLogException (Unity.Collections.NativeList`1[T] types, Unity.Collections.AllocatorManager+AllocatorHandle allocator) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.DefaultWorldInitialization.AddSystemToRootLevelSystemGroupsInternal[T] (Unity.Entities.World world, Unity.Collections.NativeList`1[T] systemTypesOrig, Unity.Entities.ComponentSystemGroup defaultGroup, T rootGroups) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.DefaultWorldInitialization.AddSystemToRootLevelSystemGroupsInternal (Unity.Entities.World world, Unity.Collections.NativeList`1[T] systemTypesOrig) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.DefaultWorldInitialization.AddSystemsToRootLevelSystemGroups (Unity.Entities.World world, System.Collections.Generic.IReadOnlyList`1[T] systemTypes) [0x00000] in <00000000000000000000000000000000>:0 
+  at PolkaDOTS.Bootstrap.GameBootstrap.CreateClientWorld (System.String name, Unity.Entities.WorldFlags flags, System.Collections.Generic.IReadOnlyList`1[T] systems) [0x00000] in <00000000000000000000000000000000>:0 
+  at PolkaDOTS.Bootstrap.GameBootstrap.CreateDefaultClientWorld (System.String worldName, System.Boolean isHost, System.Boolean isCloudHost) [0x00000] in <00000000000000000000000000000000>:0 
+  at PolkaDOTS.Bootstrap.GameBootstrap.SetupWorlds (PolkaDOTS.Deployment.MultiplayStreamingRoles mRole, PolkaDOTS.Bootstrap.GameBootstrap+BootstrapPlayTypes playTypes, Unity.Collections.NativeList`1[Unity.Entities.WorldUnmanaged]& worldReferences, System.Int32 numSimulatedClients, System.Boolean autoStart, System.Boolean autoConnect, System.String serverUrl, System.UInt16 serverPort, System.String signalingUrl, System.String worldName) [0x00000] in <00000000000000000000000000000000>:0 
+  at PolkaDOTS.Bootstrap.GameBootstrap.SetupWorldsFromLocalConfig () [0x00000] in <00000000000000000000000000000000>:0 
+  at PolkaDOTS.Bootstrap.GameBootstrap.Initialize (System.String defaultWorldName) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.CustomWorldInitialization.Initialize (System.String defaultWorldName, System.Boolean editorWorld) [0x00000] in <00000000000000000000000000000000>:0 
+  at Unity.Entities.CustomAutomaticWorldBootstrap.Initialize () [0x00000] in <00000000000000000000000000000000>:0 
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+Unity.NetCode.DebugWebSocket:.ctor(UInt16)
+Unity.NetCode.GhostStatsConnection:.ctor()
+Unity.NetCode.GhostStatsFlushSystem:OnCreate()
+Unity.Entities.ComponentSystemBase:CreateInstance(World)
+Unity.Entities.World:AddSystem_OnCreate_Internal(ComponentSystemBase)
+Unity.Entities.World:GetOrCreateSystemsAndLogException(NativeList`1, Int32, AllocatorHandle)
+Unity.Entities.World:GetOrCreateSystemsAndLogException(NativeList`1, AllocatorHandle)
+Unity.Entities.DefaultWorldInitialization:AddSystemToRootLevelSystemGroupsInternal(World, NativeList`1, ComponentSystemGroup, T)
+Unity.Entities.DefaultWorldInitialization:AddSystemToRootLevelSystemGroupsInternal(World, NativeList`1)
+Unity.Entities.DefaultWorldInitialization:AddSystemsToRootLevelSystemGroups(World, IReadOnlyList`1)
+PolkaDOTS.Bootstrap.GameBootstrap:CreateClientWorld(String, WorldFlags, IReadOnlyList`1)
+PolkaDOTS.Bootstrap.GameBootstrap:CreateDefaultClientWorld(String, Boolean, Boolean)
+PolkaDOTS.Bootstrap.GameBootstrap:SetupWorlds(MultiplayStreamingRoles, BootstrapPlayTypes, NativeList`1&, Int32, Boolean, Boolean, String, UInt16, String, String)
+PolkaDOTS.Bootstrap.GameBootstrap:SetupWorldsFromLocalConfig()
+PolkaDOTS.Bootstrap.GameBootstrap:Initialize(String)
+Unity.Entities.CustomWorldInitialization:Initialize(String, Boolean)
+Unity.Entities.CustomAutomaticWorldBootstrap:Initialize()
+
+Adding world ClientWorld to update list
+Connecting worlds with playType Client and streaming role Disabled
+Created connection request for 10.141.0.1:7979
+Creating statistics writer!
+Recorder [ServerFixedUpdate] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [TerrainGeneration] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [PlayerTerrainGenCheck] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [StructureGeneration] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [TerrainLogicSystem] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [GetUpdates] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [ReevaluatePropagateMarker] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [PropagateLogicState] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Recorder [CheckGateState] is invalid!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+PolkaDOTS.Statistics.StatisticsWriter:.ctor()
+PolkaDOTS.Statistics.StatisticsWriterInstance:Awake()
+
+Initializing multiplay!
+Found non-specified codec: VP8 Internal video/VP8 implementation_name=Internal
+Found codec: VP9 Profile0
+Found codec: VP9 Profile2
+Found codec: VP9 Profile1
+Found codec: VP9 Profile3
+Found codec: AV1 Profile0
+Found codec: AV1 Profile1
+Could not find H264.High as streaming codec!
+Adding terrain areas statistics recorders
+Streamed scene with  158ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/bea83102298cfb741939cdba85abe535.0.entities
+AutoLoading authoring scene in world ClientWorld
+[13:05:34.1132010]:[ClientWorld] New connection ID:57
+ERROR: Shader Custom/VoxelShader shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/FallbackError shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Universal Render Pipeline/Lit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Unlit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Universal Render Pipeline/Unlit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Unlit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Streamed scene with  187ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/62561c7118c5bbb46929c6bf65331faa.0.entities
+Sending start game stream RPC
+Emulation type is Idle, Simulation
+Creating local player object
+Sending spawn player RPC for user 51
+ERROR: Shader UI/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+Player 51 has no connection ID!
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+Opencraft.Player.SamplePlayerInput:OnUpdate(SystemState&)
+Opencraft.Player.SamplePlayerInput:__codegen__OnUpdate(IntPtr, IntPtr)
+
+Linking player entity Entity(227:1) to 51@LOCALPLAYER
+    0: Could not find target at int3(0, 44, 0)
+Player simulation searching for path from float3(0.5f, 44.1f, 0.5f) = int3(0, 44, 0) to int3(8, 44, -10)
+Player simulation could not find a path from int3(0, 44, 0) to int3(8, 44, -10), will choose new target
+    2: Could not find target at int3(0, 44, 0)
+Player simulation searching for path from float3(0.5f, 44.1f, 0.5f) = int3(0, 44, 0) to int3(15, 44, -5)
+Player simulation could not find a path from int3(0, 44, 0) to int3(15, 44, -5), will choose new target
+Player simulation searching for path from float3(0.5f, 44.1f, 0.5f) = int3(0, 44, 0) to int3(9, 44, 11)
+Player simulation could not find a path from int3(0, 44, 0) to int3(9, 44, 11), will choose new target
+Player simulation searching for path from float3(0.5f, 44.1f, 0.5f) = int3(0, 44, 0) to int3(5, 44, 14)
+Player simulation could not find a path from int3(0, 44, 0) to int3(5, 44, 14), will choose new target
+Player simulation searching for path from float3(0.5f, 44.1f, 0.5f) = int3(0, 44, 0) to int3(2, 44, -4)
+Player simulation could not find a path from int3(0, 44, 0) to int3(2, 44, -4), will choose new target
+    7: Could not find target at int3(0, 44, 0)
+    8: Could not find target at int3(0, 44, 0)
+ClientWorld player simulation could not find a path in 9 attempts, waiting to try again
+Player simulation searching for path from float3(0.5f, 44.1f, 0.5f) = int3(0, 44, 0) to int3(-3, 44, 7)
+ClientWorld player simulation set new target int3(-3, 44, 7)
+ClientWorld player simulation reached target int3(-3, 44, 7)
+Player simulation searching for path from float3(-2.514421f, 44.1f, 7.407421f) = int3(-3, 44, 7) to int3(2, 44, -14)
+ClientWorld player simulation set new target int3(2, 44, -14)
+ClientWorld player simulation reached target int3(2, 44, -14)
+Player simulation searching for path from float3(2.37571f, 44.1f, -13.49971f) = int3(2, 44, -14) to int3(-10, 44, 9)
+ClientWorld player simulation set new target int3(-10, 44, 9)
+ClientWorld player simulation reached target int3(-10, 44, 9)
+Player simulation searching for path from float3(-9.364581f, 44.1f, 9.530424f) = int3(-10, 44, 9) to int3(7, 44, 3)
+ClientWorld player simulation set new target int3(7, 44, 3)
+ClientWorld player simulation reached target int3(7, 44, 3)
+Player simulation searching for path from float3(7.561289f, 44.1f, 3.655868f) = int3(7, 44, 3) to int3(-11, 44, 10)
+ClientWorld player simulation set new target int3(-11, 44, 10)
+ClientWorld player simulation reached target int3(-11, 44, 10)
+Player simulation searching for path from float3(-10.51342f, 44.1f, 10.38885f) = int3(-11, 44, 10) to int3(7, 44, 9)
+ClientWorld player simulation set new target int3(7, 44, 9)
+ClientWorld player simulation reached target int3(7, 44, 9)
+Player simulation searching for path from float3(7.523422f, 44.1f, 9.618575f) = int3(7, 44, 9) to int3(-3, 44, 13)
+ClientWorld player simulation set new target int3(-3, 44, 13)
+ClientWorld player simulation reached target int3(-3, 44, 13)
+Player simulation searching for path from float3(-2.48629f, 44.1f, 13.36213f) = int3(-3, 44, 13) to int3(12, 44, 4)
+ClientWorld player simulation set new target int3(12, 44, 4)
+ClientWorld player simulation reached target int3(12, 44, 4)
+Player simulation searching for path from float3(12.32711f, 44.1f, 4.411001f) = int3(12, 44, 4) to int3(-6, 44, 10)
+ClientWorld player simulation set new target int3(-6, 44, 10)
+ClientWorld player simulation reached target int3(-6, 44, 10)
+Player simulation searching for path from float3(-5.523107f, 44.1f, 10.30285f) = int3(-6, 44, 10) to int3(5, 44, -1)
+ClientWorld player simulation set new target int3(5, 44, -1)
+ClientWorld player simulation reached target int3(5, 44, -1)
+Player simulation searching for path from float3(5.458422f, 44.1f, -0.4720001f) = int3(5, 44, -1) to int3(-6, 44, -11)
+ClientWorld player simulation set new target int3(-6, 44, -11)
+ClientWorld player simulation reached target int3(-6, 44, -11)
+Player simulation searching for path from float3(-5.498711f, 44.1f, -10.38771f) = int3(-6, 44, -11) to int3(-9, 44, 2)
+ClientWorld player simulation set new target int3(-9, 44, 2)
+ClientWorld player simulation reached target int3(-9, 44, 2)
+Player simulation searching for path from float3(-8.513688f, 44.1f, 2.385264f) = int3(-9, 44, 2) to int3(2, 44, -13)
+ClientWorld player simulation set new target int3(2, 44, -13)
+ClientWorld player simulation reached target int3(2, 44, -13)
+Player simulation searching for path from float3(2.434264f, 44.1f, -12.41458f) = int3(2, 44, -13) to int3(-8, 44, -13)
+ClientWorld player simulation set new target int3(-8, 44, -13)
+ClientWorld player simulation reached target int3(-8, 44, -13)
+Player simulation searching for path from float3(-7.302f, 44.1f, -12.485f) = int3(-8, 44, -13) to int3(10, 44, 8)
+ClientWorld player simulation set new target int3(10, 44, 8)
+ClientWorld player simulation reached target int3(10, 44, 8)
+Player simulation searching for path from float3(10.49429f, 44.1f, 8.360712f) = int3(10, 44, 8) to int3(7, 44, 11)
+ClientWorld player simulation set new target int3(7, 44, 11)
+ClientWorld player simulation reached target int3(7, 44, 11)
+Player simulation searching for path from float3(7.674422f, 44.1f, 11.50427f) = int3(7, 44, 11) to int3(15, 44, 14)
+ClientWorld player simulation set new target int3(15, 44, 14)
+ClientWorld player simulation reached target int3(15, 44, 14)
+Player simulation searching for path from float3(15.49769f, 44.1f, 14.35285f) = int3(15, 44, 14) to int3(-1, 44, -3)
+ClientWorld player simulation set new target int3(-1, 44, -3)
+ClientWorld player simulation reached target int3(-1, 44, -3)
+Player simulation searching for path from float3(-0.3674214f, 44.1f, -2.515685f) = int3(-1, 44, -3) to int3(-7, 44, 6)
+ClientWorld player simulation set new target int3(-7, 44, 6)
+ClientWorld player simulation reached target int3(-7, 44, 6)
+Player simulation searching for path from float3(-6.529711f, 44.1f, 6.312553f) = int3(-7, 44, 6) to int3(-5, 44, -11)
+ClientWorld player simulation set new target int3(-5, 44, -11)
+ClientWorld player simulation reached target int3(-5, 44, -11)
+Player simulation searching for path from float3(-4.652316f, 44.1f, -10.48211f) = int3(-5, 44, -11) to int3(-10, 44, -8)
+ClientWorld player simulation set new target int3(-10, 44, -8)
+ClientWorld player simulation reached target int3(-10, 44, -8)
+Player simulation searching for path from float3(-9.313138f, 44.1f, -7.48018f) = int3(-10, 44, -8) to int3(12, 44, -15)
+ClientWorld player simulation set new target int3(12, 44, -15)
+ClientWorld player simulation reached target int3(12, 44, -15)
+Player simulation searching for path from float3(12.50172f, 44.1f, -14.36698f) = int3(12, 44, -15) to int3(8, 44, 12)
+ClientWorld player simulation set new target int3(8, 44, 12)
+ClientWorld player simulation reached target int3(8, 44, 12)
+Player simulation searching for path from float3(8.684443f, 44.1f, 12.52429f) = int3(8, 44, 12) to int3(10, 44, 15)
+ClientWorld player simulation set new target int3(10, 44, 15)
+ClientWorld player simulation reached target int3(10, 44, 15)
+Player simulation searching for path from float3(10.441f, 44.1f, 15.415f) = int3(10, 44, 15) to int3(9, 44, 11)
+ClientWorld player simulation set new target int3(9, 44, 11)
+ClientWorld player simulation reached target int3(9, 44, 11)
+Player simulation searching for path from float3(9.545999f, 44.1f, 11.495f) = int3(9, 44, 11) to int3(2, 44, 15)
+ClientWorld player simulation set new target int3(2, 44, 15)
+ClientWorld player simulation reached target int3(2, 44, 15)
+Player simulation searching for path from float3(2.665738f, 44.1f, 15.53385f) = int3(2, 44, 15) to int3(2, 44, 9)
+ClientWorld player simulation set new target int3(2, 44, 9)
+ClientWorld player simulation path has strayed from int3(2, 44, 11) to int3(3, 44, 15), searching for a correction
+ClientWorld player simulation reached target int3(2, 44, 9)
+Player simulation searching for path from float3(2.524315f, 44.1f, 9.609986f) = int3(2, 44, 9) to int3(2, 44, 10)
+ClientWorld player simulation set new target int3(2, 44, 10)
+ClientWorld player simulation reached target int3(2, 44, 10)
+Player simulation searching for path from float3(2.524315f, 44.1f, 10.30999f) = int3(2, 44, 10) to int3(-10, 44, 9)
+ClientWorld player simulation set new target int3(-10, 44, 9)
+ClientWorld player simulation reached target int3(-10, 44, 9)
+Player simulation searching for path from float3(-9.384799f, 44.1f, 9.492264f) = int3(-10, 44, 9) to int3(7, 44, 3)
+ClientWorld player simulation set new target int3(7, 44, 3)
+ClientWorld player simulation reached target int3(7, 44, 3)
+Player simulation searching for path from float3(7.333396f, 44.1f, 3.532183f) = int3(7, 44, 3) to int3(-11, 44, 10)
+ClientWorld player simulation set new target int3(-11, 44, 10)
+ClientWorld player simulation reached target int3(-11, 44, 10)
+Player simulation searching for path from float3(-10.51771f, 44.1f, 10.32214f) = int3(-11, 44, 10) to int3(7, 44, 9)
+ClientWorld player simulation set new target int3(7, 44, 9)
+ClientWorld player simulation reached target int3(7, 44, 9)
+Player simulation searching for path from float3(7.498711f, 44.1f, 9.609444f) = int3(7, 44, 9) to int3(-3, 44, 13)
+ClientWorld player simulation set new target int3(-3, 44, 13)
+ClientWorld player simulation reached target int3(-3, 44, 13)
+Player simulation searching for path from float3(-2.519792f, 44.1f, 13.34812f) = int3(-3, 44, 13) to int3(12, 44, 4)
+ClientWorld player simulation set new target int3(12, 44, 4)
+ClientWorld player simulation reached target int3(12, 44, 4)
+Player simulation searching for path from float3(12.31627f, 44.1f, 4.540158f) = int3(12, 44, 4) to int3(-6, 44, 10)
+ClientWorld player simulation set new target int3(-6, 44, 10)
+ClientWorld player simulation reached target int3(-6, 44, 10)
+Player simulation searching for path from float3(-5.543132f, 44.1f, 10.3974f) = int3(-6, 44, 10) to int3(5, 44, -1)
+ClientWorld player simulation set new target int3(5, 44, -1)
+ClientWorld player simulation reached target int3(5, 44, -1)
+Player simulation searching for path from float3(5.341264f, 44.1f, -0.5182642f) = int3(5, 44, -1) to int3(-6, 44, -11)
+ClientWorld player simulation set new target int3(-6, 44, -11)
+ClientWorld player simulation reached target int3(-6, 44, -11)
+Player simulation searching for path from float3(-5.523973f, 44.1f, -10.38298f) = int3(-6, 44, -11) to int3(-9, 44, 2)
+ClientWorld player simulation set new target int3(-9, 44, 2)
+ClientWorld player simulation reached target int3(-9, 44, 2)
+Player simulation searching for path from float3(-8.596291f, 44.1f, 2.379396f) = int3(-9, 44, 2) to int3(2, 44, -13)
+ClientWorld player simulation set new target int3(2, 44, -13)
+ClientWorld player simulation reached target int3(2, 44, -13)
+Player simulation searching for path from float3(2.301553f, 44.1f, -12.4984f) = int3(2, 44, -13) to int3(-8, 44, -13)
+ClientWorld player simulation set new target int3(-8, 44, -13)
+ClientWorld player simulation reached target int3(-8, 44, -13)
+Player simulation searching for path from float3(-7.378476f, 44.1f, -12.398f) = int3(-8, 44, -13) to int3(10, 44, 8)
+ClientWorld player simulation set new target int3(10, 44, 8)
+ClientWorld player simulation reached target int3(10, 44, 8)
+Player simulation searching for path from float3(10.32f, 44.1f, 8.321688f) = int3(10, 44, 8) to int3(7, 44, 11)
+ClientWorld player simulation set new target int3(7, 44, 11)
+ClientWorld player simulation reached target int3(7, 44, 11)
+Player simulation searching for path from float3(7.618844f, 44.1f, 11.49654f) = int3(7, 44, 11) to int3(15, 44, 14)
+ClientWorld player simulation set new target int3(15, 44, 14)
+ClientWorld player simulation reached target int3(15, 44, 14)
+Player simulation searching for path from float3(15.58369f, 44.1f, 14.42327f) = int3(15, 44, 14) to int3(-1, 44, -3)
+ClientWorld player simulation set new target int3(-1, 44, -3)
+ClientWorld player simulation path has strayed from int3(5, 44, 3) to int3(8, 44, 4), searching for a correction
+ClientWorld player simulation path has strayed from int3(5, 44, 3) to int3(7, 44, 5), searching for a correction
+ClientWorld player simulation path has strayed from int3(6, 44, 3) to int3(6, 44, 7), searching for a correction
+Large serverTick prediction error. Server tick rollback to Unity.NetCode.NetworkTick delta: -11.84492
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+Unity.Logging.Sinks.ManagedUnityEngineDebugLogWrapper:WriteFunc(LogLevel, Byte*, Int32)
+
+ClientWorld player simulation reached target int3(-1, 44, -3)
+Player simulation searching for path from float3(-0.367792f, 44.1f, -2.412421f) = int3(-1, 44, -3) to int3(-7, 44, 6)
+ClientWorld player simulation set new target int3(-7, 44, 6)
+ClientWorld player simulation reached target int3(-7, 44, 6)
+Player simulation searching for path from float3(-6.483998f, 44.1f, 6.318264f) = int3(-7, 44, 6) to int3(-5, 44, -11)
+ClientWorld player simulation set new target int3(-5, 44, -11)
+ClientWorld player simulation reached target int3(-5, 44, -11)
+Player simulation searching for path from float3(-4.669787f, 44.1f, -10.52343f) = int3(-5, 44, -11) to int3(-10, 44, -8)
+ClientWorld player simulation set new target int3(-10, 44, -8)
+ClientWorld player simulation reached target int3(-10, 44, -8)
+Player simulation searching for path from float3(-9.349669f, 44.1f, -7.442914f) = int3(-10, 44, -8) to int3(12, 44, -15)
+ClientWorld player simulation set new target int3(12, 44, -15)
+ClientWorld player simulation reached target int3(12, 44, -15)
+Player simulation searching for path from float3(12.45056f, 44.1f, -14.35625f) = int3(12, 44, -15) to int3(8, 44, 12)
+ClientWorld player simulation set new target int3(8, 44, 12)
+ClientWorld player simulation reached target int3(8, 44, 12)
+Player simulation searching for path from float3(8.634311f, 44.1f, 12.58527f) = int3(8, 44, 12) to int3(10, 44, 15)
+ClientWorld player simulation set new target int3(10, 44, 15)
+ClientWorld player simulation reached target int3(10, 44, 15)
+Player simulation searching for path from float3(10.30738f, 44.1f, 15.61396f) = int3(10, 44, 15) to int3(9, 44, 11)
+ClientWorld player simulation set new target int3(9, 44, 11)
+ClientWorld player simulation reached target int3(9, 44, 11)
+Player simulation searching for path from float3(9.670979f, 44.1f, 11.3947f) = int3(9, 44, 11) to int3(2, 44, 15)
+ClientWorld player simulation set new target int3(2, 44, 15)
+ClientWorld player simulation reached target int3(2, 44, 15)
+Player simulation searching for path from float3(2.684736f, 44.1f, 15.41816f) = int3(2, 44, 15) to int3(2, 44, 9)
+ClientWorld player simulation set new target int3(2, 44, 9)
+ClientWorld player simulation reached target int3(2, 44, 9)
+Player simulation searching for path from float3(2.414f, 44.1f, 9.629085f) = int3(2, 44, 9) to int3(2, 44, 10)
+ClientWorld player simulation set new target int3(2, 44, 10)
+ClientWorld player simulation reached target int3(2, 44, 10)
+Player simulation searching for path from float3(2.484264f, 44.1f, 10.32369f) = int3(2, 44, 10) to int3(-10, 44, 9)
+ClientWorld player simulation set new target int3(-10, 44, 9)
+ClientWorld player simulation reached target int3(-10, 44, 9)
+Player simulation searching for path from float3(-9.300114f, 44.1f, 9.4042f) = int3(-10, 44, 9) to int3(7, 44, 3)
+ClientWorld player simulation set new target int3(7, 44, 3)
+ClientWorld player simulation reached target int3(7, 44, 3)
+Player simulation searching for path from float3(7.428949f, 44.1f, 3.408051f) = int3(7, 44, 3) to int3(-11, 44, 10)
+ClientWorld player simulation set new target int3(-11, 44, 10)
+ClientWorld player simulation path has strayed from int3(-7, 44, 6) to int3(-7, 44, 3), searching for a correction
+ClientWorld player simulation reached target int3(-11, 44, 10)
+Player simulation searching for path from float3(-10.48669f, 44.1f, 10.32869f) = int3(-11, 44, 10) to int3(7, 44, 9)
+ClientWorld player simulation set new target int3(7, 44, 9)
+ClientWorld player simulation reached target int3(7, 44, 9)
+Player simulation searching for path from float3(7.67042f, 44.1f, 9.675733f) = int3(7, 44, 9) to int3(-3, 44, 13)
+ClientWorld player simulation set new target int3(-3, 44, 13)
+ClientWorld player simulation reached target int3(-3, 44, 13)
+Player simulation searching for path from float3(-2.493553f, 44.1f, 13.49656f) = int3(-3, 44, 13) to int3(12, 44, 4)
+ClientWorld player simulation set new target int3(12, 44, 4)
+ClientWorld player simulation reached target int3(12, 44, 4)
+Player simulation searching for path from float3(12.3984f, 44.1f, 4.474447f) = int3(12, 44, 4) to int3(-6, 44, 10)
+ClientWorld player simulation set new target int3(-6, 44, 10)
+ClientWorld player simulation reached target int3(-6, 44, 10)
+Player simulation searching for path from float3(-5.513527f, 44.1f, 10.38527f) = int3(-6, 44, 10) to int3(5, 44, -1)
+ClientWorld player simulation set new target int3(5, 44, -1)
+ClientWorld player simulation reached target int3(5, 44, -1)
+Player simulation searching for path from float3(5.343238f, 44.1f, -0.4891322f) = int3(5, 44, -1) to int3(-6, 44, -11)
+ClientWorld player simulation set new target int3(-6, 44, -11)
+ClientWorld player simulation reached target int3(-6, 44, -11)
+Player simulation searching for path from float3(-5.483711f, 44.1f, -10.46814f) = int3(-6, 44, -11) to int3(-9, 44, 2)
+ClientWorld player simulation set new target int3(-9, 44, 2)
+ClientWorld player simulation reached target int3(-9, 44, 2)
+Player simulation searching for path from float3(-8.52211f, 44.1f, 2.374528f) = int3(-9, 44, 2) to int3(2, 44, -13)
+ClientWorld player simulation set new target int3(2, 44, -13)
+ClientWorld player simulation reached target int3(2, 44, -13)
+Player simulation searching for path from float3(2.317767f, 44.1f, -12.56921f) = int3(2, 44, -13) to int3(-8, 44, -13)
+ClientWorld player simulation set new target int3(-8, 44, -13)
+ClientWorld player simulation reached target int3(-8, 44, -13)
+Player simulation searching for path from float3(-7.359999f, 44.1f, -12.523f) = int3(-8, 44, -13) to int3(10, 44, 8)
+ClientWorld player simulation set new target int3(10, 44, 8)
+ClientWorld player simulation reached target int3(10, 44, 8)
+Player simulation searching for path from float3(10.52129f, 44.1f, 8.300478f) = int3(10, 44, 8) to int3(7, 44, 11)
+ClientWorld player simulation set new target int3(7, 44, 11)
+ClientWorld player simulation reached target int3(7, 44, 11)
+Player simulation searching for path from float3(7.429247f, 44.1f, 11.48538f) = int3(7, 44, 11) to int3(15, 44, 14)
+ClientWorld player simulation set new target int3(15, 44, 14)
+ClientWorld player simulation reached target int3(15, 44, 14)
+Player simulation searching for path from float3(15.55187f, 44.1f, 14.67571f) = int3(15, 44, 14) to int3(-1, 44, -3)
+ClientWorld player simulation set new target int3(-1, 44, -3)
+ClientWorld player simulation path has strayed from int3(7, 44, 4) to int3(6, 44, 7), searching for a correction
+ClientWorld player simulation reached target int3(-1, 44, -3)
+Player simulation searching for path from float3(-0.3091068f, 44.1f, -2.577843f) = int3(-1, 44, -3) to int3(-7, 44, 6)
+ClientWorld player simulation set new target int3(-7, 44, 6)
+ClientWorld player simulation path has strayed from int3(-5, 44, 4) to int3(-2, 44, 3), searching for a correction
+ClientWorld player simulation reached target int3(-7, 44, 6)
+Player simulation searching for path from float3(-6.504345f, 44.1f, 6.307974f) = int3(-7, 44, 6) to int3(-5, 44, -11)
+ClientWorld player simulation set new target int3(-5, 44, -11)
+ClientWorld player simulation reached target int3(-5, 44, -11)
+Player simulation searching for path from float3(-4.690655f, 44.1f, -10.59883f) = int3(-5, 44, -11) to int3(-10, 44, -8)
+ClientWorld player simulation set new target int3(-10, 44, -8)
+ClientWorld player simulation reached target int3(-10, 44, -8)
+Player simulation searching for path from float3(-9.326221f, 44.1f, -7.442891f) = int3(-10, 44, -8) to int3(12, 44, -15)
+ClientWorld player simulation set new target int3(12, 44, -15)
+ClientWorld player simulation reached target int3(12, 44, -15)
+Player simulation searching for path from float3(12.58407f, 44.1f, -14.49123f) = int3(12, 44, -15) to int3(8, 44, 12)
+ClientWorld player simulation set new target int3(8, 44, 12)
+ClientWorld player simulation reached target int3(8, 44, 12)
+Player simulation searching for path from float3(8.560177f, 44.1f, 12.51551f) = int3(8, 44, 12) to int3(10, 44, 15)
+ClientWorld player simulation set new target int3(10, 44, 15)
+ClientWorld player simulation reached target int3(10, 44, 15)
+Player simulation searching for path from float3(10.55036f, 44.1f, 15.3954f) = int3(10, 44, 15) to int3(9, 44, 11)
+ClientWorld player simulation set new target int3(9, 44, 11)
+ClientWorld player simulation reached target int3(9, 44, 11)
+Player simulation searching for path from float3(9.613443f, 44.1f, 11.3788f) = int3(9, 44, 11) to int3(2, 44, 15)
+ClientWorld player simulation set new target int3(2, 44, 15)
+ClientWorld player simulation path has strayed from int3(3, 44, 14) to int3(8, 44, 12), searching for a correction
+ClientWorld player simulation path has strayed from int3(5, 44, 12) to int3(8, 44, 12), searching for a correction
+Large serverTick prediction error. Server tick rollback to Unity.NetCode.NetworkTick delta: -10.7607
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+Unity.Logging.Sinks.ManagedUnityEngineDebugLogWrapper:WriteFunc(LogLevel, Byte*, Int32)
+
+ClientWorld player simulation reached target int3(2, 44, 15)
+Player simulation searching for path from float3(2.643315f, 44.1f, 15.5248f) = int3(2, 44, 15) to int3(2, 44, 9)
+ClientWorld player simulation set new target int3(2, 44, 9)
+ClientWorld player simulation reached target int3(2, 44, 9)
+Player simulation searching for path from float3(2.359528f, 44.1f, 9.340622f) = int3(2, 44, 9) to int3(2, 44, 10)
+ClientWorld player simulation set new target int3(2, 44, 10)
+ClientWorld player simulation reached target int3(2, 44, 10)
+Player simulation searching for path from float3(2.459528f, 44.1f, 10.30631f) = int3(2, 44, 10) to int3(-10, 44, 9)
+ClientWorld player simulation set new target int3(-10, 44, 9)
+ClientWorld player simulation reached target int3(-10, 44, 9)
+Player simulation searching for path from float3(-9.358402f, 44.1f, 9.598756f) = int3(-10, 44, 9) to int3(7, 44, 3)
+ClientWorld player simulation set new target int3(7, 44, 3)
+ClientWorld player simulation reached target int3(7, 44, 3)
+Player simulation searching for path from float3(7.472975f, 44.1f, 3.426868f) = int3(7, 44, 3) to int3(-11, 44, 10)
+ClientWorld player simulation set new target int3(-11, 44, 10)
+ClientWorld player simulation reached target int3(-11, 44, 10)
+Player simulation searching for path from float3(-10.48685f, 44.1f, 10.31296f) = int3(-11, 44, 10) to int3(7, 44, 9)
+ClientWorld player simulation set new target int3(7, 44, 9)
+ClientWorld player simulation reached target int3(7, 44, 9)
+Player simulation searching for path from float3(7.595055f, 44.1f, 9.647888f) = int3(7, 44, 9) to int3(-3, 44, 13)
+ClientWorld player simulation set new target int3(-3, 44, 13)
+ClientWorld player simulation path has strayed from int3(2, 44, 9) to int3(8, 44, 8), searching for a correction
+ClientWorld player simulation reached target int3(-3, 44, 13)
+Player simulation searching for path from float3(-2.637899f, 44.1f, 13.33976f) = int3(-3, 44, 13) to int3(12, 44, 4)
+ClientWorld player simulation set new target int3(12, 44, 4)
+ClientWorld player simulation reached target int3(12, 44, 4)
+Player simulation searching for path from float3(12.35818f, 44.1f, 4.406787f) = int3(12, 44, 4) to int3(-6, 44, 10)
+ClientWorld player simulation set new target int3(-6, 44, 10)
+ClientWorld player simulation reached target int3(-6, 44, 10)
+Player simulation searching for path from float3(-5.425034f, 44.1f, 10.36157f) = int3(-6, 44, 10) to int3(5, 44, -1)
+ClientWorld player simulation set new target int3(5, 44, -1)
+[13:10:42.3967320]:[ClientWorld] Connection disconnected ID:57 Reason:Timeout
