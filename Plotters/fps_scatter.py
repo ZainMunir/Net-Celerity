@@ -5,11 +5,6 @@ import shared_config as sc
 import seaborn as sns
 import numpy as np
 
-
-matplotlib.rcParams.update({'font.size': 15})
-plt.style.use('seaborn-v0_8-colorblind')
-sns.set_palette('colorblind')
-
 def create_fps_scatter():
     average_df = pd.read_csv(sc.average_output)
     if average_df.empty:

@@ -3,7 +3,7 @@
 # List of num_players options
 
 source config.cfg
-num_players_options=(20) # Add your desired number of players here
+num_players_options=(10 30 40 50 60 70 80 90 100) # Add your desired number of players here
 
 # Config (so I can have formatted strings)
 ## Folder locations
@@ -25,7 +25,7 @@ client_system_monitor_script="${net_celerity_folder}client_system_monitor.py"
 collect_script="${net_celerity_folder}collect_script.py"
 
 for num_players2 in "${num_players_options[@]}"; do
-    run_config="players_${terrain_type}_${num_players2}p_${benchmark_duration}s"
+    run_config="players-activeLogic_${terrain_type}_${num_players2}p_${benchmark_duration}s"
 
     run_dir="${runs_dir}${run_config}/"
     opencraft_stats="${run_dir}opencraft_stats/"

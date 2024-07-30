@@ -5,10 +5,6 @@ import shared_config as sc
 import seaborn as sns
 import sys
 
-matplotlib.rcParams.update({'font.size': 15})
-plt.style.use('seaborn-v0_8-colorblind')
-sns.set_palette('colorblind')
-
 
 def create_stacked_line_graph(all_data=False):
     average_df = pd.read_csv(sc.average_output)

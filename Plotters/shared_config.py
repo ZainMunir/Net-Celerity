@@ -1,7 +1,14 @@
 import os
+import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+matplotlib.rcParams.update({"font.size": 15})
+plt.style.use("seaborn-v0_8-colorblind")
+sns.set_palette("colorblind")
 
 data_directory = "../Data/"
-experiment_name = "players-activeLogic_TerrainCircuitry"
+experiment_name = "players-activeLogic_Empty"
 filter_by_max_terrainarea = True
 filter_by_max_players = True
 
