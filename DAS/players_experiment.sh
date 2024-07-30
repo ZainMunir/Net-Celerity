@@ -3,7 +3,7 @@
 # List of num_players options
 
 source config.cfg
-num_players_options=(10 20 30 40 50 60 70 80 90 100) # Add your desired number of players here
+num_players_options=(20) # Add your desired number of players here
 
 # Config (so I can have formatted strings)
 ## Folder locations
@@ -55,27 +55,29 @@ for num_players2 in "${num_players_options[@]}"; do
 
     # Initialising Clients
     ## Calculate number of clients per node
-    clients_per_node=$((num_players2 / client_nodes_number))
     echo "Starting clients..."
 
-    for node_index in $(seq 1 $client_nodes_number); do
+    for i in $(seq 1 $num_players2); do
+        node_index=$(( ((i-1) % client_nodes_number) + 1 ))
         client_node_var="client_node$node_index"
         client_node=${!client_node_var}
+        
+        # If this is the first client on the node, start system monitoring
+        if (( ((i - 1) / client_nodes_number)  == 0 )); then
+            client_monitor_log="${system_logs}client_node${node_index}.csv"
+            echo "Starting system monitoring script on $client_node..."
+            ssh $client_node "python3 ${client_system_monitor_script} ${client_monitor_log} &" &
+        fi
 
-        # Start system monitoring on client node
-        client_monitor_log="${system_logs}client_node${node_index}.csv"
-        ssh $client_node "python3 ${client_system_monitor_script} ${client_monitor_log} &" &
+        echo "Starting client $i on $client_node..."
+        simulation_type=" -emulationType Simulation "
+        client_command="${shared_command} -serverUrl $server_ip -statsFile ${opencraft_stats}client$i.csv -userID $i -playType Client ${simulation_type} > ${opencraft_logs}client${i}.log 2>&1 &"
+        ssh $client_node "${client_command}" &
 
-        start_client=$(( (node_index - 1) * clients_per_node + 1 ))
-        end_client=$(( node_index * clients_per_node ))
-
-        for i in $(seq $start_client $end_client); do
-            echo "Starting client $i on $client_node..."
-            simulation_type=" -emulationType Simulation "
-            client_command="${shared_command} -serverUrl $server_ip -statsFile ${opencraft_stats}client$i.csv -userID $i -playType Client ${simulation_type} > ${opencraft_logs}client${i}.log 2>&1 &"
-            ssh $client_node "${client_command}" &
+        if ((client_nodes_number == node_index)); then
+            echo "Sleeping for $client_interval seconds..."
             sleep $client_interval
-        done
+        fi
     done
 
     sleep 5

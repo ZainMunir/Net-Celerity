@@ -40,14 +40,14 @@ def create_stacked_line_graph(all_data=False):
     ]
     
     addition=1
-    legend = "upper left"
+    legend = "lower right"
     if all_data:
         final_columns = [
             "Main Thread_other",
             "ServerFixedUpdate_other",
         ] + final_columns
         addition = 2
-        legend = "lower left"
+        legend = "lower right"
     
     final_columns = [col for col in final_columns if col in average_df.columns]
     average_df[final_columns] = average_df[final_columns] / 1e6
