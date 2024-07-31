@@ -19,29 +19,31 @@ def add_to_pdf(pdf_path, image_paths, shift_constant, addition):
     output_file = PdfWriter()
     input_file = PdfReader(open(pdf_path, "rb"))
     input_page = input_file.pages[0]
-    
-    
+
     graphs = []
     for i, image in enumerate(image_paths):
-        pdf_file = image.split(".")[0] + ".pdf" 
-        c = canvas.Canvas(pdf_file, pagesize=(input_page.mediabox.width, input_page.mediabox.width))
+        pdf_file = image.split(".")[0] + ".pdf"
+        c = canvas.Canvas(
+            pdf_file, pagesize=(input_page.mediabox.width, input_page.mediabox.width)
+        )
 
         # Draw the image at x, y. I positioned the x,y to be where i like here
-        c.scale(.72, .72)
-        c.drawImage(image, i * shift_constant, 0, mask='auto')
+        c.scale(0.72, 0.72)
+        c.drawImage(image, i * shift_constant, 0, mask="auto")
         c.save()
 
         graph = PdfReader(open(pdf_file, "rb"))
         graphs.append(graph)
         input_page.merge_page(graph.pages[0])
-        
 
     output_file.add_page(input_page)
-    
+
     # finally, write "output" to document-output.pdf
-    with open(f"{sc.plots_directory}players-bar-combined-{addition}.pdf", "wb") as outputStream:
+    with open(
+        f"{sc.plots_directory}players-bar-combined-{addition}.pdf", "wb"
+    ) as outputStream:
         output_file.write(outputStream)
-    
+
     for graph in graphs:
         graph.stream.close()
     input_file.stream.close()
@@ -74,17 +76,15 @@ def sort_list2_by_list1(list1, list2):
     order_dict = {value: index for index, value in enumerate(list1)}
 
     def extract_key(item):
-        key_part = item.split(".")[0] 
-        return order_dict.get(
-            key_part, float("inf")
-        )  
+        key_part = item.split(".")[0]
+        return order_dict.get(key_part, float("inf"))
 
     sorted_list2 = sorted(list2, key=extract_key)
 
     return sorted_list2
 
 
-def create_bar_graph(all_data=False):
+def create_bar_graph(all_data=False, logic=False):
     player_experiments = [
         f"{sc.data_directory}{x}/"
         for x in os.listdir(sc.data_directory)
@@ -135,6 +135,15 @@ def create_bar_graph(all_data=False):
                 "ServerFixedUpdate_other",
             ] + columns
 
+        if logic:
+            columns = [
+                "TerrainLogicSystem_other",
+                "GetUpdates",
+                "ReevaluatePropagateMarker",
+                "PropagateLogicState",
+                "CheckGateState",
+            ]
+
         x = average_df.index
         y = average_df[columns] / 1e6
 
@@ -150,6 +159,8 @@ def create_bar_graph(all_data=False):
         ax.set_ylabel("Time (ms)")
         if all_data:
             ax.set_ybound(0, 9)
+        elif logic:
+            ax.set_ybound(0, 0.1)
         else:
             ax.set_ybound(0, 0.8)
         addition = "png"
@@ -160,9 +171,9 @@ def create_bar_graph(all_data=False):
             ax.figure.set_figwidth(13.5)
             transparent = False
             ax.set_xlim(-0.5, len(x) - 0.5)
-            
+
             box = ax.get_position()
-            ax.set_position([box.x0*.8, box.y0, box.width * 0.77, box.height])
+            ax.set_position([box.x0 * 0.8, box.y0, box.width * 0.77, box.height])
 
             legend_marker = []
             for order_val in order[1:]:
@@ -200,12 +211,12 @@ def create_bar_graph(all_data=False):
     output_files = sort_list2_by_list1(order, output_files)
 
     # overlayed_image = overlay_images(output_files[0], output_files[1:], 13)
-    addition = 2 if all_data else 1
+    addition = 2 if all_data else 3 if logic else 1
     # overlayed_image.save(f"{sc.plots_directory}players-bar-combined-{addition}.png",
     # )
-    
+
     add_to_pdf(output_files[0], output_files[1:], 13, addition)
-    
+
     for helper_file in os.listdir():
         if helper_file.endswith(".pdf") or helper_file.endswith(".png"):
             os.remove(helper_file)
@@ -215,6 +226,8 @@ if __name__ == "__main__":
     if len(sys.argv) == 2:
         if sys.argv[1] == "all":
             create_bar_graph(True)
+        elif sys.argv[1] == "logic":
+            create_bar_graph(False, True)
         else:
             print("Invalid argument. Usage: python3 bar_combined.py [all]")
     else:

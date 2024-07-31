@@ -16,6 +16,8 @@ def average_data(players=False):
     elif  "players" in sc.experiment_name:
         summed_df.set_index("players", inplace=True)
         summed_df.sort_index(inplace=True)
+    elif "gen" in sc.experiment_name:
+        summed_df.sort_index(inplace=True)
     else:
         raise ValueError("Invalid experiment name")
 

@@ -3,7 +3,8 @@
 # List of num_players options
 
 source config.cfg
-terrain_options=("Empty" "1-Layer" "2-Layer" "3-Layer" "RollingHills" "TerrainCircuitry")
+terrain_options=("Empty" "Empty" "1-Layer" "RollingHills" "RollingHills" "TerrainCircuitry")
+active_status=("" "-activeLogic" "-activeLogic" "" "-activeLogic" "-activeLogic")
 
 # Config (so I can have formatted strings)
 ## Folder locations
@@ -24,8 +25,10 @@ system_monitor_script="${net_celerity_folder}system_monitor.py"
 client_system_monitor_script="${net_celerity_folder}client_system_monitor.py"
 collect_script="${net_celerity_folder}collect_script.py"
 
-for terrain_type2 in "${terrain_options[@]}"; do
-    run_config="gen_${terrain_type2}_${num_players}p_${benchmark_duration}s"
+for index in "${!terrain_options[@]}"; do
+    terrain_type2=${terrain_options[$index]}
+    active_logic=${active_status[$index]}
+    run_config="gen${active_logic}_${terrain_type2}_${num_players}p_${benchmark_duration}s"
 
     run_dir="${runs_dir}${run_config}/"
     opencraft_stats="${run_dir}opencraft_stats/"
@@ -44,7 +47,7 @@ for terrain_type2 in "${terrain_options[@]}"; do
     server_stats="${opencraft_stats}server.csv"
     server_log="${opencraft_logs}server.log"
     echo "Starting server on $server_node at $server_ip:7777 with config ${run_config}..."
-    server_command="${shared_command} -terrainType ${terrain_type2} -statsFile ${server_stats} -activeLogic -circuitChunkRadius 5 -playType Server > ${server_log} 2>&1 &"
+    server_command="${shared_command} -terrainType ${terrain_type2} -statsFile ${server_stats} $active_logic -circuitX 5 -circuitZ 5 -playType Server > ${server_log} 2>&1 &"
     ssh $server_node "${server_command}" &
     sleep 10
 
