@@ -31,7 +31,7 @@ def create_fps_scatter():
     player_experiments = [
         f"{sc.data_directory}{x}/"
         for x in os.listdir(sc.data_directory)
-        if "players" in x and not "Dummy" in x  and not "TerrainCircuitry" in x
+        if "players" in x and not "Dummy" in x # and not "TerrainCircuitry" in x
     ]
     average_dfes = [exp + "averaged_output.csv" for exp in player_experiments]
 
@@ -96,7 +96,7 @@ def create_fps_scatter():
 
     plt.tight_layout()
     # plt.show()
-    plt.savefig(f"{sc.plots_directory}players-fps-1.pdf", format="pdf")
+    plt.savefig(f"{sc.plots_directory}players-fps-2.pdf", format="pdf")
     print(f"Saved plot to {sc.plots_directory}players-fps.pdf")
 
 
