@@ -7,69 +7,75 @@ import numpy as np
 import os
 import sys
 import re
-
-#https://stackoverflow.com/questions/22787209/how-to-have-clusters-of-stacked-bars
-def plot_clustered_stacked(dfall, labels=None,   H="/", **kwargs):
-    """Given a list of dataframes, with identical columns and index, create a clustered stacked bar plot. 
-labels is a list of the names of the dataframe, used for the legend
-title is a string for the title of the plot
-H is the hatch used for identification of the different dataframe"""
-
-    n_df = len(dfall)
-    n_col = len(dfall[0].columns) 
-    n_ind = len(dfall[0].index)
-    axe = plt.subplot(111)
-    axe.figure.set_size_inches(16, 6)
-    axe.figure.tight_layout(rect=[.05, 0.05,.75,1])
-    
-     
-    for df in dfall : # for each data frame
-        axe = df.plot(kind="bar",
-                      linewidth=0,
-                      stacked=True,
-                      ax=axe,
-                      legend=False,
-                      grid=False,
-                      **kwargs)  # make bar plots
-
-    h,l = axe.get_legend_handles_labels() # get the handles we want to modify
-    for i in range(0, n_df * n_col, n_col): # len(h) = n_col * n_df
-        for j, pa in enumerate(h[i:i+n_col]):
-            for rect in pa.patches: # for each index
-                rect.set_x(rect.get_x() + 1 / float(n_df + 1) * i / float(n_col))
-                rect.set_hatch(H * int(i / n_col)) #edited part     
-                rect.set_width(1 / float(n_df + 1))
-
-    axe.set_xticks((np.arange(0, 2 * n_ind, 2) + 1 / float(n_df + 1)) / 2.)
-    axe.set_xticklabels(df.index, rotation = 0)
-
-    # Add invisible data to add another legend
-    n=[]        
-    for i in range(n_df):
-        n.append(axe.bar(0, 0, color="gray", hatch=H * i))
-
-    l1 = axe.legend(h[:n_col], l[:n_col], loc=[1.01, 0.5])
-    if labels is not None:
-        l2 = plt.legend(n, labels, loc=[1.01, 0.1]) 
-    axe.add_artist(l1)
-    return axe
+from PIL import Image
+import matplotlib.patches as mpatches
 
 
-def create_bar_graph(all_data=False ):
+def overlay_images(base_image_path, overlay_images_paths, shift_constant):
+    base_image = Image.open(base_image_path).convert("RGBA")
+    print(base_image_path)
+
+    for i, overlay_image_path in enumerate(overlay_images_paths):
+        print(overlay_image_path)
+        overlay_image = Image.open(overlay_image_path).convert("RGBA")
+
+        horizontal_shift = i * shift_constant
+
+        new_image_width = base_image.width + horizontal_shift
+        new_image_height = max(base_image.height, overlay_image.height)
+        new_image = Image.new("RGBA", (new_image_width, new_image_height), (0, 0, 0, 0))
+
+        new_image.paste(base_image, (0, 0), base_image)
+
+        new_image.paste(overlay_image, (horizontal_shift, 0), overlay_image)
+
+        base_image = new_image
+
+    return base_image
+
+
+def sort_list2_by_list1(list1, list2):
+    order_dict = {value: index for index, value in enumerate(list1)}
+
+    def extract_key(item):
+        key_part = item.split(".")[0] 
+        return order_dict.get(
+            key_part, float("inf")
+        )  
+
+    sorted_list2 = sorted(list2, key=extract_key)
+
+    return sorted_list2
+
+
+def create_bar_graph(all_data=False):
     player_experiments = [
         f"{sc.data_directory}{x}/"
         for x in os.listdir(sc.data_directory)
-        if "players" in x # and not "TerrainCircuitry" in x
+        if "players" in x and not "TerrainCircuitry" in x
     ]
-    average_dfes = [exp + "averaged_output.csv" for exp in player_experiments]
-    data_frames = []
-    for average_df_file in average_dfes:
-        if not os.path.exists(average_df_file):
-            print(f"{average_df_file} does not exist")
+    average_csvs = [exp + "averaged_output.csv" for exp in player_experiments]
+
+    order = [
+        "Dummy",
+        "Empty",
+        "Empty (Logic Active)",
+        "1-Layer (Logic Active)",
+        "RollingHills",
+        "RollingHills (Logic Active)",
+    ]  # , "TerrainCircuitry (Logic Active)"]
+    patterns = ["", "/", "-", "x", "o", ".", "*"]
+
+    output_files = []
+    for average_csvs in average_csvs:
+        if not os.path.exists(average_csvs):
+            print(f"{average_csvs} does not exist")
             continue
-        average_df = pd.read_csv(average_df_file)
+
+        average_df = pd.read_csv(average_csvs)
         average_df.set_index("players", inplace=True)
-        search = re.search(r"players(.+)\/", average_df_file)
+
+        search = re.search(r"players(.+)\/", average_csvs)
         if search:
             val = search.group(1)
             if "-activeLogic" in val:
@@ -86,35 +92,84 @@ def create_bar_graph(all_data=False ):
             "StructureGeneration",
             "TerrainLogicSystem",
         ]
+
         if all_data:
             columns = [
                 "Main Thread_other",
                 "ServerFixedUpdate_other",
             ] + columns
-        
+
+        x = average_df.index
         y = average_df[columns] / 1e6
-        
-        df = pd.DataFrame(y)
-        df.insert(len(df.columns), 'name', [val for _ in range(len(df))], True)
-        data_frames.append(df)
-        
 
-    dfall = pd.concat(data_frames)
-    dfall.to_csv("test.csv")
-    dfall = dfall.groupby('name')
-    names = list(dfall["name"].head().unique())
-    names.sort()
-    dfall = [group for _, group in dfall]
-    axe = plot_clustered_stacked(dfall, names, edgecolor='black')
-    axe.set_yscale('log')
-    axe.set_ylabel('Average frame time (ms)')
-    axe.set_xlabel('Players')
-    axe.figure.show()
-    addition = 1
-    if all_data:
-        addition = 2
-    axe.figure.savefig(f"{sc.plots_directory}players-stacked-bar-{addition}.pdf", format="pdf")
+        total_width = 0.9
+        bar_width = total_width / len(order)
+        hatching_index = order.index(val)
 
+        ax = y.plot(
+            kind="bar", stacked=True, figsize=(10, 6), width=bar_width, legend=False
+        )
+
+        ax.set_xlabel("Players")
+        ax.set_ylabel("Time (ms)")
+        if all_data:
+            ax.set_ybound(0, 9)
+        else:
+            ax.set_ybound(0, 0.8)
+        addition = "png"
+        transparent = True
+        if val == "Dummy":
+            first_legend = ax.legend(loc="upper left", bbox_to_anchor=(1, 1))
+            ax.add_artist(first_legend)
+            ax.figure.set_figwidth(13.5)
+            transparent = False
+            ax.set_xlim(-0.5, len(x) - 0.5)
+            
+            box = ax.get_position()
+            ax.set_position([box.x0*.8, box.y0, box.width * 0.77, box.height])
+
+            legend_marker = []
+            for order_val in order[1:]:
+                circ = mpatches.Patch(
+                    facecolor="white",
+                    edgecolor="black",
+                    hatch=patterns[order.index(order_val)],
+                    label=order_val,
+                )
+                legend_marker.append(circ)
+            ax.legend(handles=legend_marker, loc="center", bbox_to_anchor=(1.22, 0.2))
+            # addition = "pdf"
+        else:
+            ax.set_axis_off()
+            bars = ax.patches
+            pattern = patterns[
+                hatching_index
+            ]  # set hatch patterns in the correct order
+            hatches = []  # list for hatches in the order of the bars
+            for i in range(int(len(bars))):
+                hatches.append(pattern)
+            for bar, hatch in zip(
+                bars, hatches
+            ):  # loop over bars and hatches to set hatches in correct order
+                bar.set_hatch(hatch)
+
+        ax.set_xticklabels(x, rotation=0)
+        ax.tick_params(bottom=False)
+
+        output_filename = f"{val}.{addition}"
+        output_files.append(output_filename)
+        ax.figure.savefig(output_filename, transparent=transparent, format=addition)
+        # plt.close(fig)
+
+    output_files = sort_list2_by_list1(order, output_files)
+
+    overlayed_image = overlay_images(output_files[0], output_files[1:], 13)
+    addition = 2 if all_data else 1
+    overlayed_image.save(f"{sc.plots_directory}players-bar-combined-{addition}.png",
+    )
+    
+    for output_file in output_files:
+        os.remove(output_file)
 
 
 if __name__ == "__main__":
@@ -125,5 +180,3 @@ if __name__ == "__main__":
             print("Invalid argument. Usage: python3 bar_combined.py [all]")
     else:
         create_bar_graph()
-    
-    
