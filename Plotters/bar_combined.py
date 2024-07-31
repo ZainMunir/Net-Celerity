@@ -10,6 +10,42 @@ import re
 from PIL import Image
 import matplotlib.patches as mpatches
 
+from reportlab.pdfgen import canvas
+from PyPDF2 import PdfWriter, PdfReader
+
+
+def add_to_pdf(pdf_path, image_paths, shift_constant, addition):
+    # Get our files ready
+    output_file = PdfWriter()
+    input_file = PdfReader(open(pdf_path, "rb"))
+    input_page = input_file.pages[0]
+    
+    
+    graphs = []
+    for i, image in enumerate(image_paths):
+        pdf_file = image.split(".")[0] + ".pdf" 
+        c = canvas.Canvas(pdf_file, pagesize=(input_page.mediabox.width, input_page.mediabox.width))
+
+        # Draw the image at x, y. I positioned the x,y to be where i like here
+        c.scale(.72, .72)
+        c.drawImage(image, i * shift_constant, 0, mask='auto')
+        c.save()
+
+        graph = PdfReader(open(pdf_file, "rb"))
+        graphs.append(graph)
+        input_page.merge_page(graph.pages[0])
+        
+
+    output_file.add_page(input_page)
+    
+    # finally, write "output" to document-output.pdf
+    with open(f"{sc.plots_directory}players-bar-combined-{addition}.pdf", "wb") as outputStream:
+        output_file.write(outputStream)
+    
+    for graph in graphs:
+        graph.stream.close()
+    input_file.stream.close()
+
 
 def overlay_images(base_image_path, overlay_images_paths, shift_constant):
     base_image = Image.open(base_image_path).convert("RGBA")
@@ -138,7 +174,7 @@ def create_bar_graph(all_data=False):
                 )
                 legend_marker.append(circ)
             ax.legend(handles=legend_marker, loc="center", bbox_to_anchor=(1.22, 0.2))
-            # addition = "pdf"
+            addition = "pdf"
         else:
             ax.set_axis_off()
             bars = ax.patches
@@ -163,13 +199,16 @@ def create_bar_graph(all_data=False):
 
     output_files = sort_list2_by_list1(order, output_files)
 
-    overlayed_image = overlay_images(output_files[0], output_files[1:], 13)
+    # overlayed_image = overlay_images(output_files[0], output_files[1:], 13)
     addition = 2 if all_data else 1
-    overlayed_image.save(f"{sc.plots_directory}players-bar-combined-{addition}.png",
-    )
+    # overlayed_image.save(f"{sc.plots_directory}players-bar-combined-{addition}.png",
+    # )
     
-    for output_file in output_files:
-        os.remove(output_file)
+    add_to_pdf(output_files[0], output_files[1:], 13, addition)
+    
+    for helper_file in os.listdir():
+        if helper_file.endswith(".pdf") or helper_file.endswith(".png"):
+            os.remove(helper_file)
 
 
 if __name__ == "__main__":
