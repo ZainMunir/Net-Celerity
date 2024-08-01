@@ -40,7 +40,7 @@ options = [
     },
 ]
 
-index = 2
+index = 0
 addition = options[index]["addition"]
 client_column_name = options[index]["client_column_name"]
 server_column_name = options[index]["server_column_name"]
@@ -141,11 +141,11 @@ for experiment in experiments:
                 if col.startswith(server_column_name)
             ]
         ].sum(axis=1)
-        if "memory" in addition:
-            server_averages_per_experiment[int(key)] /= 1024**3
         if "Network" in addition:
             server_column_values = np.diff(server_column_values) / 1024**2
         server_averages_per_experiment[int(key)] = server_column_values.mean()
+        if "memory" in addition:
+            server_averages_per_experiment[int(key)] /= 1024**3
 
     experiment_averages[val] = client_averages
     server_averages[val] = server_averages_per_experiment
@@ -169,6 +169,7 @@ index = np.arange(len(all_player_nums))
 if clients_data:
     # Plotting client usage
     plt.figure(figsize=(10, 6))
+    plt.tight_layout()
 
     for i, experiment in enumerate(experiments):
         averages = experiment_averages[experiment]
@@ -186,6 +187,7 @@ if clients_data:
 
 # Plotting server usage
 plt.figure(figsize=(10, 6))
+plt.tight_layout()
 
 for i, experiment in enumerate(experiments):
     averages = server_averages[experiment]

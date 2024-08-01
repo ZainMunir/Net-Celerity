@@ -29,8 +29,8 @@
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gfx=262144"
 Remaining time:29s
-Found 2 interfaces on host : 0) 10.141.0.14 1) 10.149.0.14
-Player connection [140277225623424] Multi-casting "[IP] 10.141.0.14 [Port] 55001 [Flags] 19 [Guid] 1397563150 [EditorId] 1679853332 [Version] 1048832 [Id] LinuxPlayer(13,10.141.0.14) [Debug] 0 [PackageName] LinuxPlayer [ProjectName] Opencraft" to [225.0.0.222:54997]...
+Found 2 interfaces on host : 0) 10.141.0.31 1) 10.149.0.31
+Player connection [140644736151424] Multi-casting "[IP] 10.141.0.31 [Port] 55000 [Flags] 19 [Guid] 1015038559 [EditorId] 1679853332 [Version] 1048832 [Id] LinuxPlayer(13,10.141.0.31) [Debug] 0 [PackageName] LinuxPlayer [ProjectName] Opencraft" to [225.0.0.222:54997]...
 
 Direct connection to host time out.
 Stopping profiler. Profiler is not able to flush data to a file or socket and exceeded maximum allowed memory for buffering.
@@ -83,55 +83,14 @@ ERROR: Shader Hidden/Universal Render Pipeline/FinalPost shader is not supported
 ERROR: Shader Sprites/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
 ERROR: Shader Sprites/Mask shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
 ERROR: Shader GUI/Text Shader shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
-UnloadTime: 0.881182 ms
-Parsing args: /var/scratch/zmr280/opencraft/opencraft.x86_64, -batchmode, -nographics, -logStats, True, -serverUrl, 10.141.0.1, -statsFile, /var/scratch/zmr280/runs/players-activeLogic_Empty_30p_300s/opencraft_stats/client7.csv, -userID, 7, -playType, Client, -emulationType, Simulation
+UnloadTime: 1.019742 ms
+Parsing args: /var/scratch/zmr280/opencraft/opencraft.x86_64, -batchmode, -nographics, -logStats, True, -serverUrl, 10.141.0.2, -statsFile, /var/scratch/zmr280/runs/players-activeLogic_Empty_30p_300s/opencraft_stats/client7.csv, -userID, 7, -playType, Client, -emulationType, Simulation
 Setting up worlds with playType Client and streaming role Disabled
 Adding type with UniqueSystemAttribute: StatisticsSystem
 Adding type with UniqueSystemAttribute: StatisticsSystem
-Failed to create websocket: System.Net.Sockets.SocketException (0x80004005): Address already in use
-  at System.Net.Sockets.Socket.Bind (System.Net.EndPoint localEP) [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.NetCode.DebugWebSocket..ctor (System.UInt16 port) [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.NetCode.GhostStatsConnection..ctor () [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.NetCode.GhostStatsFlushSystem.OnCreate () [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.Entities.ComponentSystemBase.CreateInstance (Unity.Entities.World world) [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.Entities.World.AddSystem_OnCreate_Internal (Unity.Entities.ComponentSystemBase system) [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.Entities.World.GetOrCreateSystemsAndLogException (Unity.Collections.NativeList`1[T] types, System.Int32 typesCount, Unity.Collections.AllocatorManager+AllocatorHandle allocator) [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.Entities.World.GetOrCreateSystemsAndLogException (Unity.Collections.NativeList`1[T] types, Unity.Collections.AllocatorManager+AllocatorHandle allocator) [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.Entities.DefaultWorldInitialization.AddSystemToRootLevelSystemGroupsInternal[T] (Unity.Entities.World world, Unity.Collections.NativeList`1[T] systemTypesOrig, Unity.Entities.ComponentSystemGroup defaultGroup, T rootGroups) [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.Entities.DefaultWorldInitialization.AddSystemToRootLevelSystemGroupsInternal (Unity.Entities.World world, Unity.Collections.NativeList`1[T] systemTypesOrig) [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.Entities.DefaultWorldInitialization.AddSystemsToRootLevelSystemGroups (Unity.Entities.World world, System.Collections.Generic.IReadOnlyList`1[T] systemTypes) [0x00000] in <00000000000000000000000000000000>:0 
-  at PolkaDOTS.Bootstrap.GameBootstrap.CreateClientWorld (System.String name, Unity.Entities.WorldFlags flags, System.Collections.Generic.IReadOnlyList`1[T] systems) [0x00000] in <00000000000000000000000000000000>:0 
-  at PolkaDOTS.Bootstrap.GameBootstrap.CreateDefaultClientWorld (System.String worldName, System.Boolean isHost, System.Boolean isCloudHost) [0x00000] in <00000000000000000000000000000000>:0 
-  at PolkaDOTS.Bootstrap.GameBootstrap.SetupWorlds (PolkaDOTS.Deployment.MultiplayStreamingRoles mRole, PolkaDOTS.Bootstrap.GameBootstrap+BootstrapPlayTypes playTypes, Unity.Collections.NativeList`1[Unity.Entities.WorldUnmanaged]& worldReferences, System.Int32 numSimulatedClients, System.Boolean autoStart, System.Boolean autoConnect, System.String serverUrl, System.UInt16 serverPort, System.String signalingUrl, System.String worldName) [0x00000] in <00000000000000000000000000000000>:0 
-  at PolkaDOTS.Bootstrap.GameBootstrap.SetupWorldsFromLocalConfig () [0x00000] in <00000000000000000000000000000000>:0 
-  at PolkaDOTS.Bootstrap.GameBootstrap.Initialize (System.String defaultWorldName) [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.Entities.CustomWorldInitialization.Initialize (System.String defaultWorldName, System.Boolean editorWorld) [0x00000] in <00000000000000000000000000000000>:0 
-  at Unity.Entities.CustomAutomaticWorldBootstrap.Initialize () [0x00000] in <00000000000000000000000000000000>:0 
-UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:LogError(Object)
-Unity.NetCode.DebugWebSocket:.ctor(UInt16)
-Unity.NetCode.GhostStatsConnection:.ctor()
-Unity.NetCode.GhostStatsFlushSystem:OnCreate()
-Unity.Entities.ComponentSystemBase:CreateInstance(World)
-Unity.Entities.World:AddSystem_OnCreate_Internal(ComponentSystemBase)
-Unity.Entities.World:GetOrCreateSystemsAndLogException(NativeList`1, Int32, AllocatorHandle)
-Unity.Entities.World:GetOrCreateSystemsAndLogException(NativeList`1, AllocatorHandle)
-Unity.Entities.DefaultWorldInitialization:AddSystemToRootLevelSystemGroupsInternal(World, NativeList`1, ComponentSystemGroup, T)
-Unity.Entities.DefaultWorldInitialization:AddSystemToRootLevelSystemGroupsInternal(World, NativeList`1)
-Unity.Entities.DefaultWorldInitialization:AddSystemsToRootLevelSystemGroups(World, IReadOnlyList`1)
-PolkaDOTS.Bootstrap.GameBootstrap:CreateClientWorld(String, WorldFlags, IReadOnlyList`1)
-PolkaDOTS.Bootstrap.GameBootstrap:CreateDefaultClientWorld(String, Boolean, Boolean)
-PolkaDOTS.Bootstrap.GameBootstrap:SetupWorlds(MultiplayStreamingRoles, BootstrapPlayTypes, NativeList`1&, Int32, Boolean, Boolean, String, UInt16, String, String)
-PolkaDOTS.Bootstrap.GameBootstrap:SetupWorldsFromLocalConfig()
-PolkaDOTS.Bootstrap.GameBootstrap:Initialize(String)
-Unity.Entities.CustomWorldInitialization:Initialize(String, Boolean)
-Unity.Entities.CustomAutomaticWorldBootstrap:Initialize()
-
 Adding world ClientWorld to update list
 Connecting worlds with playType Client and streaming role Disabled
-Created connection request for 10.141.0.1:7979
+Created connection request for 10.141.0.2:7979
 Creating statistics writer!
 Recorder [ServerFixedUpdate] is invalid!
 UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
@@ -215,9 +174,9 @@ Found codec: AV1 Profile0
 Found codec: AV1 Profile1
 Could not find H264.High as streaming codec!
 Adding terrain areas statistics recorders
-Streamed scene with   47ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/bea83102298cfb741939cdba85abe535.0.entities
+Streamed scene with   49ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/bea83102298cfb741939cdba85abe535.0.entities
 AutoLoading authoring scene in world ClientWorld
-[12:02:53.9236420]:[ClientWorld] New connection ID:10
+[16:18:14.9038070]:[ClientWorld] New connection ID:8
 ERROR: Shader Custom/VoxelShader shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
 WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
@@ -240,7 +199,7 @@ ERROR: Shader Universal Render Pipeline/Unlit shader is not supported on this GP
 WARNING: Shader Unsupported: 'Universal Render Pipeline/Unlit' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-Streamed scene with   41ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/62561c7118c5bbb46929c6bf65331faa.0.entities
+Streamed scene with   39ms latency from /var/scratch/zmr280/opencraft/opencraft_Data/StreamingAssets/EntityScenes/62561c7118c5bbb46929c6bf65331faa.0.entities
 Sending start game stream RPC
 Emulation type is Idle, Simulation
 Creating local player object
@@ -254,7 +213,7 @@ UnityEngine.Debug:LogWarning(Object)
 Opencraft.Player.SamplePlayerInput:OnUpdate(SystemState&)
 Opencraft.Player.SamplePlayerInput:__codegen__OnUpdate(IntPtr, IntPtr)
 
-Linking player entity Entity(174:1) to 7@LOCALPLAYER
+Linking player entity Entity(171:1) to 7@LOCALPLAYER
 Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(2, 3, 5)
 Player simulation could not find a path from int3(0, 3, 0) to int3(2, 3, 5), will choose new target
 Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(11, 3, 15)
@@ -266,232 +225,256 @@ Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 
 Player simulation could not find a path from int3(0, 3, 0) to int3(8, 3, 14), will choose new target
 Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(6, 3, 15)
 Player simulation could not find a path from int3(0, 3, 0) to int3(6, 3, 15), will choose new target
-    6: Could not find target at int3(0, 3, 0)
+Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(2, 3, -11)
+Player simulation could not find a path from int3(0, 3, 0) to int3(2, 3, -11), will choose new target
 Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(-9, 3, 10)
 Player simulation could not find a path from int3(0, 3, 0) to int3(-9, 3, 10), will choose new target
 Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(-3, 3, 13)
 Player simulation could not find a path from int3(0, 3, 0) to int3(-3, 3, 13), will choose new target
 ClientWorld player simulation could not find a path in 9 attempts, waiting to try again
 Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(2, 3, 5)
+AStar halted as encountered unloaded blocks, retrying...
+Player simulation could not find a path from int3(0, 3, 0) to int3(2, 3, 5), will choose new target
+Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(11, 3, 15)
+AStar halted as encountered unloaded blocks, retrying...
+Player simulation could not find a path from int3(0, 3, 0) to int3(11, 3, 15), will choose new target
+    2: Could not find target at int3(0, 3, 0)
+Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(11, 3, 4)
+AStar halted as encountered unloaded blocks, retrying...
+Player simulation could not find a path from int3(0, 3, 0) to int3(11, 3, 4), will choose new target
+Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(8, 3, 14)
+AStar halted as encountered unloaded blocks, retrying...
+Player simulation could not find a path from int3(0, 3, 0) to int3(8, 3, 14), will choose new target
+Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(6, 3, 15)
+AStar halted as encountered unloaded blocks, retrying...
+Player simulation could not find a path from int3(0, 3, 0) to int3(6, 3, 15), will choose new target
+Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(2, 3, -11)
+AStar halted as encountered unloaded blocks, retrying...
+Player simulation could not find a path from int3(0, 3, 0) to int3(2, 3, -11), will choose new target
+Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(-9, 3, 10)
+AStar halted as encountered unloaded blocks, retrying...
+Player simulation could not find a path from int3(0, 3, 0) to int3(-9, 3, 10), will choose new target
+Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(-3, 3, 13)
+AStar halted as encountered unloaded blocks, retrying...
+Player simulation could not find a path from int3(0, 3, 0) to int3(-3, 3, 13), will choose new target
+ClientWorld player simulation could not find a path in 9 attempts, waiting to try again
+Player simulation searching for path from float3(0.5f, 3.1f, 0.5f) = int3(0, 3, 0) to int3(2, 3, 5)
 ClientWorld player simulation set new target int3(2, 3, 5)
 ClientWorld player simulation reached target int3(2, 3, 5)
-Player simulation searching for path from float3(2.49f, 3.1f, 5.39f) = int3(2, 3, 5) to int3(-3, 3, 7)
+Player simulation searching for path from float3(2.514711f, 3.1f, 5.38971f) = int3(2, 3, 5) to int3(-3, 3, 7)
 ClientWorld player simulation set new target int3(-3, 3, 7)
 ClientWorld player simulation reached target int3(-3, 3, 7)
-Player simulation searching for path from float3(-2.476f, 3.1f, 7.356f) = int3(-3, 3, 7) to int3(10, 3, -15)
+Player simulation searching for path from float3(-2.534711f, 3.1f, 7.363132f) = int3(-3, 3, 7) to int3(10, 3, -15)
 ClientWorld player simulation set new target int3(10, 3, -15)
 ClientWorld player simulation reached target int3(10, 3, -15)
-Player simulation searching for path from float3(10.352f, 3.1f, -14.482f) = int3(10, 3, -15) to int3(-2, 3, -4)
+Player simulation searching for path from float3(10.31742f, 3.1f, -14.519f) = int3(10, 3, -15) to int3(-2, 3, -4)
 ClientWorld player simulation set new target int3(-2, 3, -4)
 ClientWorld player simulation reached target int3(-2, 3, -4)
-Player simulation searching for path from float3(-1.507711f, 3.1f, -3.65629f) = int3(-2, 3, -4) to int3(10, 3, 2)
+Player simulation searching for path from float3(-1.51f, 3.1f, -3.640001f) = int3(-2, 3, -4) to int3(10, 3, 2)
 ClientWorld player simulation set new target int3(10, 3, 2)
 ClientWorld player simulation reached target int3(10, 3, 2)
-Player simulation searching for path from float3(10.381f, 3.1f, 2.515f) = int3(10, 3, 2) to int3(-13, 3, -3)
+Player simulation searching for path from float3(10.358f, 3.1f, 2.501f) = int3(10, 3, 2) to int3(-13, 3, -3)
 ClientWorld player simulation set new target int3(-13, 3, -3)
 ClientWorld player simulation reached target int3(-13, 3, -3)
-Player simulation searching for path from float3(-12.30071f, 3.1f, -2.466711f) = int3(-13, 3, -3) to int3(2, 3, 2)
+Player simulation searching for path from float3(-12.398f, 3.1f, -2.496f) = int3(-13, 3, -3) to int3(2, 3, 2)
 ClientWorld player simulation set new target int3(2, 3, 2)
 ClientWorld player simulation reached target int3(2, 3, 2)
-Player simulation searching for path from float3(2.491f, 3.1f, 2.318f) = int3(2, 3, 2) to int3(14, 3, -8)
+Player simulation searching for path from float3(2.482f, 3.1f, 2.377f) = int3(2, 3, 2) to int3(14, 3, -8)
 ClientWorld player simulation set new target int3(14, 3, -8)
 ClientWorld player simulation reached target int3(14, 3, -8)
-Player simulation searching for path from float3(14.363f, 3.1f, -7.481f) = int3(14, 3, -8) to int3(-10, 3, 12)
+Player simulation searching for path from float3(14.388f, 3.1f, -7.505001f) = int3(14, 3, -8) to int3(-10, 3, 12)
 ClientWorld player simulation set new target int3(-10, 3, 12)
 ClientWorld player simulation reached target int3(-10, 3, 12)
-Player simulation searching for path from float3(-9.476001f, 3.1f, 12.392f) = int3(-10, 3, 12) to int3(2, 3, 1)
+Player simulation searching for path from float3(-9.44529f, 3.1f, 12.30671f) = int3(-10, 3, 12) to int3(2, 3, 1)
 ClientWorld player simulation set new target int3(2, 3, 1)
 ClientWorld player simulation reached target int3(2, 3, 1)
-Player simulation searching for path from float3(2.328f, 3.1f, 1.503f) = int3(2, 3, 1) to int3(13, 3, 12)
+Player simulation searching for path from float3(2.325f, 3.1f, 1.482f) = int3(2, 3, 1) to int3(13, 3, 12)
 ClientWorld player simulation set new target int3(13, 3, 12)
 ClientWorld player simulation reached target int3(13, 3, 12)
-Player simulation searching for path from float3(13.45829f, 3.1f, 12.37971f) = int3(13, 3, 12) to int3(-10, 3, 11)
+Player simulation searching for path from float3(13.517f, 3.1f, 12.373f) = int3(13, 3, 12) to int3(-10, 3, 11)
 ClientWorld player simulation set new target int3(-10, 3, 11)
 ClientWorld player simulation reached target int3(-10, 3, 11)
-Player simulation searching for path from float3(-9.327134f, 3.1f, 11.40187f) = int3(-10, 3, 11) to int3(-10, 3, 8)
+Player simulation searching for path from float3(-9.373001f, 3.1f, 11.49f) = int3(-10, 3, 11) to int3(-10, 3, 8)
 ClientWorld player simulation set new target int3(-10, 3, 8)
 ClientWorld player simulation reached target int3(-10, 3, 8)
-Player simulation searching for path from float3(-9.468f, 3.1f, 8.618999f) = int3(-10, 3, 8) to int3(7, 3, 4)
+Player simulation searching for path from float3(-9.515f, 3.1f, 8.648999f) = int3(-10, 3, 8) to int3(7, 3, 4)
 ClientWorld player simulation set new target int3(7, 3, 4)
 ClientWorld player simulation reached target int3(7, 3, 4)
-Player simulation searching for path from float3(7.346f, 3.1f, 4.522f) = int3(7, 3, 4) to int3(-7, 3, 8)
+Player simulation searching for path from float3(7.331132f, 3.1f, 4.402868f) = int3(7, 3, 4) to int3(-7, 3, 8)
 ClientWorld player simulation set new target int3(-7, 3, 8)
 ClientWorld player simulation reached target int3(-7, 3, 8)
-Player simulation searching for path from float3(-6.538711f, 3.1f, 8.313712f) = int3(-7, 3, 8) to int3(-8, 3, -13)
+Player simulation searching for path from float3(-6.385869f, 3.1f, 8.353134f) = int3(-7, 3, 8) to int3(-8, 3, -13)
 ClientWorld player simulation set new target int3(-8, 3, -13)
 ClientWorld player simulation reached target int3(-8, 3, -13)
-Player simulation searching for path from float3(-7.334422f, 3.1f, -12.506f) = int3(-8, 3, -13) to int3(11, 3, 13)
+Player simulation searching for path from float3(-7.351421f, 3.1f, -12.529f) = int3(-8, 3, -13) to int3(11, 3, 13)
 ClientWorld player simulation set new target int3(11, 3, 13)
 ClientWorld player simulation reached target int3(11, 3, 13)
-Player simulation searching for path from float3(11.522f, 3.1f, 13.399f) = int3(11, 3, 13) to int3(5, 3, 8)
+Player simulation searching for path from float3(11.59042f, 3.1f, 13.32642f) = int3(11, 3, 13) to int3(5, 3, 8)
 ClientWorld player simulation set new target int3(5, 3, 8)
 ClientWorld player simulation reached target int3(5, 3, 8)
-Player simulation searching for path from float3(5.681579f, 3.1f, 8.482578f) = int3(5, 3, 8) to int3(14, 3, -6)
+Player simulation searching for path from float3(5.67429f, 3.1f, 8.45229f) = int3(5, 3, 8) to int3(14, 3, -6)
 ClientWorld player simulation set new target int3(14, 3, -6)
 ClientWorld player simulation reached target int3(14, 3, -6)
-Player simulation searching for path from float3(14.30742f, 3.1f, -5.594421f) = int3(14, 3, -6) to int3(-6, 3, -5)
+Player simulation searching for path from float3(14.36542f, 3.1f, -5.491f) = int3(14, 3, -6) to int3(-6, 3, -5)
 ClientWorld player simulation set new target int3(-6, 3, -5)
 ClientWorld player simulation reached target int3(-6, 3, -5)
-Player simulation searching for path from float3(-5.395422f, 3.1f, -4.475f) = int3(-6, 3, -5) to int3(15, 3, 9)
+Player simulation searching for path from float3(-5.317f, 3.1f, -4.484f) = int3(-6, 3, -5) to int3(15, 3, 9)
 ClientWorld player simulation set new target int3(15, 3, 9)
 ClientWorld player simulation reached target int3(15, 3, 9)
-Player simulation searching for path from float3(15.59771f, 3.1f, 9.376713f) = int3(15, 3, 9) to int3(3, 3, -10)
+Player simulation searching for path from float3(15.46429f, 3.1f, 9.346134f) = int3(15, 3, 9) to int3(3, 3, -10)
 ClientWorld player simulation set new target int3(3, 3, -10)
 ClientWorld player simulation reached target int3(3, 3, -10)
-Player simulation searching for path from float3(3.685868f, 3.1f, -9.52529f) = int3(3, 3, -10) to int3(-12, 3, 1)
+Player simulation searching for path from float3(3.64129f, 3.1f, -9.471711f) = int3(3, 3, -10) to int3(-12, 3, 1)
 ClientWorld player simulation set new target int3(-12, 3, 1)
 ClientWorld player simulation reached target int3(-12, 3, 1)
-Player simulation searching for path from float3(-11.511f, 3.1f, 1.353f) = int3(-12, 3, 1) to int3(14, 3, -7)
+Player simulation searching for path from float3(-11.513f, 3.1f, 1.316f) = int3(-12, 3, 1) to int3(14, 3, -7)
 ClientWorld player simulation set new target int3(14, 3, -7)
 ClientWorld player simulation reached target int3(14, 3, -7)
-Player simulation searching for path from float3(14.366f, 3.1f, -6.489f) = int3(14, 3, -7) to int3(-4, 3, 7)
+Player simulation searching for path from float3(14.31242f, 3.1f, -6.529f) = int3(14, 3, -7) to int3(-4, 3, 7)
 ClientWorld player simulation set new target int3(-4, 3, 7)
 ClientWorld player simulation reached target int3(-4, 3, 7)
-Player simulation searching for path from float3(-3.363f, 3.1f, 7.527f) = int3(-4, 3, 7) to int3(-4, 3, -1)
+Player simulation searching for path from float3(-3.377f, 3.1f, 7.523f) = int3(-4, 3, 7) to int3(-4, 3, -1)
 ClientWorld player simulation set new target int3(-4, 3, -1)
 ClientWorld player simulation reached target int3(-4, 3, -1)
     0: Could not find target at int3(-4, 3, -1)
-Player simulation searching for path from float3(-3.505f, 3.1f, -0.304f) = int3(-4, 3, -1) to int3(-9, 3, -13)
+Player simulation searching for path from float3(-3.519f, 3.1f, -0.343f) = int3(-4, 3, -1) to int3(-9, 3, -13)
 ClientWorld player simulation set new target int3(-9, 3, -13)
 ClientWorld player simulation reached target int3(-9, 3, -13)
-Player simulation searching for path from float3(-8.362001f, 3.1f, -12.472f) = int3(-9, 3, -13) to int3(-12, 3, -11)
+Player simulation searching for path from float3(-8.335423f, 3.1f, -12.55242f) = int3(-9, 3, -13) to int3(-12, 3, -11)
 ClientWorld player simulation set new target int3(-12, 3, -11)
 ClientWorld player simulation reached target int3(-12, 3, -11)
-Player simulation searching for path from float3(-11.387f, 3.1f, -10.499f) = int3(-12, 3, -11) to int3(15, 3, 6)
+Player simulation searching for path from float3(-11.30842f, 3.1f, -10.43858f) = int3(-12, 3, -11) to int3(15, 3, 6)
 ClientWorld player simulation set new target int3(15, 3, 6)
 ClientWorld player simulation reached target int3(15, 3, 6)
-Player simulation searching for path from float3(15.50742f, 3.1f, 6.337421f) = int3(15, 3, 6) to int3(2, 3, 7)
+Player simulation searching for path from float3(15.533f, 3.1f, 6.344f) = int3(15, 3, 6) to int3(2, 3, 7)
 ClientWorld player simulation set new target int3(2, 3, 7)
 ClientWorld player simulation reached target int3(2, 3, 7)
-Player simulation searching for path from float3(2.51829f, 3.1f, 7.302711f) = int3(2, 3, 7) to int3(-11, 3, 3)
+Player simulation searching for path from float3(2.467f, 3.1f, 7.351421f) = int3(2, 3, 7) to int3(-11, 3, 3)
 ClientWorld player simulation set new target int3(-11, 3, 3)
 ClientWorld player simulation reached target int3(-11, 3, 3)
-Player simulation searching for path from float3(-10.508f, 3.1f, 3.659f) = int3(-11, 3, 3) to int3(5, 3, -2)
+Player simulation searching for path from float3(-10.48f, 3.1f, 3.618f) = int3(-11, 3, 3) to int3(5, 3, -2)
 ClientWorld player simulation set new target int3(5, 3, -2)
 ClientWorld player simulation reached target int3(5, 3, -2)
-Player simulation searching for path from float3(5.391f, 3.1f, -1.516f) = int3(5, 3, -2) to int3(6, 3, -7)
+Player simulation searching for path from float3(5.394f, 3.1f, -1.516f) = int3(5, 3, -2) to int3(6, 3, -7)
 ClientWorld player simulation set new target int3(6, 3, -7)
 ClientWorld player simulation reached target int3(6, 3, -7)
-Player simulation searching for path from float3(6.339422f, 3.1f, -6.519422f) = int3(6, 3, -7) to int3(11, 3, -10)
+Player simulation searching for path from float3(6.314132f, 3.1f, -6.535711f) = int3(6, 3, -7) to int3(11, 3, -10)
 ClientWorld player simulation set new target int3(11, 3, -10)
 ClientWorld player simulation reached target int3(11, 3, -10)
-Player simulation searching for path from float3(11.361f, 3.1f, -9.493f) = int3(11, 3, -10) to int3(-15, 3, 6)
+Player simulation searching for path from float3(11.396f, 3.1f, -9.504001f) = int3(11, 3, -10) to int3(-15, 3, 6)
 ClientWorld player simulation set new target int3(-15, 3, 6)
 ClientWorld player simulation reached target int3(-15, 3, 6)
-Player simulation searching for path from float3(-14.469f, 3.1f, 6.337f) = int3(-15, 3, 6) to int3(14, 3, -10)
+Player simulation searching for path from float3(-14.517f, 3.1f, 6.34f) = int3(-15, 3, 6) to int3(14, 3, -10)
 ClientWorld player simulation set new target int3(14, 3, -10)
 ClientWorld player simulation reached target int3(14, 3, -10)
-Player simulation searching for path from float3(14.32842f, 3.1f, -9.584423f) = int3(14, 3, -10) to int3(-15, 3, -2)
+Player simulation searching for path from float3(14.31513f, 3.1f, -9.46429f) = int3(14, 3, -10) to int3(-15, 3, -2)
 ClientWorld player simulation set new target int3(-15, 3, -2)
 ClientWorld player simulation reached target int3(-15, 3, -2)
-Player simulation searching for path from float3(-14.519f, 3.1f, -1.601f) = int3(-15, 3, -2) to int3(15, 3, -14)
+Player simulation searching for path from float3(-14.45329f, 3.1f, -1.671289f) = int3(-15, 3, -2) to int3(15, 3, -14)
 ClientWorld player simulation set new target int3(15, 3, -14)
 ClientWorld player simulation reached target int3(15, 3, -14)
-Player simulation searching for path from float3(15.34042f, 3.1f, -13.55242f) = int3(15, 3, -14) to int3(-11, 3, -11)
+Player simulation searching for path from float3(15.316f, 3.1f, -13.472f) = int3(15, 3, -14) to int3(-11, 3, -11)
 ClientWorld player simulation set new target int3(-11, 3, -11)
 ClientWorld player simulation reached target int3(-11, 3, -11)
-Player simulation searching for path from float3(-10.491f, 3.1f, -10.638f) = int3(-11, 3, -11) to int3(4, 3, 14)
+Player simulation searching for path from float3(-10.533f, 3.1f, -10.664f) = int3(-11, 3, -11) to int3(4, 3, 14)
 ClientWorld player simulation set new target int3(4, 3, 14)
 ClientWorld player simulation reached target int3(4, 3, 14)
-Player simulation searching for path from float3(4.558422f, 3.1f, 14.34042f) = int3(4, 3, 14) to int3(14, 3, 1)
+Player simulation searching for path from float3(4.505f, 3.1f, 14.349f) = int3(4, 3, 14) to int3(14, 3, 1)
 ClientWorld player simulation set new target int3(14, 3, 1)
 ClientWorld player simulation reached target int3(14, 3, 1)
-Player simulation searching for path from float3(14.37571f, 3.1f, 1.503289f) = int3(14, 3, 1) to int3(15, 3, -6)
+Player simulation searching for path from float3(14.357f, 3.1f, 1.477f) = int3(14, 3, 1) to int3(15, 3, -6)
 ClientWorld player simulation set new target int3(15, 3, -6)
 ClientWorld player simulation reached target int3(15, 3, -6)
-Player simulation searching for path from float3(15.524f, 3.1f, -5.304f) = int3(15, 3, -6) to int3(2, 3, 7)
+Player simulation searching for path from float3(15.505f, 3.1f, -5.33f) = int3(15, 3, -6) to int3(2, 3, 7)
 ClientWorld player simulation set new target int3(2, 3, 7)
 ClientWorld player simulation reached target int3(2, 3, 7)
-Player simulation searching for path from float3(2.579711f, 3.1f, 7.306711f) = int3(2, 3, 7) to int3(-11, 3, 3)
+Player simulation searching for path from float3(2.53129f, 3.1f, 7.330711f) = int3(2, 3, 7) to int3(-11, 3, 3)
 ClientWorld player simulation set new target int3(-11, 3, 3)
 ClientWorld player simulation reached target int3(-11, 3, 3)
-Player simulation searching for path from float3(-10.62942f, 3.1f, 3.614579f) = int3(-11, 3, 3) to int3(5, 3, -2)
+Player simulation searching for path from float3(-10.44329f, 3.1f, 3.638868f) = int3(-11, 3, 3) to int3(5, 3, -2)
 ClientWorld player simulation set new target int3(5, 3, -2)
 ClientWorld player simulation reached target int3(5, 3, -2)
-Player simulation searching for path from float3(5.357f, 3.1f, -1.49f) = int3(5, 3, -2) to int3(6, 3, -7)
+Player simulation searching for path from float3(5.302132f, 3.1f, -1.382868f) = int3(5, 3, -2) to int3(6, 3, -7)
 ClientWorld player simulation set new target int3(6, 3, -7)
 ClientWorld player simulation reached target int3(6, 3, -7)
-Player simulation searching for path from float3(6.381f, 3.1f, -6.497f) = int3(6, 3, -7) to int3(11, 3, -10)
+Player simulation searching for path from float3(6.363132f, 3.1f, -6.535711f) = int3(6, 3, -7) to int3(11, 3, -10)
 ClientWorld player simulation set new target int3(11, 3, -10)
 ClientWorld player simulation reached target int3(11, 3, -10)
-Player simulation searching for path from float3(11.366f, 3.1f, -9.482f) = int3(11, 3, -10) to int3(-15, 3, 6)
+Player simulation searching for path from float3(11.374f, 3.1f, -9.533f) = int3(11, 3, -10) to int3(-15, 3, 6)
 ClientWorld player simulation set new target int3(-15, 3, 6)
 ClientWorld player simulation reached target int3(-15, 3, 6)
-Player simulation searching for path from float3(-14.478f, 3.1f, 6.337421f) = int3(-15, 3, 6) to int3(14, 3, -10)
+Player simulation searching for path from float3(-14.48f, 3.1f, 6.355f) = int3(-15, 3, 6) to int3(14, 3, -10)
 ClientWorld player simulation set new target int3(14, 3, -10)
 ClientWorld player simulation reached target int3(14, 3, -10)
-Player simulation searching for path from float3(14.347f, 3.1f, -9.484f) = int3(14, 3, -10) to int3(-15, 3, -2)
+Player simulation searching for path from float3(14.37371f, 3.1f, -9.416289f) = int3(14, 3, -10) to int3(-15, 3, -2)
 ClientWorld player simulation set new target int3(-15, 3, -2)
 ClientWorld player simulation reached target int3(-15, 3, -2)
-Player simulation searching for path from float3(-14.481f, 3.1f, -1.67f) = int3(-15, 3, -2) to int3(15, 3, -14)
+Player simulation searching for path from float3(-14.529f, 3.1f, -1.661579f) = int3(-15, 3, -2) to int3(15, 3, -14)
 ClientWorld player simulation set new target int3(15, 3, -14)
 ClientWorld player simulation reached target int3(15, 3, -14)
-Player simulation searching for path from float3(15.318f, 3.1f, -13.489f) = int3(15, 3, -14) to int3(-11, 3, -11)
+Player simulation searching for path from float3(15.33671f, 3.1f, -13.47471f) = int3(15, 3, -14) to int3(-11, 3, -11)
 ClientWorld player simulation set new target int3(-11, 3, -11)
 ClientWorld player simulation reached target int3(-11, 3, -11)
-Player simulation searching for path from float3(-10.36758f, 3.1f, -10.62158f) = int3(-11, 3, -11) to int3(4, 3, 14)
+Player simulation searching for path from float3(-10.524f, 3.1f, -10.631f) = int3(-11, 3, -11) to int3(4, 3, 14)
 ClientWorld player simulation set new target int3(4, 3, 14)
 ClientWorld player simulation reached target int3(4, 3, 14)
-Player simulation searching for path from float3(4.485f, 3.1f, 14.318f) = int3(4, 3, 14) to int3(14, 3, 1)
+Player simulation searching for path from float3(4.581421f, 3.1f, 14.30542f) = int3(4, 3, 14) to int3(14, 3, 1)
 ClientWorld player simulation set new target int3(14, 3, 1)
 ClientWorld player simulation reached target int3(14, 3, 1)
-Player simulation searching for path from float3(14.381f, 3.1f, 1.524f) = int3(14, 3, 1) to int3(15, 3, -6)
+Player simulation searching for path from float3(14.316f, 3.1f, 1.495f) = int3(14, 3, 1) to int3(15, 3, -6)
 ClientWorld player simulation set new target int3(15, 3, -6)
 ClientWorld player simulation reached target int3(15, 3, -6)
-Player simulation searching for path from float3(15.529f, 3.1f, -5.383f) = int3(15, 3, -6) to int3(2, 3, 7)
+Player simulation searching for path from float3(15.506f, 3.1f, -5.312f) = int3(15, 3, -6) to int3(2, 3, 7)
 ClientWorld player simulation set new target int3(2, 3, 7)
 ClientWorld player simulation reached target int3(2, 3, 7)
-Player simulation searching for path from float3(2.48f, 3.1f, 7.393422f) = int3(2, 3, 7) to int3(-11, 3, 3)
+Player simulation searching for path from float3(2.476f, 3.1f, 7.311f) = int3(2, 3, 7) to int3(-11, 3, 3)
 ClientWorld player simulation set new target int3(-11, 3, 3)
 ClientWorld player simulation reached target int3(-11, 3, 3)
-Player simulation searching for path from float3(-10.502f, 3.1f, 3.631001f) = int3(-11, 3, 3) to int3(5, 3, -2)
+Player simulation searching for path from float3(-10.457f, 3.1f, 3.694579f) = int3(-11, 3, 3) to int3(5, 3, -2)
 ClientWorld player simulation set new target int3(5, 3, -2)
 ClientWorld player simulation reached target int3(5, 3, -2)
-Player simulation searching for path from float3(5.338421f, 3.1f, -1.585421f) = int3(5, 3, -2) to int3(6, 3, -7)
+Player simulation searching for path from float3(5.354f, 3.1f, -1.493f) = int3(5, 3, -2) to int3(6, 3, -7)
 ClientWorld player simulation set new target int3(6, 3, -7)
 ClientWorld player simulation reached target int3(6, 3, -7)
-Player simulation searching for path from float3(6.304711f, 3.1f, -6.46829f) = int3(6, 3, -7) to int3(11, 3, -10)
+Player simulation searching for path from float3(6.320422f, 3.1f, -6.340579f) = int3(6, 3, -7) to int3(11, 3, -10)
 ClientWorld player simulation set new target int3(11, 3, -10)
 ClientWorld player simulation reached target int3(11, 3, -10)
-Player simulation searching for path from float3(11.35471f, 3.1f, -9.477712f) = int3(11, 3, -10) to int3(-15, 3, 6)
+Player simulation searching for path from float3(11.378f, 3.1f, -9.526f) = int3(11, 3, -10) to int3(-15, 3, 6)
 ClientWorld player simulation set new target int3(-15, 3, 6)
 ClientWorld player simulation reached target int3(-15, 3, 6)
-Player simulation searching for path from float3(-14.53071f, 3.1f, 6.376711f) = int3(-15, 3, 6) to int3(14, 3, -10)
+Player simulation searching for path from float3(-14.478f, 3.1f, 6.302422f) = int3(-15, 3, 6) to int3(14, 3, -10)
 ClientWorld player simulation set new target int3(14, 3, -10)
 ClientWorld player simulation reached target int3(14, 3, -10)
-Player simulation searching for path from float3(14.33571f, 3.1f, -9.589711f) = int3(14, 3, -10) to int3(-15, 3, -2)
+Player simulation searching for path from float3(14.32642f, 3.1f, -9.508423f) = int3(14, 3, -10) to int3(-15, 3, -2)
 ClientWorld player simulation set new target int3(-15, 3, -2)
 ClientWorld player simulation reached target int3(-15, 3, -2)
-Player simulation searching for path from float3(-14.458f, 3.1f, -1.671579f) = int3(-15, 3, -2) to int3(15, 3, -14)
+Player simulation searching for path from float3(-14.37758f, 3.1f, -1.636579f) = int3(-15, 3, -2) to int3(15, 3, -14)
 ClientWorld player simulation set new target int3(15, 3, -14)
 ClientWorld player simulation reached target int3(15, 3, -14)
-Player simulation searching for path from float3(15.359f, 3.1f, -13.516f) = int3(15, 3, -14) to int3(-11, 3, -11)
+Player simulation searching for path from float3(15.34342f, 3.1f, -13.39558f) = int3(15, 3, -14) to int3(-11, 3, -11)
 ClientWorld player simulation set new target int3(-11, 3, -11)
 ClientWorld player simulation reached target int3(-11, 3, -11)
-Player simulation searching for path from float3(-10.58471f, 3.1f, -10.62429f) = int3(-11, 3, -11) to int3(4, 3, 14)
+Player simulation searching for path from float3(-10.49242f, 3.1f, -10.63358f) = int3(-11, 3, -11) to int3(4, 3, 14)
 ClientWorld player simulation set new target int3(4, 3, 14)
 ClientWorld player simulation reached target int3(4, 3, 14)
-Player simulation searching for path from float3(4.584422f, 3.1f, 14.32442f) = int3(4, 3, 14) to int3(14, 3, 1)
+Player simulation searching for path from float3(4.475711f, 3.1f, 14.34471f) = int3(4, 3, 14) to int3(14, 3, 1)
 ClientWorld player simulation set new target int3(14, 3, 1)
 ClientWorld player simulation reached target int3(14, 3, 1)
-Player simulation searching for path from float3(14.398f, 3.1f, 1.522f) = int3(14, 3, 1) to int3(15, 3, -6)
+Player simulation searching for path from float3(14.32113f, 3.1f, 1.534711f) = int3(14, 3, 1) to int3(15, 3, -6)
 ClientWorld player simulation set new target int3(15, 3, -6)
 ClientWorld player simulation reached target int3(15, 3, -6)
-Player simulation searching for path from float3(15.529f, 3.1f, -5.317f) = int3(15, 3, -6) to int3(2, 3, 7)
+Player simulation searching for path from float3(15.59871f, 3.1f, -5.391711f) = int3(15, 3, -6) to int3(2, 3, 7)
 ClientWorld player simulation set new target int3(2, 3, 7)
 ClientWorld player simulation reached target int3(2, 3, 7)
-Player simulation searching for path from float3(2.444579f, 3.1f, 7.329422f) = int3(2, 3, 7) to int3(-11, 3, 3)
+Player simulation searching for path from float3(2.527289f, 3.1f, 7.320711f) = int3(2, 3, 7) to int3(-11, 3, 3)
 ClientWorld player simulation set new target int3(-11, 3, 3)
 ClientWorld player simulation reached target int3(-11, 3, 3)
-Player simulation searching for path from float3(-10.43829f, 3.1f, 3.65529f) = int3(-11, 3, 3) to int3(5, 3, -2)
+Player simulation searching for path from float3(-10.469f, 3.1f, 3.605f) = int3(-11, 3, 3) to int3(5, 3, -2)
 ClientWorld player simulation set new target int3(5, 3, -2)
 ClientWorld player simulation reached target int3(5, 3, -2)
-Player simulation searching for path from float3(5.361f, 3.1f, -1.478f) = int3(5, 3, -2) to int3(6, 3, -7)
+Player simulation searching for path from float3(5.308f, 3.1f, -1.524f) = int3(5, 3, -2) to int3(6, 3, -7)
 ClientWorld player simulation set new target int3(6, 3, -7)
 ClientWorld player simulation reached target int3(6, 3, -7)
-Player simulation searching for path from float3(6.368132f, 3.1f, -6.644132f) = int3(6, 3, -7) to int3(11, 3, -10)
+Player simulation searching for path from float3(6.36171f, 3.1f, -6.467711f) = int3(6, 3, -7) to int3(11, 3, -10)
 ClientWorld player simulation set new target int3(11, 3, -10)
-ClientWorld player simulation reached target int3(11, 3, -10)
-Player simulation searching for path from float3(11.36542f, 3.1f, -9.582422f) = int3(11, 3, -10) to int3(-15, 3, 6)
-ClientWorld player simulation set new target int3(-15, 3, 6)
-[12:07:57.6170960]:[ClientWorld] Connection disconnected ID:10 Reason:ClosedByRemote
+[16:23:18.4986920]:[ClientWorld] Connection disconnected ID:8 Reason:ClosedByRemote

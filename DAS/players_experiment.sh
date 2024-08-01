@@ -3,7 +3,7 @@
 # List of num_players options
 
 source config.cfg
-num_players_options=(20) # Add your desired number of players here
+num_players_options=(30) # Add your desired number of players here
 
 # Config (so I can have formatted strings)
 ## Folder locations
