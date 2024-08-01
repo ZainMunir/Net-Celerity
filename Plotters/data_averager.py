@@ -17,6 +17,7 @@ def average_data(players=False):
         summed_df.set_index("players", inplace=True)
         summed_df.sort_index(inplace=True)
     elif "gen" in sc.experiment_name:
+        summed_df.set_index("terrain_type", inplace=True)
         summed_df.sort_index(inplace=True)
     else:
         raise ValueError("Invalid experiment name")
@@ -39,10 +40,14 @@ def average_data(players=False):
 
     average_df["filename"] = summed_df["filename"] #[x.split("_")[1] + (" (Logic Active)" if "-activeLogic" in x else "") for x in summed_df["filename"]]
     if players:
+        average_df["active_logic"] = summed_df["active_logic"]
         average_df["players"] = summed_df.index
         average_df["Chunks"] = summed_df["Chunks"]
     elif "base" in sc.experiment_name:
-        average_df["Chunks"] = summed_df.index  
+        average_df["Chunks"] = summed_df.index
+    elif "gen" in sc.experiment_name:
+        average_df["terrain_type"] = summed_df.index
+        average_df["Chunks"] = summed_df["Chunks"]
     
     average_df.set_index("filename", inplace=True)
 

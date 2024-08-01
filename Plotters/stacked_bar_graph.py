@@ -17,6 +17,9 @@ def create_stacked_bar_graph(all_data=False):
     elif "players" in sc.experiment_name:
         average_df.set_index("players", inplace=True)
         x_label = "Players"
+    elif "gen" in sc.experiment_name:
+        average_df.set_index("terrain_type", inplace=True)
+        x_label = "TerrainType"
     else:
         raise ValueError("Invalid experiment name")
 

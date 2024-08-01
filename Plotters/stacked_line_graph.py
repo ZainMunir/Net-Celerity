@@ -17,6 +17,9 @@ def create_stacked_line_graph(all_data=False):
     elif  "players" in sc.experiment_name:
         average_df.set_index("players", inplace=True)
         x_label = "Players"
+    elif "gen" in sc.experiment_name:
+        average_df.set_index("terrain_type", inplace=True)
+        x_label = "Terrain Type"
     else:
         raise ValueError("Invalid experiment name")
 

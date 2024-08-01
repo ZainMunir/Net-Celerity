@@ -5,7 +5,7 @@ import shared_config as sc
 
 def run_formatter():
     experiments = os.listdir(sc.experiment_directory)
-    experiments = [experiment for experiment in experiments if sc.experiment_name in experiment]
+    experiments = [experiment for experiment in experiments if sc.experiment_name.split("_")[0] in experiment]
 
     server_stats = [f"{sc.experiment_directory}{experiment}/opencraft_stats/server.csv" for experiment in experiments]
     logic_active = ["-activeLogic" in name for name in experiments]

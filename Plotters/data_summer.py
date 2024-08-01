@@ -27,12 +27,13 @@ def run_summer():
             summed_df["Chunks"] = sc.get_circuit_chunks(
                 summed_df["chunkX"], summed_df["chunkZ"], terrain_type
             )
-        elif "players" in filename:
+        elif "players" in filename or "gen" in filename:
             _, terrain_type, players, duration = filename.split("_")
-            summed_df["terrain_type"] = terrain_type
+            summed_df["terrain_type"] = terrain_type + (" (Logic Active)" if "-activeLogic" in filename else "")
             summed_df["players"] = int(players[:-1])
             summed_df["duration"] = int(duration.replace(".csv", "")[:-1])
             summed_df["Chunks"] = 25
+            
 
         summed_data.append(summed_df)
 

@@ -16,6 +16,10 @@ def create_fps_scatter():
     elif  "players" in sc.experiment_name:
         average_df.set_index("players", inplace=True)
         x_label = "Players"
+    elif "gen" in sc.experiment_name:
+        average_df.set_index("terrain_type", inplace=True)
+        average_df.sort_index(inplace=True)
+        x_label = "Terrain Type"
     else:
         raise ValueError("Invalid experiment name")
 
