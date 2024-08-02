@@ -32,6 +32,12 @@ def create_stacked_bar_graph(all_data=False):
         "PropagateLogicState",
         "CheckGateState",
     ]
+    
+    if "PropInputBlocks" in average_df.columns:
+        final_columns.append("PropInputBlocks")
+        final_columns.append("PropActiveLogicBlocks")
+        final_columns.remove("PropagateLogicState")
+    
 
     addition = 1
     legend = "lower right"
