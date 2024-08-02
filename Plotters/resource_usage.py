@@ -40,7 +40,7 @@ options = [
     },
 ]
 
-index = 0
+index = 3
 addition = options[index]["addition"]
 client_column_name = options[index]["client_column_name"]
 server_column_name = options[index]["server_column_name"]
@@ -171,10 +171,15 @@ if clients_data:
     plt.figure(figsize=(10, 6))
     plt.tight_layout()
 
+    client_sum_averages = np.zeros(len(all_player_nums))
     for i, experiment in enumerate(experiments):
         averages = experiment_averages[experiment]
         values = [averages.get(player_num, 0) for player_num in all_player_nums]
+        client_sum_averages += np.array(values)
         plt.bar(index + i * bar_width, values, bar_width, label=experiment)
+
+    client_avg_values = client_sum_averages / len(experiments)
+    plt.plot(index + bar_width * (len(experiments) - 1) / 2, client_avg_values, color='gray', linestyle='-', label='_nolegend_')
 
     plt.xlabel("Number of Players")
     plt.ylabel(f"{addition} Usage ({units}) (Client)")
@@ -189,10 +194,17 @@ if clients_data:
 plt.figure(figsize=(10, 6))
 plt.tight_layout()
 
+server_sum_averages = np.zeros(len(all_player_nums))
+
 for i, experiment in enumerate(experiments):
     averages = server_averages[experiment]
     values = [averages.get(player_num, 0) for player_num in all_player_nums]
+    server_sum_averages += np.array(values)
     plt.bar(index + i * bar_width, values, bar_width, label=experiment)
+
+server_avg_values = server_sum_averages / len(experiments)
+
+plt.plot(index + bar_width * (len(experiments) - 1) / 2, server_avg_values, color='gray', linestyle='-', label='_nolegend_')
 
 plt.xlabel("Number of Players")
 plt.ylabel(f"{addition} Usage ({units}) (Server)")

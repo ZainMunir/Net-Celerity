@@ -3,7 +3,11 @@
 # List of num_players options
 
 source config.cfg
-num_players_options=(30) # Add your desired number of players here
+num_players_options=(10 20 30 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100) 
+terrain_types=("Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry")
+active_status=("" "" "" "" "" "" "" "" "" "" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "" "" "" "" "" "" "" "" "" "" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic")
+radiuses=(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 5 5 5 5 5 5 5 5 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 5 5 5 5 5 5 5 5 5) 
+
 
 # Config (so I can have formatted strings)
 ## Folder locations
@@ -24,8 +28,15 @@ system_monitor_script="${net_celerity_folder}system_monitor.py"
 client_system_monitor_script="${net_celerity_folder}client_system_monitor.py"
 collect_script="${net_celerity_folder}collect_script.py"
 
-for num_players2 in "${num_players_options[@]}"; do
-    run_config="players-activeLogic_${terrain_type}_${num_players2}p_${benchmark_duration}s"
+for index in "${!num_players_options[@]}"; do
+    num_players2=${num_players_options[$index]}
+    terrain_type2=${terrain_types[$index]}
+    active_logic=${active_status[$index]}
+    radius=${radiuses[$index]}
+    run_config="players${active_logic}_${terrain_type2}_${radius}x_${radius}z_${num_players2}p_${benchmark_duration}s"
+    # echo "Running benchmark for ${run_config} players..."
+    echo $run_config
+    continue
 
     run_dir="${runs_dir}${run_config}/"
     opencraft_stats="${run_dir}opencraft_stats/"
@@ -44,7 +55,7 @@ for num_players2 in "${num_players_options[@]}"; do
     server_stats="${opencraft_stats}server.csv"
     server_log="${opencraft_logs}server.log"
     echo "Starting server on $server_node at $server_ip:7777 with config ${run_config}..."
-    server_command="${shared_command} -terrainType ${terrain_type} -statsFile ${server_stats} -activeLogic -playType Server > ${server_log} 2>&1 &"
+    server_command="${shared_command} -terrainType ${terrain_type2} -statsFile ${server_stats} ${active_logic} -circuitX $radius -circuitZ $radius -playType Server > ${server_log} 2>&1 &"
     ssh $server_node "${server_command}" &
     sleep 10
 
@@ -110,7 +121,7 @@ for num_players2 in "${num_players_options[@]}"; do
     python3 $collect_script $system_logs $run_config
     wait
 
-    echo "Benchmarking completed for ${num_players2} players."
+    echo "Benchmarking completed for ${run_config} players."
 done
 
 echo "Script execution complete."
