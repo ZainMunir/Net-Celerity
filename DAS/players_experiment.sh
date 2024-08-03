@@ -3,10 +3,10 @@
 # List of num_players options
 
 source config.cfg
-num_players_options=(10 20 30 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100) 
-terrain_types=("Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "2-Layer" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "RollingHills" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry" "TerrainCircuitry")
-active_status=("" "" "" "" "" "" "" "" "" "" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "" "" "" "" "" "" "" "" "" "" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic")
-radiuses=(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 5 5 5 5 5 5 5 5 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 5 5 5 5 5 5 5 5 5) 
+num_players_options=(110 120 130 140 150 160 170 180 190 200)
+terrain_types=("Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty" "Empty")
+active_status=("-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic")
+radiuses=(0 0 0 0 0 0 0 0 0 0) 
 
 
 # Config (so I can have formatted strings)
@@ -34,8 +34,7 @@ for index in "${!num_players_options[@]}"; do
     active_logic=${active_status[$index]}
     radius=${radiuses[$index]}
     run_config="players${active_logic}_${terrain_type2}_${radius}x_${radius}z_${num_players2}p_${benchmark_duration}s"
-    # echo "Running benchmark for ${run_config} players..."
-    echo $run_config
+    echo "Running benchmark for ${run_config} players..."
     continue
 
     run_dir="${runs_dir}${run_config}/"

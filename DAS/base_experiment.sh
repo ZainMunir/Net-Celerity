@@ -5,10 +5,10 @@
 source config.cfg
 
 # 5, 6, 10, 15, 20, 24, 30, 40, 45, 54, 60, 90, 108
-terrain_options=("3-Layer" "3-Layer" "3-Layer" "3-Layer" "3-Layer" "3-Layer")
-active_status=("-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic")
-circuitXes=("3" "3" "3" "5" "5" "6")
-circuitZes=("3" "5" "6" "5" "6" "6")
+terrain_options=("4-Layer" "4-Layer" "5-Layer" "5-Layer" "5-Layer")
+active_status=("-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic" "-activeLogic")
+circuitXes=("5" "6" "5" "5" "6")
+circuitZes=("6" "6" "5" "6" "6")
 
 # Config (so I can have formatted strings)
 ## Folder locations
